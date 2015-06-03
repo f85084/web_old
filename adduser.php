@@ -7,7 +7,7 @@
 <body>
 <?php
 //資料庫檔案
-include ('configure.php');
+include ('mydb.php');
 
 
 //上傳

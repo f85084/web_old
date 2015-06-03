@@ -32,7 +32,7 @@ margin-bottom:15px;padding:7px 9px
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 
 <body><div class=container>
-<form name="newuser" method="get" action="adduser.php" class=form-signin>
+<form name="newuser" method="post" action="adduser.php" class=form-signin>
 <h2 class=form-signin-heading>請輸入基本資料</h2>
 <p>
 <input type="text" name="id" class="input-block-level" placeholder="登入帳號"> 

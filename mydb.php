@@ -3,7 +3,7 @@
 $dbServer = "localhost";
 $dbUser = "root";
 $dbPass = "123456";
-$dbName = "ch09";
+$dbName = "web";
 
 //連線資料庫伺服器
 $conn = @mysql_connect($dbServer, $dbUser, $dbPass);
