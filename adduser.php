@@ -10,30 +10,34 @@
 include ('mydb.php');
 
 
-//上傳
-$upload_dir='./upload/';
-//上傳檔案 並改名稱
-if(@$_FILES['file']['error']==UPLOAD_ERR_OK){
-	//把存檔的檔案搬到上傳目錄下 並改回原始檔名
-move_uploaded_file($_FILES['file']['tmp_name'],
-                   $upload_dir . $_FILES['file']['name']);
-echo '上傳成功';
+//定義存放上傳檔案的目錄
+$upload_dir='./photo/'; 
+//如果錯誤代碼為 UPLOAD_ERR_OK, 表示上傳成功
+if($_FILES['gif']['error'] == UPLOAD_ERR_OK ) {
+  $fname = iconv('UTF-8', 'big5', 
+                 $_FILES['gif']['name']);
+  //將暫存檔搬移到上傳目錄, 並且改回原始檔名
+  if(move_uploaded_file($_FILES['gif']['tmp_name'],
+                        $upload_dir . $fname)){  
+    //顯示上傳檔案的相關訊息
+    echo '上傳成功...';
+  }
 }
-else{
-echo "上傳失敗";
-}
+else
+  echo "上傳失敗";
+  
 // 新增 
 	$id=$_POST['id'];
 	$password=$_POST['password'];
 	$name=$_POST['name'];
 	$tel=$_POST['tel'];
 	$address=$_POST['address'];
-	$file=$_FILES['file']['name'];
+	$file=$_FILES['gif']['name'];
 	$memberdate=$_POST['memberdate'];
-    $sql="INSERT member (id,password,name,tel,address,file,memberdate)
-        VALUES ('{$id}','{$password}','{$name}','{$tel}','{$address}','$file',sysdate())";
-		echo $sql;
-	//$result=mysql_query($sql);
+    $sql="INSERT member (id,password,name,tel,address,gif,memberdate)
+        VALUES ('{$id}','{$password}','{$name}','{$tel}','{$address}','{$file}',sysdate())";
+
+	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1);
 	echo '新增成功<br><br>';  
