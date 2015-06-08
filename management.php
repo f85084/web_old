@@ -171,7 +171,7 @@ while ($row=mysql_fetch_array($result)) {
 			<td width=10%>$row[3]</td>
 			<td width=10%>$row[4]</td>
 			<td width=10%>$row[5]</td>
-			<td width=10%>$row[6]</td>
+			<td width=10%><img src=./photo/$row[6] width=100 height=50></td>
 			<td width=10%>$row[7]</td>
 			<td width=10%><a href=management.php?edit=$row[0]>編輯<a></td>
 			<td width=10%><a href=management.php?del=$row[0]>刪除<a></td>
