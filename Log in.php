@@ -32,10 +32,10 @@ margin-bottom:15px;padding:7px 9px
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 
 <body><div class=container>
-<form name="login" method="get" action="index.php" class=form-signin>
+<form name="login" method="get" action="message.php" class=form-signin>
 <h2 class=form-signin-heading>請登入</h2>
 <p>
-<input type="text" name="name" class="input-block-level" placeholder="輸入帳號 "> 
+<input type="text" name="id" class="input-block-level" placeholder="輸入帳號 "> 
 <input type="password" name="password" class="input-block-level" placeholder="輸入密碼">
   <label class=checkbox> 
     </br>
