@@ -5,20 +5,23 @@
 <meta name=description content=""><meta name=author content="">
 <link href=http://kkbruce.tw/Content/BS2/bootstrap.css  rel=stylesheet>
 <style>
-body{padding-top:40px;padding-bottom:40px;background-color:#f5f5f5}
-.form-signin{
+body{
+	padding:19px 290px 29px;
+	font-family: Arial, 微軟正黑體;
+	background-color:#f5f5f5
+	}
+.form-Search{
 max-width:300px;
 padding:19px 29px 29px;
 margin:0 auto 20px;
 background-color:#fff;border:1px solid #e5e5e5;
+font-size:110%;
 -webkit-border-radius:5px;
 -moz-border-radius:5px;
 border-radius:5px;
 -webkit-box-shadow:0 1px 2px rgba(0,0,0,.05);
 -moz-box-shadow:0 1px 2px rgba(0,0,0,.05);
 box-shadow:0 1px 2px rgba(0,0,0,.05)}
-.form-signin 
-.form-signin-heading,
 .form-signin 
 .checkbox{margin-bottom:10px}
 .form-signin input[type="text"],
@@ -32,12 +35,14 @@ margin-bottom:15px;padding:7px 9px
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
   <!--查詢-->
+  <div class=form-Search>
   <form method="get" action="management.php">
      <!-- 單列文字輸入欄位 -->
     帳號:<input type="text" name="no"> <br>
     <input type="submit" value="查詢資料">
     <input type="reset" value="清除資料">
   </form>
+  </div>
    <br>
     <br>
   <br>
@@ -133,10 +138,10 @@ echo '總共有' .mysql_num_rows($result).'人';
 echo "<table border=1>
 		<tr>";
 if ($_GET['order']==2) {
-	echo "	<td width=5%><a href=management.php?order=1>編號</a></td>";
+	echo "	<td width=2%><a href=management.php?order=1>編號</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=management.php?order=2>編號</a></td>";
+	echo "	<td width=2%><a href=management.php?order=2>編號</a></td>";
 }
 if ($_GET['order']==4) {
 	echo "	<td width=5%><a href=management.php?order=3>帳號</a></td>";
@@ -183,24 +188,24 @@ if ($_GET['order']==16) {
 
 
 echo "	
-            <td width=5%>編輯</td>	
-			<td width=5%>刪除</td>
+            <td width=4%>編輯</td>	
+			<td width=4%>刪除</td>
 		</tr>";
 
 // 表格內容
 while ($row=mysql_fetch_array($result)) {
 	echo 
 		"<tr>
-			<td width=10%>$row[0]</td>
+			<td width=1%>$row[0]</td>
 			<td width=10%>$row[1]</td>
 			<td width=10%>$row[2]</td>
 			<td width=10%>$row[3]</td>
 			<td width=10%>$row[4]</td>
 			<td width=10%>$row[5]</td>
-			<td width=10%><img src=./photo/$row[6] width=100 height=50></td>
+			<td width=7%><img src=./photo/$row[6] width=100 height=50></td>
 			<td width=10%>$row[7]</td>
-			<td width=10%><a href=management.php?edit=$row[0]>編輯<a></td>
-			<td width=10%><a href=management.php?del=$row[0]>刪除<a></td>
+			<td width=1%><a href=management.php?edit=$row[0]>編輯<a></td>
+			<td width=1%><a href=management.php?del=$row[0]>刪除<a></td>
 		</tr>";
 }
 

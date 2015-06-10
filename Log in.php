@@ -31,7 +31,7 @@ margin-bottom:15px;padding:7px 9px
 <link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> 
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 
-<body><div class=container>
+<body><div>
 <form name="login" method="get" action="message.php" class=form-signin>
 <h2 class=form-signin-heading>請登入</h2>
 <p>
