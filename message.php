@@ -13,7 +13,7 @@ if (!mysql_fetch_array($result))
 
 <!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
-<title>帳號表單</title>
+<title>留言</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content=""><meta name=author content="">
 <link href=http://kkbruce.tw/Content/BS2/bootstrap.css  rel=stylesheet>
@@ -51,9 +51,12 @@ margin-bottom:15px;padding:7px 9px
 <link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> 
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
-<body>
+<body><br>
+<?
+echo '你好'.$row['name'];
+?>
 <div>
-<form name="login" method="post" action="add-message.php" class=form-signin>
+<form name="login" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
 <p>
 姓名
@@ -63,7 +66,7 @@ margin-bottom:15px;padding:7px 9px
 內容
 <textarea name="Content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-
+<input type="hidden" name="number" value=<?echo"$row[number]";?>>
  
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>註冊</button>&nbsp;&nbsp;&nbsp;
