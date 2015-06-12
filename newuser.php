@@ -31,7 +31,9 @@ margin-bottom:15px;padding:7px 9px
 <link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> 
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 
-<body><div class=container>
+<body>
+<!--enctype="multipart/form-data" 載入檔案 -->
+<div class=container>
 <form name="newuser" method="post" action="adduser.php"  enctype="multipart/form-data"  class=form-signin>
 <h2 class=form-signin-heading>請輸入基本資料</h2>
 <p>
