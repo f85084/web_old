@@ -1,4 +1,15 @@
+<?
+include ('mydb.php');
 
+    $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
+	$result=mysql_query($sql);
+if (!mysql_fetch_array($result))
+{
+	echo 'MISS';
+	echo "<a href=index.php>回首頁</a>";
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
 <title>留言</title>
@@ -22,15 +33,13 @@ body{
 include ('mydb.php');
   
 // 新增 
-	$id=$_POST['id'];
-	$password=$_POST['password'];
+	$no=$_POST['no'];
 	$name=$_POST['name'];
-	$tel=$_POST['tel'];
-	$address=$_POST['address'];
-	$file=$_FILES['gif']['name'];
-	$memberdate=$_POST['memberdate'];
-    $sql="INSERT message (id,password,name,tel,address,gif,memberdate)
-        VALUES ('{$id}','{$password}','{$name}','{$tel}','{$address}','{$file}',sysdate())";
+	$email=$_POST['email'];
+	$content=$_POST['content'];
+	$date=$_POST['date'];
+    $sql="INSERT message (no,name,email,content,date)
+        VALUES ('{$no}','{$name}','{$email}','{$content}',sysdate())";
 
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
