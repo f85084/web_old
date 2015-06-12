@@ -37,15 +37,15 @@ margin-bottom:15px;padding:7px 9px
 <p>
 <input type="text" name="id" class="input-block-level" placeholder="登入帳號"> 
 
-<input type="password" name="member-password" class="input-block-level" placeholder="登入密碼"> 
+<input type="password" name="password" class="input-block-level" placeholder="登入密碼"> 
 
-<input type="text" name="member-name" class="input-block-level" placeholder="姓名"> 
+<input type="text" name="name" class="input-block-level" placeholder="姓名"> 
 
-<input type="text" name="member-tel" class="input-block-level" placeholder="電話"> 
+<input type="text" name="tel" class="input-block-level" placeholder="電話"> 
 
-<input type="text" name="member-address" class="input-block-level" placeholder="地址"> 
+<input type="text" name="address" class="input-block-level" placeholder="地址"> 
 
-<input type="file" name="member-gif" class="input-block-level" placeholder="上傳照片"> 
+<input type="file" name="gif" class="input-block-level" placeholder="上傳照片"> 
 
 <a href="adduser.php">
 <button class="btn btn-large btn-primary" type=submit>送出</button>
