@@ -38,7 +38,7 @@ include("mydb.php");
 // 刪除
 if ($_GET['del']) {
 	$a=$_GET['del'];
-	$d="delete from member where id=$a";
+	$d="delete from message where id=$a";
 	mysql_query($d);
 	//異動會顯示異動資料
 	echo '成功幾筆<br>'.mysql_affected_rows();
@@ -46,7 +46,7 @@ if ($_GET['del']) {
 
 $id=$_GET['id'];
 
-$sql = "select number,id,password,name,tel,address,gif,memberdate from   `member`  ";
+$sql = "select number,id,password,name,tel,address,gif,memberdate from   `message`  ";
 
 // 查詢帳號
 if ($_GET['id']) {
