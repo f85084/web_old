@@ -27,8 +27,7 @@ include ('mydb.php');
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];
-	$message=$_POST['message'];
-    $sql="INSERT message (no,name,email,content,date)
+    $sql="INSERT message (message_no,message_name,message_email,message_content,message_date)
         VALUES ('{$no}','{$name}','{$email}','{$content}',sysdate())";
 echo $sql;
 	//$result=mysql_query($sql);
