@@ -39,7 +39,7 @@ body{
 信箱
 <input type="email" name="email" class="input-block-level" placeholder="輸入信箱">
 內容
-<textarea name="Content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
+<textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
 <input type="hidden" name="no" value=<?echo"$row[no]";?>>
  

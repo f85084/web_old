@@ -38,13 +38,14 @@ include ('mydb.php');
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];
+	$message=$_POST['message'];
     $sql="INSERT message (no,name,email,content,date)
         VALUES ('{$no}','{$name}','{$email}','{$content}',sysdate())";
-
-	$result=mysql_query($sql);
+echo $sql;
+	//$result=mysql_query($sql);
 	//異動會顯示異動資料
-	if (mysql_affected_rows()>=1);
-	echo '新增成功<br><br>';  
+	//if (mysql_affected_rows()>=1);
+	//echo '新增成功<br><br>';  
 
 
 ?>
