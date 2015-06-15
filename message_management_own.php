@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
-<title>管理會員資料</title>
+<title>管理留言</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content=""><meta name=author content="">
 <link href=http://f85084.github.io/css.css  rel=stylesheet>

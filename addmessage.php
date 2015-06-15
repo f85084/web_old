@@ -14,7 +14,7 @@ body{
 </style>
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
-<body>
+
 <body><br>
 <?php
 //資料庫檔案
