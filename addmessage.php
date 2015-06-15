@@ -1,18 +1,6 @@
-<?
-include ('mydb.php');
-
-    $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
-	$result=mysql_query($sql);
-if (!$row=mysql_fetch_array($result))
-{
-	echo 'MISS';
-	echo "<a href=index.php>回首頁</a>";
-	die();
-}
-?>
 <!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
-<title>留言</title>
+<title>新增留言</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content=""><meta name=author content="">
 <link href=http://f85084.github.io/css.css  rel=stylesheet>
@@ -40,11 +28,11 @@ include ('mydb.php');
 	$date=$_POST['date'];
     $sql="INSERT message (message_no,message_name,message_email,message_content,message_date)
         VALUES ('{$no}','{$name}','{$email}','{$content}',sysdate())";
-echo $sql;
-	//$result=mysql_query($sql);
+
+	$result=mysql_query($sql);
 	//異動會顯示異動資料
-	//if (mysql_affected_rows()>=1);
-	//echo '新增成功<br><br>';  
+	if (mysql_affected_rows()>=1);
+	echo '新增成功<br><br>';  
 
 
 ?>
