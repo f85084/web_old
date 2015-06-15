@@ -1,4 +1,15 @@
+<?
+include ('mydb.php');
 
+    $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
+	$result=mysql_query($sql);
+if (!$row=mysql_fetch_array($result))
+{
+	echo 'MISS';
+	echo "<a href=index.php>回首頁</a>";
+	die();
+}
+?>
 <!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
 <title>留言</title>
