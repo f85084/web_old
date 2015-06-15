@@ -31,7 +31,7 @@ body{
 <body><br>
 
 <div>
-<form name="login" method="post" action="addmessage.php" class=form-signin>
+<form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
 <p>
 姓名
@@ -41,10 +41,10 @@ body{
 內容
 <textarea name="Content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-<input type="hidden" name="number" value=<?echo"$row[number]";?>>
+<input type="hidden" name="no" value=<?echo"$row[no]";?>>
  
  <a href="newuser.php">
- <button class="btn btn-large btn-primary" type=submit>註冊</button>&nbsp;&nbsp;&nbsp;
+ <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
  </a>
  
