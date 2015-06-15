@@ -3,7 +3,7 @@ include ('mydb.php');
 
     $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
 	$result=mysql_query($sql);
-if (!mysql_fetch_array($result))
+if (!$row=mysql_fetch_array($result))
 {
 	echo 'MISS';
 	echo "<a href=index.php>回首頁</a>";
@@ -27,9 +27,11 @@ body{
 </style>
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
-<body>
-<body><br>
 
+<body><br>
+<?
+echo '你好'.$row['3'].'請留言';
+?>
 <div>
 <form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
@@ -41,7 +43,7 @@ body{
 內容
 <textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-<input type="hidden" name="no" value=<?echo"$row[no]";?>>
+<input type="hidden" name="no" value=<?echo"$row[0]";?>>
  
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
