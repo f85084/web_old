@@ -46,7 +46,7 @@ if ($_GET['del']) {
 
 $id=$_GET['id'];
 
-$sql = "select number,id,password,name,tel,address,gif,memberdate from   `message`  ";
+$sql = "select message_no,message_name,message_email,message_content,message_date from   `message`  ";
 
 // 查詢帳號
 if ($_GET['id']) {
