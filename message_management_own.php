@@ -94,20 +94,6 @@ if ($_GET['order']==11) {
 if ($_GET['order']==12) {
 	$sql = $sql."order by tel address";
 }
-// 使用價姓名序
-if ($_GET['order']==13) {
-	$sql = $sql."order by file";
-}
-if ($_GET['order']==14) {
-	$sql = $sql."order by tel file";
-}
-// 使用價姓名序
-if ($_GET['order']==15) {
-	$sql = $sql."order by memberdate";
-}
-if ($_GET['order']==16) {
-	$sql = $sql."order by tel memberdate";
-}
 
 
 
@@ -147,18 +133,6 @@ if ($_GET['order']==10) {
 } 
  else {
 	echo "	<td width=5%><a href=management.php?order=10>電話</a></td>";
-}
-if ($_GET['order']==12) {
-	echo "	<td width=5%><a href=management.php?order=11>地址</a></td>";
-} 
- else {
-	echo "	<td width=5%><a href=management.php?order=12>地址</a></td>";
-}
-if ($_GET['order']==14) {
-	echo "	<td width=5%><a href=management.php?order=13>檔案</a></td>";
-} 
- else {
-	echo "	<td width=5%><a href=management.php?order=14>檔案</a></td>";
 }
 if ($_GET['order']==16) {
 	echo "	<td width=5%><a href=management.php?order=15>時間</a></td>";
