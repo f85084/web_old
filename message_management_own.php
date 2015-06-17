@@ -9,7 +9,12 @@
 body{
 	font-family: Arial, 微軟正黑體;
 	background-color:#f5f5f5
+	
 	}
+.h7{
+	margin: 0px 300px auto;	
+}
+	
 
 </style>
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
@@ -17,21 +22,14 @@ body{
 <body>
   <!--查詢-->
   <div class=form-Search>
-  <form method="get" action="management.php">
+  <form method="get" action="message_management_own.php">
      <!-- 單列文字輸入欄位 -->
-    帳號:<input type="text" name="no"> <br>
+    帳號:<input type="text" name="message_no"> <br>
     <input type="submit" value="查詢資料">
     <input type="reset" value="清除資料">
   </form>
   </div>
-   <br>
-    <br>
-  <br>
-  <br>
-</body>
-</html>
-
-<?php
+  <?php
 //header('Content-Type: text/html; charset=utf-8');
 include("mydb.php");
 
@@ -93,62 +91,69 @@ $result=mysql_query($sql);
 
 // 表格表題
 echo '總共有' .mysql_num_rows($result).'人';
-echo "<table border=1>
+$h7="h7";
+echo "<div class=$h7>";
+echo " <table border=1>
 		<tr>";
 if ($_GET['order']==2) {
-	echo "	<td width=2%><a href=message_management_own.php?order=1>編號</a></td>";
+	echo "	<td width=10px><a href=message_management_own.php?order=1>編號</a></td>";
 } 
  else {
-	echo "	<td width=2%><a href=message_management_own.php?order=2>編號</a></td>";
+	echo "	<td width=10px><a href=message_management_own.php?order=2>編號</a></td>";
 }
 if ($_GET['order']==4) {
-	echo "	<td width=5%><a href=message_management_own.php?order=3>姓名</a></td>";
+	echo "	<td width=60px><a href=message_management_own.php?order=3>姓名</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=message_management_own.php?order=4>姓名</a></td>";
+	echo "	<td width=60px><a href=message_management_own.php?order=4>姓名</a></td>";
 }
 if ($_GET['order']==6) {
-	echo "	<td width=5%><a href=message_management_own.php?order=5>信箱</a></td>";
+	echo "	<td width=10px><a href=message_management_own.php?order=5>信箱</a></td>";
 }
  else {
-	echo "	<td width=5%><a href=message_management_own.php?order=6>信箱</a></td>";
+	echo "	<td width=10px><a href=message_management_own.php?order=6>信箱</a></td>";
 }
 if ($_GET['order']==8) {
-	echo "	<td width=5%><a href=message_management_own.php?order=7>內容</a></td>";
+	echo "	<td width=200px><a href=message_management_own.php?order=7>內容</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=message_management_own.php?order=8>內容</a></td>";
+	echo "	<td width=200px><a href=message_management_own.php?order=8>內容</a></td>";
 }
 if ($_GET['order']==10) {
-	echo "	<td width=5%><a href=message_management_own.php?order=9>時間</a></td>";
+	echo "	<td width=180px><a href=message_management_own.php?order=9>時間</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=message_management_own.php?order=10>時間</a></td>";
+	echo "	<td width=180px><a href=message_management_own.php?order=10>時間</a></td>";
 }
 
 
 
 echo "	
-            <td width=4%>編輯</td>	
-			<td width=4%>刪除</td>
+            <td width=40px>編輯</td>	
+			<td width=40px>刪除</td>
 		</tr>";
 
 // 表格內容
 while ($row=mysql_fetch_array($result)) {
 	echo 
 		"<tr>
-			<td width=1%>$row[0]</td>
-			<td width=10%>$row[1]</td>
-			<td width=10%>$row[2]</td>
-			<td width=10%>$row[3]</td>
-			<td width=10%>$row[4]</td>
-			<td width=10%>$row[5]</td>
-			<td width=7%><img src=./photo/$row[6] width=100 height=50></td>
-			<td width=10%>$row[7]</td>
-			<td width=1%><a href=management.php?edit=$row[0]>編輯<a></td>
-			<td width=1%><a href=management.php?del=$row[0]>刪除<a></td>
+			<td width=10px>$row[0]</td>
+			<td width=10px>$row[1]</td>
+			<td width=10px>$row[2]</td>
+			<td width=10px>$row[3]</td>
+			<td width=10px>$row[4]</td>
+			<td width=10px><a href=message_management_own.php?edit=$row[0]>編輯<a></td>
+			<td width=10px><a href=message_management_own.php?del=$row[0]>刪除<a></td>
 		</tr>";
 }
 
 echo "</table>";
+echo "</div>";
 ?>
+
+   <br>
+    <br>
+  <br>
+  <br>
+</body>
+</html>
