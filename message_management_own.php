@@ -38,64 +38,55 @@ include("mydb.php");
 // 刪除
 if ($_GET['del']) {
 	$a=$_GET['del'];
-	$d="delete from message where id=$a";
+	$d="delete from message where message_no=$a";
 	mysql_query($d);
 	//異動會顯示異動資料
 	echo '成功幾筆<br>'.mysql_affected_rows();
 }
 
-$id=$_GET['id'];
+$id=$_GET['message_no'];
 
 $sql = "select message_no,message_name,message_email,message_content,message_date from   `message`  ";
 
 // 查詢帳號
-if ($_GET['id']) {
-	$sql = $sql."where id=".$id;
+if ($_GET['message_no']) {
+	$sql = $sql."where message_no=".$id;
 }
 // 使用編號排序
 if ($_GET['order']==1) {
-	$sql = $sql."order by number";
+	$sql = $sql."order by message_no";
 }
 if ($_GET['order']==2) {
-	$sql = $sql."order by number desc";
+	$sql = $sql."order by message_no desc";
 }
 // 使用編號排序
 if ($_GET['order']==3) {
-	$sql = $sql."order by id";
+	$sql = $sql."order by message_name";
 }
 if ($_GET['order']==4) {
-	$sql = $sql."order by id desc";
+	$sql = $sql."order by message_name desc";
 }
 // 使用價格排序
 if ($_GET['order']==5) {
-	$sql = $sql."order by password";
+	$sql = $sql."order by message_email";
 }
 if ($_GET['order']==6) {
-	$sql = $sql."order by password desc";
+	$sql = $sql."order by message_email desc";
 }
 // 使用價姓名序
 if ($_GET['order']==7) {
-	$sql = $sql."order by name";
+	$sql = $sql."order by message_content";
 }
 if ($_GET['order']==8) {
-	$sql = $sql."order by name desc";
+	$sql = $sql."order by message_content desc";
 }
 // 使用價姓名序
 if ($_GET['order']==9) {
-	$sql = $sql."order by tel";
+	$sql = $sql."order by message_date";
 }
 if ($_GET['order']==10) {
-	$sql = $sql."order by tel desc";
+	$sql = $sql."order by message_date desc";
 }
-// 使用價姓名序
-if ($_GET['order']==11) {
-	$sql = $sql."order by address";
-}
-if ($_GET['order']==12) {
-	$sql = $sql."order by tel address";
-}
-
-
 
 // 回傳結果
 $result=mysql_query($sql);
@@ -105,41 +96,36 @@ echo '總共有' .mysql_num_rows($result).'人';
 echo "<table border=1>
 		<tr>";
 if ($_GET['order']==2) {
-	echo "	<td width=2%><a href=management.php?order=1>編號</a></td>";
+	echo "	<td width=2%><a href=message_management_own.php?order=1>編號</a></td>";
 } 
  else {
-	echo "	<td width=2%><a href=management.php?order=2>編號</a></td>";
+	echo "	<td width=2%><a href=message_management_own.php?order=2>編號</a></td>";
 }
 if ($_GET['order']==4) {
-	echo "	<td width=5%><a href=management.php?order=3>帳號</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=3>姓名</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=management.php?order=4>帳號</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=4>姓名</a></td>";
 }
 if ($_GET['order']==6) {
-	echo "	<td width=5%><a href=management.php?order=5>密碼</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=5>信箱</a></td>";
 }
  else {
-	echo "	<td width=5%><a href=management.php?order=6>密碼</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=6>信箱</a></td>";
 }
 if ($_GET['order']==8) {
-	echo "	<td width=5%><a href=management.php?order=7>姓名</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=7>內容</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=management.php?order=8>姓名</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=8>內容</a></td>";
 }
 if ($_GET['order']==10) {
-	echo "	<td width=5%><a href=management.php?order=9>電話</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=9>時間</a></td>";
 } 
  else {
-	echo "	<td width=5%><a href=management.php?order=10>電話</a></td>";
+	echo "	<td width=5%><a href=message_management_own.php?order=10>時間</a></td>";
 }
-if ($_GET['order']==16) {
-	echo "	<td width=5%><a href=management.php?order=15>時間</a></td>";
-} 
- else {
-	echo "	<td width=5%><a href=management.php?order=16>時間</a></td>";
-}
+
 
 
 echo "	
