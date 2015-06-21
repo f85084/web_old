@@ -34,6 +34,7 @@ else
 	$memberdate=$_POST['memberdate'];
     $sql="INSERT member (id,password,name,tel,address,gif,memberdate)
         VALUES ('{$id}','{$password}','{$name}','{$tel}','{$address}','{$file}',sysdate())";
+
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1);

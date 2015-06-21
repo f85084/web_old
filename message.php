@@ -36,14 +36,13 @@ echo '你好'.$row['3'].'請留言';
 <form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
 <p>
-姓名
-<input type="text" name="name" class="input-block-level" placeholder="輸入姓名">
+
 信箱
 <input type="email" name="email" class="input-block-level" placeholder="輸入信箱">
 內容
 <textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-<input type="hidden" name="no" value=<?echo"$row[0]";?>>
+<input type="hidden" name="name" value=<?echo"$row[0]";?>>
  
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;

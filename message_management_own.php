@@ -32,17 +32,17 @@ body{
   <?php
 //header('Content-Type: text/html; charset=utf-8');
 include("mydb.php");
-
+$id=$_GET['message_no'];
 // 刪除
 if ($_GET['del']) {
 	$a=$_GET['del'];
-	$d="delete from message where message_no=$a";
+	$d="delete from message where id=$a";
 	mysql_query($d);
 	//異動會顯示異動資料
 	echo '成功幾筆<br>'.mysql_affected_rows();
 }
 
-$id=$_GET['message_no'];
+
 
 $sql = "select message_no,message_name,message_email,message_content,message_date from   `message`  ";
 
