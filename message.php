@@ -42,7 +42,7 @@ echo '你好'.$row['3'].'請留言';
 內容
 <textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-<input type="hidden" name="name" value=<?echo"$row[0]";?>>
+<input type="hidden" name="message_name" value=<?echo"$row[0]";?>>
  
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;

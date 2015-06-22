@@ -20,14 +20,14 @@ body{
 include ('mydb.php');
   
 // 新增 
-	$name=$_POST['name'];
+	$name=$_POST['message_name'];
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];
     $sql="INSERT message (message_name,message_email,message_content,message_date)
         VALUES ('{$name}','{$email}','{$content}',sysdate())";
-echo $sql;
-	//$result=mysql_query($sql);
+//echo $sql;
+	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1);
 	echo '新增成功<br><br>';  

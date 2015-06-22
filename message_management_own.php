@@ -32,14 +32,17 @@ body{
   <?php
 //header('Content-Type: text/html; charset=utf-8');
 include("mydb.php");
+$h7="h7";
+echo "<div class=$h7>";
 $id=$_GET['message_no'];
 // 刪除
 if ($_GET['del']) {
 	$a=$_GET['del'];
-	$d="delete from message where id=$a";
+	$d="delete from message where message_no=$a";
 	mysql_query($d);
 	//異動會顯示異動資料
-	echo '成功幾筆<br>'.mysql_affected_rows();
+	echo '成功幾筆'.mysql_affected_rows();
+	echo "</div>";
 }
 
 
@@ -50,49 +53,15 @@ $sql = "select message_no,message_name,message_email,message_content,message_dat
 if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
 }
-// 使用編號排序
-if ($_GET['order']==1) {
-	$sql = $sql."order by message_no";
-}
-if ($_GET['order']==2) {
-	$sql = $sql."order by message_no desc";
-}
-// 使用編號排序
-if ($_GET['order']==3) {
-	$sql = $sql."order by message_name";
-}
-if ($_GET['order']==4) {
-	$sql = $sql."order by message_name desc";
-}
-// 使用價格排序
-if ($_GET['order']==5) {
-	$sql = $sql."order by message_email";
-}
-if ($_GET['order']==6) {
-	$sql = $sql."order by message_email desc";
-}
-// 使用價姓名序
-if ($_GET['order']==7) {
-	$sql = $sql."order by message_content";
-}
-if ($_GET['order']==8) {
-	$sql = $sql."order by message_content desc";
-}
-// 使用價姓名序
-if ($_GET['order']==9) {
-	$sql = $sql."order by message_date";
-}
-if ($_GET['order']==10) {
-	$sql = $sql."order by message_date desc";
-}
+
 
 // 回傳結果
 $result=mysql_query($sql);
 
 // 表格表題
-echo '總共有' .mysql_num_rows($result).'人';
-$h7="h7";
+
 echo "<div class=$h7>";
+echo '總共有' .mysql_num_rows($result).'人';
 echo " <table border=1>
 		<tr>";
 if ($_GET['order']==2) {
