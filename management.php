@@ -34,11 +34,12 @@ body{
 <?php
 //header('Content-Type: text/html; charset=utf-8');
 include("mydb.php");
-
+$h7="h7";
+echo "<div class=$h7>";
 // 刪除
 if ($_GET['del']) {
 	$a=$_GET['del'];
-	$d="delete from member where id=$a";
+	$d="delete from member where number=$a";
 	mysql_query($d);
 	//異動會顯示異動資料
 	echo '成功幾筆<br>'.mysql_affected_rows();
@@ -191,4 +192,5 @@ while ($row=mysql_fetch_array($result)) {
 }
 
 echo "</table>";
+echo "</div>";
 ?>
