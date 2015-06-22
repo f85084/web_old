@@ -11,9 +11,7 @@ body{
 	background-color:#f5f5f5
 	
 	}
-.h7{
-	margin: 0px 300px auto;	
-}
+
 	
 
 </style>
