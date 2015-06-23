@@ -20,7 +20,7 @@ body{
 include ('mydb.php');
   
 // 新增 
-	$name=$_POST['message_name'];
+	$name=$_POST['name'];
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];

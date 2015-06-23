@@ -45,7 +45,7 @@ if ($_GET['del']) {
 
 
 
-$sql = "select message_no,message_name,message_email,message_content,message_date from   `message`  ";
+$sql = "select *from  message";
 
 // 查詢帳號
 if ($_GET['message_no']) {
