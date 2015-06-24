@@ -15,6 +15,7 @@ body{
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
+
   <!--查詢-->
   <div class=form-Search>
   <form method="get" action="management.php">
