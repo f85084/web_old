@@ -12,8 +12,6 @@ if (!$row=mysql_fetch_array($result))
 }
 if ($_GET[id]=='root')
 {
-session_start();
-$_SESSION['flag']='1';
 header("location: manage.php");
 }
 ?>
