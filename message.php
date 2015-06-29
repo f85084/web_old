@@ -1,26 +1,37 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=utf-8>
+<title>留言</title>
 <?
 include ('mydb.php');
 $h7="h7";
+$id=$_GET[id];
+$password=$_GET[password];
+//cookie
+session_start();
+if($id)
+{
+$_SESSION['id']=$id;
+$_SESSION['password']=$password;
+}
+
 echo "<div class=$h7>";
-    $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
+    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
 {
 	echo 'MISS';
-	echo "<a href=index.php>回首頁</a>";
+	echo "<a href=Log%20in.php>回首頁</a>";
 	die();
 }
+//如果是管理者導入
 if ($_GET[id]=='root')
 {
-session_start();
 $_SESSION['flag']='1';
 header("location: manage.php");
 }
 ?>
 
-<!DOCTYPE html>
-<html lang=en><head><meta charset=utf-8>
-<title>留言</title>
+
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content=""><meta name=author content="">
 <link href=http://f85084.github.io/css.css  rel=stylesheet>
@@ -39,7 +50,8 @@ body{
 <?
 echo '你好'.$row['3'].'請留言';
 ?>
-<div>
+<!--留言表單-->
+<div> 
 <form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
 <p>
@@ -51,10 +63,10 @@ echo '你好'.$row['3'].'請留言';
 <br>
 <input type="hidden" name="name" value=<?echo"$row[3]";?>>
  
- <a href="newuser.php">
+ 
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
- </a>
+
  
 </form>
 <?
@@ -105,8 +117,6 @@ if ($_GET['order']==10) {
  else {
 	echo "	<td width=180px><a href=message_management_own.php?order=10>時間</a></td>";
 }
-
-
 
 echo "	
             <td width=40px>編輯</td>	

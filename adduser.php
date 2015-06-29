@@ -1,9 +1,18 @@
 ﻿<!DOCTYPE html>
-<html lang=en>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html lang=en><head><meta charset=utf-8>
 <title>建立帳號</title>
-</head>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<meta name=description content=""><meta name=author content="">
+<link href=http://f85084.github.io/css.css  rel=stylesheet>
+<style>
+/*整體字型、背景*/
+body{
+	font-family: Arial, 微軟正黑體;
+	background-color:#f5f5f5;
+	margin: 0px 600px ;
+	}
+
+</style>
 <body>
 <?php
 //資料庫檔案
@@ -40,5 +49,7 @@ else
 	if (mysql_affected_rows()>=1);
 	echo '新增成功<br><br>';  
 ?>
+<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
+
 </body>
 </html>

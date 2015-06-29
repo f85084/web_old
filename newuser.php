@@ -49,8 +49,7 @@ margin-bottom:15px;padding:7px 9px
 
 <input type="file" name="gif" class="input-block-level" placeholder="上傳照片"> 
 
-<a href="adduser.php">
 <button class="btn btn-large btn-primary" type=submit>送出</button>
-</a>  </br>
+</br>
 </form>
 </div>

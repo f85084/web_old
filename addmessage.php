@@ -8,7 +8,8 @@
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5
+	background-color:#f5f5f5;
+	margin: 0px 100px auto;
 	}
 
 </style>
@@ -26,7 +27,7 @@ include ('mydb.php');
 	$date=$_POST['date'];
     $sql="INSERT message (message_name,message_email,message_content,message_date)
         VALUES ('{$name}','{$email}','{$content}',sysdate())";
-//echo $sql;
+
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1);
@@ -34,7 +35,7 @@ include ('mydb.php');
 
 
 ?>
-
+ <a href="message.php"><button class="btn btn-large btn-primary" type=submit>回到留言</button> </a>
 
 </body>
 </html>
