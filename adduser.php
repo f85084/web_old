@@ -17,6 +17,9 @@ body{
 <?php
 //資料庫檔案
 include ('mydb.php');
+
+//
+    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 //定義存放上傳檔案的目錄
 $upload_dir='./photo/'; 
 //如果錯誤代碼為 UPLOAD_ERR_OK, 表示上傳成功
