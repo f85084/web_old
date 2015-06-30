@@ -15,7 +15,8 @@ $_SESSION['password']=$password;
 }
 
 echo "<div class=$h7>";
-    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
+//會員登入帳號別的選單不會跳出帳號登入
+$sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
 {
