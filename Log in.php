@@ -9,8 +9,9 @@
 body{
 	font-family: Arial, 微軟正黑體;
 	background-color:#f5f5f5;
-	margin: 0px 600px ;
+	margin: 0px auto;
 	}
+	
 
 </style>
 <body><div>
@@ -32,9 +33,9 @@ $_SESSION['flag']='0';
   </br>
   <input type=checkbox value=remember-me> 忘記密碼 </label>
 </form>
-<div>
+</div>
+<div class="h8">
   <a href="newuser.php"><button class="btn btn-large btn-primary" type=submit>註冊</button> </a>
   </div> 
 
 
-</div>
