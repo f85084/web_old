@@ -52,7 +52,7 @@ else
 	if (mysql_affected_rows()>=1);
 	echo '新增成功<br><br>';  
 ?>
-<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
+<a href="newuser.php">newuser</a><a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
 
 </body>
 </html>

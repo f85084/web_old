@@ -8,14 +8,15 @@
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5
-	
+	background-color:#f5f5f5;
+	margin: 0px 600px ;
 	}
 
 </style>
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
+<div >
 <!--enctype="multipart/form-data" 載入檔案 -->
 <div class=container>
 <form name="newuser" method="post" action="adduser.php"  enctype="multipart/form-data"  class=form-signin>
@@ -36,7 +37,9 @@ body{
 <button class="btn btn-large btn-primary" type=submit>送出</button>
 </br>
 </form>
+
+<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button></a><br>
 </div>
-<div class="h8">
+</div><div class="h8">
   <a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回登入頁面</button> </a>
   </div> 
