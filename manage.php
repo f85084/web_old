@@ -15,11 +15,34 @@ body{
 
 <body>
 <?
+//認證管理員
 session_start();
-$_SESSION['flag']='0';
+if($_SESSION['flag']=='1')
+{
+	echo'歡迎ROOT登入';
+	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	}
+else
+	{
+    echo'你不是root';
+	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	die();
+	}
 ?>
-<a href=management.php>管理會員資料<a>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--左邊欄位Sidebar content-->
+      <a href=management.php>管理會員資料<a><br>
+      <a href=message_management_own.php>管裡留言資料<a><br>
+    </div>
+    <div class="span10">
+      <!--右邊欄位Body content-->
+    </div>
+  </div>
+</div>
 
-<a href=message_management_own.php>管裡留言資料<a>
+
+
 </body>
 </html>
