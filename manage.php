@@ -10,14 +10,13 @@ body{
 	font-family: Arial, 微軟正黑體;
 	background-color:#f5f5f5
 	}
-
 </style>
 
 <body>
 <?
 //認證管理員
 session_start();
-if($_SESSION['flag']=='1')
+if($_SESSION['flag']=='0')
 {
 	echo'歡迎ROOT登入';
 	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
