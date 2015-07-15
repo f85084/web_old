@@ -14,10 +14,10 @@ body{
 	
 </style>
 <body><div>
-<!--<?
+<?
 session_start();
 $_SESSION['flag']='0';
-?>-->
+?>
 <form name="login" method="get" action="message.php" class=form-signin>
 <h2 class=form-signin-heading>請登入</h2>
 <p>
