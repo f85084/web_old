@@ -31,35 +31,20 @@ else
 	}
 	
 ?>
-<div class=container-fluid>
-	  <div class=row-fluid>
-			<div class=span3>
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-						<li class=nav-header>會員管理
-						<li><a href=management.php>管理會員資料</a>
-						<li><a href=#>Link</a>
-						<li class=nav-header>留言管理
-						<li><a href=#>Link</a> <a href=message_management_own.php>管裡留言資料</a>
-						<li class=nav-header>Sidebar
-						<li><a href=#>Link</a>
-						<li><a href=#>Link</a>
-					</ul>
-				</div>
-			</div>
-<!--舊版側邊
+
+
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">-->
+    <div class="span2">
       <!--左邊欄位Sidebar content-->
-     <!-- <a href=management.php>管理會員資料<a><br>
+      <a href=management.php>管理會員資料<a><br>
       <a href=message_management_own.php>管裡留言資料<a><br>
     </div>
     <div class="span10">
       <!--右邊欄位Body content-->
-   <!-- </div>
+    </div>
   </div>
-</div>-->
+</div>
 
 
 
