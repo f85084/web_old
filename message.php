@@ -13,7 +13,7 @@ echo "<div class=$h7>";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
 {
-	echo 'MISS';
+	echo '登入失敗';
 	echo "<a href=index.php>回首頁</a>";
 	die();
 }
