@@ -17,8 +17,9 @@ body{
 <?
 session_start();
 $_SESSION['flag']='0';
+
 ?>
-<form name="login" method="get" action="message.php" class=form-signin>
+<form name="login" method="get" action="message.php" class=form-signin onclick="return false">
 <h2 class=form-signin-heading>請登入</h2>
 <p>
 <input type="text" name="id" class="input-block-level" placeholder="輸入帳號 "> 
