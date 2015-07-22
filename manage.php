@@ -11,6 +11,23 @@ body{
 	background-color:#FFF	;
 	}
 </style>
+<?
+//認證管理員
+
+session_start();
+if($_SESSION['flag']=='1')
+{
+	echo'歡迎ROOT登入';
+	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	}
+else
+	{
+    echo'你不是root';
+	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	die();
+	}
+	
+?>
 
 <body>
 
