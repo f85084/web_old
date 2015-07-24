@@ -59,7 +59,8 @@ echo '你好'.$row['3'].'請留言';
  
 </form>
 <?
-$sql = "select *from  message";
+$sql = "select *from  `message`";
+$_GET['message_no']=$id;
 // 查詢帳號
 if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
@@ -106,6 +107,7 @@ echo "
 			<td width=40px>刪除</td>
 		</tr>";
 // 表格內容
+if($sql = $sql."where message_no=".$id)
 while ($row=mysql_fetch_array($result)) {
 	echo 
 		"<tr>
@@ -118,6 +120,7 @@ while ($row=mysql_fetch_array($result)) {
 			<td width=10px><a href=message_management_own.php?del=$row[0]>刪除<a></td>
 		</tr>";
 }
+
 echo "</table>";
 echo "</div>";
 ?>
