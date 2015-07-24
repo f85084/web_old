@@ -59,8 +59,8 @@ if ($_GET['del']) {
 
 
 
-$sql = "select *from  message";
-
+$sql = "select *from`message`";
+$_GET['message_no']=$id;
 // 查詢帳號
 if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
@@ -69,6 +69,15 @@ if ($_GET['message_no']) {
 
 // 回傳結果
 $result=mysql_query($sql);
+if (!$result) {
+    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+    exit;
+}
+
+if (mysql_num_rows($result) == 0) {
+    echo "No rows found, nothing to print so am exiting";
+    exit;
+}
 
 // 表格表題
 

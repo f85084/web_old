@@ -29,7 +29,7 @@ $_SESSION['flag']='0';
   </label>
 </p>
 <label class=checkbox>
-  <button class="btn btn-large btn-primary" id="submitBtn" type=submit onclick="return false">登入</button>
+  <button class="btn btn-large btn-primary" id="submitBtn" type=submit >登入</button>
   </br>
   <input type=checkbox value=remember-me> 忘記密碼 </label>
 </form>
