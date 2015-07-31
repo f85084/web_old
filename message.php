@@ -62,9 +62,9 @@ echo '你好'.$row['3'].'請留言';
 $sql = "select *from  `message`";
 $_GET['message_no']=$id;
 // 查詢帳號
-if ($_GET['message_no']) {
+/*if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
-}
+}*/
 // 回傳結果
 $result=mysql_query($sql);
 // 表格表題
@@ -107,7 +107,18 @@ echo "
 			<td width=40px>刪除</td>
 		</tr>";
 // 表格內容
-if($sql = $sql."where message_no=".$id)
+    //$sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
+	//$result=mysql_query($sql);
+//if ($row=mysql_fetch_array($result))
+//{
+	
+$sql = "select *from  `message` where message_name=0";
+$result=mysql_query($sql);
+
+//if ($_GET['message_no']) {
+	//$sql = $sql."where message_no=".$id;
+
+
 while ($row=mysql_fetch_array($result)) {
 	echo 
 		"<tr>
@@ -119,8 +130,9 @@ while ($row=mysql_fetch_array($result)) {
 			<td width=10px><a href=message_management_own.php?edit=$row[0]>編輯<a></td>
 			<td width=10px><a href=message_management_own.php?del=$row[0]>刪除<a></td>
 		</tr>";
+//}
 }
-
+//}
 echo "</table>";
 echo "</div>";
 ?>
