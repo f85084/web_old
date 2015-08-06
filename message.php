@@ -50,7 +50,8 @@ echo '你好'.$row['3'].'請留言';
 內容
 <textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  ></textarea>
 <br>
-<input type="hidden" name="name" value=<?echo"$row[3]";?>>
+<input type="hidden" name="name" value=<?echo"$row[3]"?>>
+<input type="hidden" name="id" value=<?echo"$row[1]"?>>
  
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
@@ -60,7 +61,8 @@ echo '你好'.$row['3'].'請留言';
 </form>
 <?
 $sql = "select *from  `message`";
-$_GET['message_no']=$id;
+$_GET['id']=$id;
+//$id='number';
 // 查詢帳號
 /*if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
@@ -112,27 +114,24 @@ echo "
 //if ($row=mysql_fetch_array($result))
 //{
 	
-$sql = "select *from  `message` where message_name=0";
-$result=mysql_query($sql);
-
-//if ($_GET['message_no']) {
-	//$sql = $sql."where message_no=".$id;
+$sql = "SELECT *FROM `message` WHERE message_id='$id'";
+	$result=mysql_query($sql);
 
 
 while ($row=mysql_fetch_array($result)) {
+	
+
 	echo 
 		"<tr>
 			<td width=10px>$row[0]</td>
-			<td width=10px>$row[1]</td>
 			<td width=10px>$row[2]</td>
 			<td width=10px>$row[3]</td>
 			<td width=10px>$row[4]</td>
+			<td width=10px>$row[5]</td>
 			<td width=10px><a href=message_management_own.php?edit=$row[0]>編輯<a></td>
 			<td width=10px><a href=message_management_own.php?del=$row[0]>刪除<a></td>
 		</tr>";
-//}
 }
-//}
 echo "</table>";
 echo "</div>";
 ?>

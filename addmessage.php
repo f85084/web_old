@@ -22,11 +22,12 @@ include ('mydb.php');
   
 // 新增 
 	$name=$_POST['name'];
+	$id=$_POST['id'];
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];
-    $sql="INSERT message (message_name,message_email,message_content,message_date)
-        VALUES ('{$name}','{$email}','{$content}',sysdate())";
+    $sql="INSERT message (message_id,message_name,message_email,message_content,message_date)
+        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate())";
 
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
