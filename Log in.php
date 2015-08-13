@@ -34,7 +34,7 @@ $_SESSION['flag']='0';
   <input type=checkbox value=remember-me> 忘記密碼 </label>
 </form>
 </div>
-<div class="h8">
+<div class="h9">
   <a href="newuser.php"><button class="btn btn-large btn-primary" type=submit>註冊</button> </a>
   </div> 
 <script>
