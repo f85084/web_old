@@ -49,6 +49,5 @@ include ('mydb.php');
 
 ?>
  <a href="message.php"><button class="btn btn-large btn-primary" type=submit onClick="javascript:history.back(1)">回到留言</button> </a>
-<input name="Submit" type="button" id="Submit" onClick="javascript:history.back(1)" value="回一上頁" />
 </body>
 </html>

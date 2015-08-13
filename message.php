@@ -7,9 +7,15 @@
 
 <?
 include ('mydb.php');
-$h7="h7";
+session_start();
+if($_GET[id])
+{
+$_SESSION['id']=$_GET[id];
+$_SESSION['password']=$_GET[password];
+}
+$h10="h10";
 echo "<div class=$h10>";
-    $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
+    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
 {
@@ -19,7 +25,7 @@ if (!$row=mysql_fetch_array($result))
 }
 if ($_GET[id]=='root')
 {
-session_start();
+
 $_SESSION['flag']='1';
 header("location: manage.php");
 }
@@ -54,9 +60,9 @@ echo '你好'.$row['3'].'請留言';
 <input type="hidden" name="id" value=<?echo"$row[1]"?>>
  
  <a href="newuser.php">
- <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
+ <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
- </a>
+ 
  
 </form>
 <?
@@ -70,15 +76,15 @@ $_GET['id']=$id;
 // 回傳結果
 $result=mysql_query($sql);
 // 表格表題
-echo "<div class=$h9>";
+echo "<div >";
 echo '總共有' .mysql_num_rows($result).'人';
 echo " <table border=1>
 		<tr>";
 if ($_GET['order']==2) {
-	echo "	<td width=10px><a href=message_management_own.php?order=1>編號</a></td>";
+	echo "	<td width=30px><a href=message_management_own.php?order=1>編號</a></td>";
 } 
  else {
-	echo "	<td width=10px><a href=message_management_own.php?order=2>編號</a></td>";
+	echo "	<td width=30x><a href=message_management_own.php?order=2>編號</a></td>";
 }
 if ($_GET['order']==4) {
 	echo "	<td width=60px><a href=message_management_own.php?order=3>姓名</a></td>";
@@ -123,7 +129,7 @@ while ($row=mysql_fetch_array($result)) {
 
 	echo 
 		"<tr>
-			<td width=10px>$row[0]</td>
+			<td width=11px>$row[0]</td>
 			<td width=10px>$row[2]</td>
 			<td width=10px>$row[3]</td>
 			<td width=10px>$row[4]</td>

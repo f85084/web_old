@@ -37,7 +37,7 @@ $_SESSION['flag']='0';
 <div class="h9">
   <a href="newuser.php"><button class="btn btn-large btn-primary" type=submit>註冊</button> </a>
   </div> 
-<script>
+<!--<script>
 // 取得送出按鈕Tag
 var btn = document.getElementById("submitBtn");
 // 傾聽點擊事件
@@ -60,6 +60,6 @@ btn.addEventListener("click", function(){
 	var login = document.getElementById("login");
 	login.submit();
 });
-</script>
+</script>-->
 </body>
 </html>
