@@ -8,7 +8,7 @@
 <?
 include ('mydb.php');
 $h7="h7";
-echo "<div class=$h7>";
+echo "<div class=$h10>";
     $sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
@@ -70,7 +70,7 @@ $_GET['id']=$id;
 // 回傳結果
 $result=mysql_query($sql);
 // 表格表題
-echo "<div class=$h7>";
+echo "<div class=$h9>";
 echo '總共有' .mysql_num_rows($result).'人';
 echo " <table border=1>
 		<tr>";
