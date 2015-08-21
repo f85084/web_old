@@ -48,6 +48,6 @@ include ('mydb.php');
 
 
 ?>
- <a href="message.php"><button class="btn btn-large btn-primary" type=submit onClick="javascript:history.back(1)">回到留言</button> </a>
+ <a href="message.php"><button class="btn btn-large btn-primary" type=submit onClick="addmessage.php">回到留言</button> </a>
 </body>
 </html>
