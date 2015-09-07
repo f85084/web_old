@@ -18,8 +18,15 @@ body{
 //資料庫檔案
 include ('mydb.php');
 
-//
-    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
+//檢查帳號是否重複
+    $sql="select * from member where id='$_POST[id]'";
+	$result=mysql_query($sql);
+if ($row=mysql_fetch_array($result))
+{
+	echo '帳號已有人使用';
+	echo "<a href=index.php>回首頁</a>";
+	die();
+}
 //定義存放上傳檔案的目錄
 $upload_dir='./photo/'; 
 //如果錯誤代碼為 UPLOAD_ERR_OK, 表示上傳成功
@@ -52,7 +59,7 @@ else
 	if (mysql_affected_rows()>=1);
 	echo '新增成功<br><br>';  
 ?>
-<a href="newuser.php">newuser</a><a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
+<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
 
 </body>
 </html>
