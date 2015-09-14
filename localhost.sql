@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- 主機: localhost
--- 建立日期: Jul 24, 2015, 10:06 AM
+-- 建立日期: Sep 14, 2015, 01:47 PM
 -- 伺服器版本: 5.0.45
 -- PHP 版本: 5.2.3
 
@@ -31,19 +31,18 @@ CREATE TABLE `member` (
   `gif` varchar(20) NOT NULL,
   `memberdate` datetime NOT NULL,
   PRIMARY KEY  (`number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- 
 -- 列出以下資料庫的數據： `member`
 -- 
 
-INSERT INTO `member` VALUES (25, 'a123', '123123', '國際tw', '0977777777', '台北', '200x100_6.jpg', '2015-06-10 16:59:41');
-INSERT INTO `member` VALUES (24, 'a1123', '1232', '國際tw', '00998', '台北', '200x100_2.jpg', '2015-06-10 14:19:03');
-INSERT INTO `member` VALUES (29, 'root', 'root', 'root', 'r0974', 'rrr', '526_tch_uvtotal_200x', '2015-06-24 10:53:34');
-INSERT INTO `member` VALUES (27, 'a456', '456', '台灣TW', '1212', '台北', '美白季kv240x160.jpg', '2015-06-22 10:35:12');
-INSERT INTO `member` VALUES (28, 'a789', '789', '台灣TW', '789', '台北', '240x160.jpg', '2015-06-22 10:49:10');
-INSERT INTO `member` VALUES (30, '', '', '', '', '', '', '2015-07-02 11:26:21');
-INSERT INTO `member` VALUES (31, 'A767', '787', '台灣TW', '1213', '1515', '貼紙_免運.gif', '2015-07-24 00:57:16');
+INSERT INTO `member` VALUES (1, 'a1123', '1232', '國際tw', '00998', '台北', '200x100_2.jpg', '2015-06-10 14:19:03');
+INSERT INTO `member` VALUES (2, 'a123', '123123', '國際tw', '0977777777', '台北', '200x100_6.jpg', '2015-06-10 16:59:41');
+INSERT INTO `member` VALUES (3, 'a456', '456', '台灣TW', '1212', '台北', '美白季kv240x160.jpg', '2015-06-22 10:35:12');
+INSERT INTO `member` VALUES (6, 'A767', '787', '台灣TW', '1213', '1515', '貼紙_免運.gif', '2015-07-24 00:57:16');
+INSERT INTO `member` VALUES (4, 'a789', '789', '台灣TW', '789', '台北', '240x160.jpg', '2015-06-22 10:49:10');
+INSERT INTO `member` VALUES (5, 'root', 'root', 'root', 'r0974', 'rrr', '526_tch_uvtotal_200x', '2015-06-24 10:53:34');
 
 -- --------------------------------------------------------
 
@@ -53,36 +52,34 @@ INSERT INTO `member` VALUES (31, 'A767', '787', '台灣TW', '1213', '1515', '貼
 
 CREATE TABLE `message` (
   `message_no` int(11) NOT NULL auto_increment,
+  `message_id` varchar(20) NOT NULL,
   `message_name` varchar(20) NOT NULL,
   `message_email` varchar(50) NOT NULL,
   `message_content` varchar(200) NOT NULL,
   `message_date` datetime NOT NULL,
   PRIMARY KEY  (`message_no`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 -- 
 -- 列出以下資料庫的數據： `message`
 -- 
 
-INSERT INTO `message` VALUES (1, '25', 'anna@acaciaco.com', '123', '2015-06-22 10:01:05');
-INSERT INTO `message` VALUES (2, '25', 'anna@acaciaco.com', '123', '2015-06-22 10:08:09');
-INSERT INTO `message` VALUES (3, '25', 'anna@acaciaco.com', '123', '2015-06-22 10:08:21');
-INSERT INTO `message` VALUES (4, '25', 'anna@acaciaco.com', '123', '2015-06-22 10:09:38');
-INSERT INTO `message` VALUES (5, '25', 'anna@acaciaco.com', '99844', '2015-06-22 10:24:01');
-INSERT INTO `message` VALUES (6, '27', '456@acaciaco.com', '456456HHIHI', '2015-06-23 15:21:28');
-INSERT INTO `message` VALUES (7, '台灣TW', '456@acaciaco.com', 'www', '2015-06-23 15:42:52');
-INSERT INTO `message` VALUES (9, '國際tw', '123@acaciaco.com', '123', '2015-06-24 11:38:43');
-INSERT INTO `message` VALUES (10, '國際tw', '123@acaciaco.com', '123123', '2015-06-26 15:08:53');
-INSERT INTO `message` VALUES (11, '國際tw', '123@gmail.com', 'qqqq', '2015-06-26 15:09:47');
-INSERT INTO `message` VALUES (12, '國際tw', '123@gmail.com', 'qqqq123', '2015-06-26 15:10:00');
-INSERT INTO `message` VALUES (13, '國際tw', '123@gmail.com', 'qwed', '2015-06-26 15:15:47');
-INSERT INTO `message` VALUES (14, '國際tw', '123@gmail.com', 'qwed233', '2015-06-26 15:17:53');
-INSERT INTO `message` VALUES (15, '國際tw', '123@gmail.com', 'qwed233', '2015-06-26 15:19:48');
-INSERT INTO `message` VALUES (16, '國際tw', '123@gmail.com', 'qwed233', '2015-06-26 15:19:58');
-INSERT INTO `message` VALUES (17, '國際tw', '123@gmail.com', 'qwed233', '2015-06-26 15:20:27');
-INSERT INTO `message` VALUES (18, '國際tw', '123@gmail.com', 'qwed233', '2015-06-26 15:21:20');
-INSERT INTO `message` VALUES (19, '國際tw', '123@acaciaco.com', '45512', '2015-06-26 15:40:14');
-INSERT INTO `message` VALUES (20, '國際tw', '', '', '2015-06-26 16:33:12');
-INSERT INTO `message` VALUES (21, '國際tw', '', '', '2015-06-26 17:37:49');
-INSERT INTO `message` VALUES (22, '國際tw', '', '', '2015-06-26 17:37:52');
-INSERT INTO `message` VALUES (23, '台灣TW', '1767@acaciaco.com', '767', '2015-07-24 00:58:21');
+INSERT INTO `message` VALUES (3, 'a789', '台灣TW', '789@gmail.com', '789', '2015-08-06 22:43:15');
+INSERT INTO `message` VALUES (2, 'a456', '台灣TW', '456@acaciaco.com', 'hi\r\n\r\n\r\n456', '2015-08-06 22:42:38');
+INSERT INTO `message` VALUES (1, 'a123', '國際tw', '123@gmail.com', 'hi\r\n\r\n123\r\n123', '2015-08-06 22:42:03');
+INSERT INTO `message` VALUES (4, 'a456', '台灣TW', '456@acaciaco.com', '456\r\n520', '2015-08-06 22:49:25');
+INSERT INTO `message` VALUES (31, 'a123', '國際tw', '123@gmail.com', '123!!!', '2015-08-10 12:06:55');
+INSERT INTO `message` VALUES (32, 'a123', '國際tw', '123@gmail.com', '@@', '2015-08-10 12:13:31');
+INSERT INTO `message` VALUES (33, 'a123', '國際tw', '123@gmail.com', '!!%%%', '2015-08-10 12:27:30');
+INSERT INTO `message` VALUES (34, 'a123', '國際tw', '123@gmail.com', '#$$%^^&*', '2015-08-10 13:50:25');
+INSERT INTO `message` VALUES (35, 'a123', '國際tw', '123@gmail.com', '@$$!!&^^(()()$', '2015-08-10 13:50:58');
+INSERT INTO `message` VALUES (36, 'a123', '國際tw', '123@gmail.com', '123!!@@', '2015-08-10 13:52:09');
+INSERT INTO `message` VALUES (37, 'a123', '國際tw', '123@gmail.com', 'wwww', '2015-08-13 14:10:53');
+INSERT INTO `message` VALUES (38, 'a123', '國際tw', '123@gmail.com', 'kkkk', '2015-08-13 15:57:31');
+INSERT INTO `message` VALUES (39, 'a123', '國際tw', '123@gmail.com', 'ss', '2015-08-13 16:00:34');
+INSERT INTO `message` VALUES (40, 'a789', '台灣TW', '789@gmail.com', '!!@#!@#!#!#', '2015-08-21 15:47:06');
+INSERT INTO `message` VALUES (41, 'a789', '台灣TW', '789@gmail.com', '12312!@#!3', '2015-08-21 15:49:36');
+INSERT INTO `message` VALUES (42, 'a789', '台灣TW', '789@gmail.com', '1ssawe', '2015-08-21 16:00:49');
+INSERT INTO `message` VALUES (43, 'a789', '台灣TW', '789@gmail.com', 'sdafadffad', '2015-08-21 16:43:55');
+INSERT INTO `message` VALUES (44, 'a123', '國際tw', '123@gmail.com', 'qqq', '2015-09-07 11:51:29');
+INSERT INTO `message` VALUES (45, 'a123', '國際tw', '', '', '2015-09-07 16:22:48');
