@@ -3,7 +3,7 @@
 <html lang=en>
 <head>
 <meta charset=utf-8>
-<title>An's 尋依殿</title>
+<title>An's 旅</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content="">
 <meta name=author content="">
@@ -38,6 +38,7 @@ body {
 	href=/Images/BS2/ico/apple-touch-icon-57-precomposed.png>
 <link rel="shortcut icon" href=/Images/BS2/ico/favicon.png>
 <body>
+
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class=navbar-inner>
 			<div class=container-fluid>
@@ -46,7 +47,7 @@ body {
 					<span class=icon-bar></span> <span class=icon-bar></span> <span
 						class=icon-bar></span>
 				</button>
-				<a class=brand href=#>An's 尋依殿</a>
+				<a class=brand href=#>An's 旅</a>
 				<div class="nav-collapse collapse">
 					<p class="navbar-text pull-right">
 						<a href="Log in.php">登入 </a>
@@ -78,9 +79,10 @@ body {
 			<div class=span9>
 				<div class=hero-unit>
 				  <h1>Hello!</h1>
-					<p><img src="img/h1.jpg"><p>
+					<p><img src="photo/index/2015-10-1.jpg"></p>
+					<p>
 					  <a href=# class="btn btn-primary btn-large">Learn more &raquo;</a>
-				</div>
+			  </div>
 				<div class=row-fluid>
 					<div class=span4>
 					  <h2>粉紅聯名</h2>
@@ -122,5 +124,8 @@ body {
 			<p>&copy; Company 2013
 	  </footer>
 	</div>
+</body>
+</html>
+
 	<script
 		src="/bundles/BS2SourceJS?v=-O94v1sF-Ld_eoTZUXiBlhDnpnzgMMzrPRxNVzqBaqc1"></script>
