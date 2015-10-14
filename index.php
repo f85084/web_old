@@ -8,6 +8,37 @@
 <meta name=description content="">
 <meta name=author content="">
 <link href="http://kkbruce.tw/Content/BS2/bootstrap.css" rel=stylesheet>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script>
+//圖片縮圖
+$(window).load(function(){
+	$("img").each(function(i){
+		if($(this).attr("alumb")=="true"){
+			//移除目前設定的影像長寬
+			$(this).removeAttr('width');
+			$(this).removeAttr('height');
+ 
+			//取得影像實際的長寬
+			var imgW = $(this).width();
+			var imgH = $(this).height();
+ 
+			//計算縮放比例
+			var w=$(this).attr("_w")/imgW;
+			var h=$(this).attr("_h")/imgH;
+			var pre=1;
+			if(w>h){
+				pre=h;
+			}else{
+				pre=w;
+			}
+ 
+			//設定目前的縮放比例
+			$(this).width(imgW*pre);
+			$(this).height(imgH*pre);
+		}
+	});
+});
+</script>
 <style>
 body {
 	padding-top: 60px;
@@ -36,7 +67,8 @@ body {
 	href=/Images/BS2/ico/apple-touch-icon-72-precomposed.png>
 <link rel=apple-touch-icon-precomposed
 	href=/Images/BS2/ico/apple-touch-icon-57-precomposed.png>
-<link rel="shortcut icon" href=/Images/BS2/ico/favicon.png>
+<link rel="shortcut icon" href=/Images/BS2/ico/favicon.png><br>
+</head>
 <body>
 
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -79,8 +111,7 @@ body {
 			<div class=span9>
 				<div class=hero-unit>
 				  <h1>Hello!</h1>
-					<p><img src="photo/index/2015-10-1.jpg"></p>
-					<p>
+					<p><img src="photo/index/2015-10-1.jpg" alumb="true" _w="400" _h="400" width="500"/></p>
 					  <a href=# class="btn btn-primary btn-large">Learn more &raquo;</a>
 			  </div>
 				<div class=row-fluid>
