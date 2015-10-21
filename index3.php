@@ -56,6 +56,7 @@ body {
 		padding-right: 5px
 	}
 }
+
 </style>
 <link href="http://kkbruce.tw/Content/BS2/bootstrap-responsive.css" rel=stylesheet>
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
