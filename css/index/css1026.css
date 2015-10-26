@@ -1,3 +1,10 @@
+.container {
+    padding - right: 15 px;
+    padding - left: 15 px;
+    margin - right: auto;
+    margin - left: auto
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -47,4 +54,14 @@ code {
 .container .jumbotron, .container-fluid .jumbotron {
     padding-right: 60px;
     padding-left: 60px;
+}
+.jumbotron {
+    padding: 30px 15px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+    width: 60%;
+    margin-left: 20%;
+    border-radius: 1%;
+    padding-right: 60px;
 }

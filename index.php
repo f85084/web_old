@@ -9,7 +9,7 @@
     <meta name=author content="">
     <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
     <title>Sticky Footer Navbar Template for Bootstrap</title>
-    <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
+    <!--<link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>-->
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
     <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script>
