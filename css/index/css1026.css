@@ -42,3 +42,9 @@ code {
     max-width: 100%;
     height: auto;
 }
+/**/
+@media screen and (min-width: 768px)
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+}
