@@ -43,6 +43,11 @@
                 <h1>Sticky footer with fixed navbar</h1></div>
             <p class=lead>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.
                 <p>Back to <a href="/bs3/Examples?name=sticky-footer">the default sticky footer</a> minus the navbar.</div>
+                                  <div class=jumbotron>
+                            <h1>Hello, world!</h1>
+                            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
+                             <img id="fx" src="photo/index/2015-10-1.jpg"/>
+</div>
         <footer class=footer>
             <div class=container>
                 <p class=text-muted>Place sticky footer content here.</div>
