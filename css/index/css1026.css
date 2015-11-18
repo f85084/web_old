@@ -75,6 +75,7 @@ code {
   text-align: center;
   background: #efefef;
   padding: 20px 0 0 0;
+  position: absolute;
 }
 
 /* line 999, ../sass/style.scss */
@@ -89,7 +90,7 @@ code {
   font-size: 0px;
   text-indent: -100000px;
   overflow: hidden;
-  position: absolute;
+  
 }
 
 /* line 1001, ../sass/style.scss */
