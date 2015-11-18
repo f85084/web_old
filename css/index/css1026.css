@@ -49,6 +49,24 @@ code {
     max-width: 100%;
     height: auto;
 }
+/*foot*/
+/* line 994, ../sass/style.scss */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+/* line 995, ../sass/style.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 996, ../sass/style.scss */
+.clearfix {
+  *zoom: 1;
+  /*For IE 6&7 only*/
+}
+
 /* line 997, ../sass/style.scss */
 .rwd-footer {
   width: 100%;
@@ -297,14 +315,4 @@ code {
   font-size: 11px;
   color: #fff;
   background: #000;
-}
-/* line 995, ../sass/style.scss */
-.clearfix:after {
-  clear: both;
-}
-
-/* line 996, ../sass/style.scss */
-.clearfix {
-  *zoom: 1;
-  /*For IE 6&7 only*/
 }
