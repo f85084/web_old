@@ -8,13 +8,13 @@
     <meta name=description content="">
     <meta name=author content="">
     <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
-    <!--<link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>-->
+    <title>An's旅</title>
+    <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
     <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script>
     <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-
+    </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role=navigation>
             <div class=container>
@@ -43,15 +43,27 @@
                 <h1>Sticky footer with fixed navbar</h1></div>
             <p class=lead>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.
                 <p>Back to <a href="/bs3/Examples?name=sticky-footer">the default sticky footer</a> minus the navbar.</div>
-                                  <div class=jumbotron>
+                             <div class=container>
+                             <div class=jumbotron>
                             <h1>Hello, world!</h1>
                             <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
                              <img id="fx" src="photo/index/2015-10-1.jpg"/>
-</div>
-        <footer class=footer>
-            <div class=container>
-                <p class=text-muted>Place sticky footer content here.</div>
-        </footer>
+</div></div>
+
         <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>
         <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script>
         <script src=/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js></script>
+        <!--FOOTER S-->
+    <footer class="rwd-footer clearfix">
+
+        <ul class="contact">
+            <li><a href="tel:0800"><i class="icon-phone"></i>0800</a></li>
+            <li><a href="mailto:Anna's"><i class="icon-email"></i>Anna's</a></li>
+        </ul>
+    </div>
+    <p class="copyright">© <span id="spanCopyYear">1990</span> Anna's All Rights Reserved.</p>
+</footer>
+    <!--FOOTER E-->
+	<script type="text/javascript">
+	    document.getElementById('spanCopyYear').innerHTML = (new Date()).getFullYear();</script>    
+        </body>
