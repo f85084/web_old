@@ -46,10 +46,11 @@ code {
 }
 #fx {
     display: block;
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
+	margin: auto;
 }
-/*footer large*/
+/*footer large footer的區塊*/
 /* line 994, ../sass/style.scss */
 .clearfix:before, .clearfix:after {
   content: "";
