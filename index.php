@@ -9,9 +9,7 @@
     <link href=/Content/BS2/bootstrap.css rel=stylesheet>
     <style>
         body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
+            padding-top: 60px;        }
     </style>
     <link href=css/index/index1119.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
     <link href=css/index/bootstrap-responsive.css rel=stylesheet>
@@ -54,7 +52,7 @@
                       <li><a href=#>Separated link</a>
                       <li><a href=#>One more separated link</a>
                     </ul>
-                                    </ul>
+                  </ul>
                   <form class="navbar-form pull-right">
                   <input class=span2 placeholder=Email> <input class=span2 type=password placeholder=Password> 
                   <button type=submit class=btn>Sign in</button></form>
@@ -85,6 +83,24 @@
                 <p><a class=btn href=#>View details &raquo;</a>
             </div>
         </div>
+        <div class=row>
+            <div class=span4>
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                <p><a class=btn href=#>View details &raquo;</a>
+            </div>
+            <div class=span4>
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                <p><a class=btn href=#>View details &raquo;</a>
+            </div>
+            <div class=span4>
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                <p><a class=btn href=#>View details &raquo;</a>
+            </div>
+        </div>
+
 </div>
 <hr>
 <!--FOOTER S-->
@@ -98,9 +114,8 @@
         <p class="copyright">© <span id="spanCopyYear">1990</span> Anna's All Rights Reserved.</p>
 </footer>
 <!--FOOTER E-->
+<script src="css/index/index.js"></script>
 <script type="text/javascript">
         document.getElementById('spanCopyYear').innerHTML = (new Date()).getFullYear();
     </script>
-
-<script src="css/index/index.js"></script>
 </body>
