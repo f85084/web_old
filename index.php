@@ -6,10 +6,15 @@
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta name=description content="">
     <meta name=author content="">
-    <link href=/Content/BS2/bootstrap.css rel=stylesheet>
+
+<?
+session_start();
+$_SESSION['flag']='0';
+
+?>
+
     <style>
-        body {
-            padding-top: 60px;        }
+
     </style>
     <link href=css/index/index1119.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
     <link href=css/index/bootstrap-responsive.css rel=stylesheet>
@@ -18,14 +23,14 @@
     <link rel=apple-touch-icon-precomposed sizes=72x72 href=/Images/BS2/ico/apple-touch-icon-72-precomposed.png>
     <link rel=apple-touch-icon-precomposed href=/Images/BS2/ico/apple-touch-icon-57-precomposed.png>
     <link rel="shortcut icon" href=/Images/BS2/ico/favicon.png>
-
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
 </head>
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class=navbar-inner>
             <div class=container>
-                <button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
+              <button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
                 <a class=brand href=index.php>An's旅</a>
                 <div class="nav-collapse collapse">
                   <ul class=nav>
@@ -53,9 +58,11 @@
                       <li><a href=#>One more separated link</a>
                     </ul>
                   </ul>
-                  <form class="navbar-form pull-right">
-                  <input class=span2 placeholder=Email> <input class=span2 type=password placeholder=Password> 
-                  <button type=submit class=btn>Sign in</button></form>
+                  <form name="login" method="get" action="index_login.php" class="navbar-form pull-right" id="login" >
+                  <input type="text" id="id" name="id" class="input-block-level" placeholder="輸入帳號 "> 
+                  <input type="password" id="password" name="password" class="input-block-level" placeholder="輸入密碼">
+                   <button class="btn btn-large btn-primary" id="submitBtn" type=submit >登入</button>
+</form>
 </div>
             </div>
         </div>
@@ -110,7 +117,6 @@
     <li><a href="tel:0800"><i class="icon-phone"></i>0800</a></li>
     <li><a href="mailto:Anna's"><i class="icon-email"></i>Anna's</a></li>
   </ul>
-        </div>
         <p class="copyright">© <span id="spanCopyYear">1990</span> Anna's All Rights Reserved.</p>
 </footer>
 <!--FOOTER E-->

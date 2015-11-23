@@ -70,13 +70,14 @@ code {
 
 /* line 997, ../sass/style.scss */
 .rwd-footer {
-  width: 100%;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  background: #efefef;
-  padding: 20px 0 0 0;
-  position: absolute;
+	width: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	background: #efefef;
+	padding: 20px 0 0 0;
+	position: absolute;
+	left: 3px;
 }
 
 /* line 999, ../sass/style.scss */
