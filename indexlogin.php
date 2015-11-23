@@ -6,32 +6,10 @@
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta name=description content="">
     <meta name=author content="">
-
-
 <?
-include ('mydb.php');
 session_start();
-if($_GET[id])
-{
-$_SESSION['id']=$_GET[id];
-$_SESSION['password']=$_GET[password];
-}
-$h10="h10";
-echo "<div class=$h10>";
-    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
-	$result=mysql_query($sql);
-if (!$row=mysql_fetch_array($result))
-{
-	echo '登入失敗';
-	echo "<a href=index.php>回首頁</a>";
-	die();
-}
-if ($_GET[id]=='root')
-{
+$_SESSION['flag']='0';
 
-$_SESSION['flag']='1';
-header("location: manage.php");
-}
 ?>
 
     <style>
@@ -52,41 +30,39 @@ header("location: manage.php");
         <div class=navbar-inner>
             <div class=container>
               <button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
-            <a class=brand href=index.php>An's旅</a>
-            <div class="nav-collapse collapse">
-              <ul class=nav>
-                <li class=dropdown>
-                <li class=dropdown><a href=index-share.php>分享</a>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>日本</a>
-                    <li><a href=#>韓國</a>
+                <a class=brand href=index.php>An's旅</a>
+                <div class="nav-collapse collapse">
+                  <ul class=nav>
+                  <li class=dropdown>                  
+                  <li class=dropdown><a href=index-share.php>分享</a>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>日本</a>
+                      <li><a href=#>韓國</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>北</a>
+                      <li><a href=#>中</a>
+                      <li><a href=#>南</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>公告</a>
+                      <li><a href=#>簡介</a>
+                      <li><a href=#>連結</a>
+                      <li class=divider>                    
+                      <li class=nav-header>Nav header
+                      <li><a href=#>Separated link</a>
+                      <li><a href=#>One more separated link</a>
+                    </ul>
                   </ul>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>北</a>
-                    <li><a href=#>中</a>
-                    <li><a href=#>南</a>
-                  </ul>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>公告</a>
-                    <li><a href=#>簡介</a>
-                    <li><a href=#>連結</a>
-                    <li class=divider>
-                    <li class=nav-header>Nav header
-                    <li><a href=#>Separated link</a>
-                    <li><a href=#>One more separated link</a>
-                  </ul>
-              </ul>
-              <div class=navbar-form pull-right>
-           <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
-
-                <?
-                  echo '你好'.$row['3'];
-                                              ?>
-              </div>
-            </div>
+                  <form name="login" method="get" action="index.php" class="navbar-form pull-right" id="login" >
+                  <input type="text" id="id" name="id" class="input-block-level" placeholder="輸入帳號 "> 
+                  <input type="password" id="password" name="password" class="input-block-level" placeholder="輸入密碼">
+                   <button class="btn btn-large btn-primary" id="submitBtn" type=submit >登入</button>
+</form>
+</div>
             </div>
         </div>
     </div>

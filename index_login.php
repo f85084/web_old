@@ -20,14 +20,14 @@ echo "<div class=$h10>";
 if (!$row=mysql_fetch_array($result))
 {
 	echo '登入失敗';
-	echo "<a href=index.php>回首頁</a>";
+	echo "<a href=indexlogin.php>回首頁</a>";
 	die();
 }
 if ($_GET[id]=='root')
 {
 
 $_SESSION['flag']='1';
-header("location: index.php");
+header("location: manage.php");
 }
 ?>
 
