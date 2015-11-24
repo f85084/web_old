@@ -9,14 +9,42 @@
     <meta name=author content="">
     <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
     <title>分享</title>
-    <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
+   <!-- <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>-->
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
     <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script>
     <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+      <link href=css/index/index1119.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
+    <link href=css/index/bootstrap-responsive.css rel=stylesheet>
+<?
+include ('mydb.php');
+session_start();
+if($_GET[id])
+{
+$_SESSION['id']=$_GET[id];
+$_SESSION['password']=$_GET[password];
+}
+$h10="h10";
+echo "<div class=$h10></div>";
+    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
+	$result=mysql_query($sql);
+if (!$row=mysql_fetch_array($result))
+{
+	echo '登入失敗';
+	echo "<a href=index.php>回首頁</a>";
+	die();
+}
+if ($_GET[id]=='root')
+{
+
+$_SESSION['flag']='1';
+header("location: manage.php");
+}
+?>
     </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
+<!--menu 開始-->
+<!--<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
             <div class=container>
                 <div class=navbar-header>
                     <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> 
@@ -48,7 +76,52 @@
                     </ul>
                 </div>
             </div>
-    </nav>
+    </nav>-->
+ 
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class=navbar-inner>
+            <div class=container>
+              <button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
+                <a class=brand href=index.php>An's旅</a>
+                <div class="nav-collapse collapse">
+                  <ul class=nav>
+                  <li class=dropdown>                  
+                  <li class=dropdown><a href=index-share.php>分享</a>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>日本</a>
+                      <li><a href=#>韓國</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>北</a>
+                      <li><a href=#>中</a>
+                      <li><a href=#>南</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>公告</a>
+                      <li><a href=#>簡介</a>
+                      <li><a href=#>連結</a>
+                      <li class=divider>                    
+                      <li class=nav-header>Nav header
+                      <li><a href=#>Separated link</a>
+                      <li><a href=#>One more separated link</a>
+                    </ul>
+                  </ul>
+<div>
+           <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
+
+                <?
+                  echo '你好'.$row['3'];
+                                              ?>
+                                              </form>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+    <!--menu 結束-->
     <div class=container>
         <div class=page-header>
       <h1>Sticky footer with fixed navbar</h1></div>

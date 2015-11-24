@@ -25,7 +25,7 @@ $_SESSION['flag']='0';
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
 </head>
 <body>
-
+<!--menu 開始-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class=navbar-inner>
             <div class=container>
@@ -66,6 +66,7 @@ $_SESSION['flag']='0';
             </div>
         </div>
     </div>
+    <!--menu 結束-->
     <div class=container>
         <div class=hero-unit>
             <h1>Hello, world!</h1>

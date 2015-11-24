@@ -6,8 +6,6 @@
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta name=description content="">
     <meta name=author content="">
-
-
 <?
 include ('mydb.php');
 session_start();
@@ -17,7 +15,7 @@ $_SESSION['id']=$_GET[id];
 $_SESSION['password']=$_GET[password];
 }
 $h10="h10";
-echo "<div class=$h10>";
+echo "<div class=$h10></div>";
     $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
@@ -47,49 +45,51 @@ header("location: manage.php");
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
 </head>
 <body>
-
+<!--menu 開始-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class=navbar-inner>
             <div class=container>
               <button type=button class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
-            <a class=brand href=index.php>An's旅</a>
-            <div class="nav-collapse collapse">
-              <ul class=nav>
-                <li class=dropdown>
-                <li class=dropdown><a href=index-share.php>分享</a>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>日本</a>
-                    <li><a href=#>韓國</a>
+                <a class=brand href=index.php>An's旅</a>
+                <div class="nav-collapse collapse">
+                  <ul class=nav>
+                  <li class=dropdown>                  
+                  <li class=dropdown><a href=index-share.php>分享</a>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>日本</a>
+                      <li><a href=#>韓國</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>北</a>
+                      <li><a href=#>中</a>
+                      <li><a href=#>南</a>
+                    </ul>
+                  <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
+                    <ul class=dropdown-menu>
+                      <li><a href=#>公告</a>
+                      <li><a href=#>簡介</a>
+                      <li><a href=#>連結</a>
+                      <li class=divider>                    
+                      <li class=nav-header>Nav header
+                      <li><a href=#>Separated link</a>
+                      <li><a href=#>One more separated link</a>
+                    </ul>
                   </ul>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>北</a>
-                    <li><a href=#>中</a>
-                    <li><a href=#>南</a>
-                  </ul>
-                <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
-                  <ul class=dropdown-menu>
-                    <li><a href=#>公告</a>
-                    <li><a href=#>簡介</a>
-                    <li><a href=#>連結</a>
-                    <li class=divider>
-                    <li class=nav-header>Nav header
-                    <li><a href=#>Separated link</a>
-                    <li><a href=#>One more separated link</a>
-                  </ul>
-              </ul>
-              <div class=navbar-form pull-right>
+
            <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
 
                 <?
                   echo '你好'.$row['3'];
                                               ?>
-              </div>
-            </div>
+                                              </form>
+
+</div>
             </div>
         </div>
     </div>
+    <!--menu 結束-->
     <div class=container>
         <div class=hero-unit>
             <h1>Hello, world!</h1>
