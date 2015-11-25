@@ -7,30 +7,11 @@
     <meta name=description content="">
     <meta name=author content="">
 <?
-include ('mydb.php');
 session_start();
-if($_GET[id])
-{
-$_SESSION['id']=$_GET[id];
-$_SESSION['password']=$_GET[password];
-}
-$h10="h10";
-echo "<div class=$h10></div>";
-    $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
-	$result=mysql_query($sql);
-if (!$row=mysql_fetch_array($result))
-{
-	echo '登入失敗';
-	echo "<a href=index.php>回首頁</a>";
-	die();
-}
-if ($_GET[id]=='root')
-{
+$_SESSION['flag']='0';
 
-$_SESSION['flag']='1';
-header("location: manage.php");
-}
 ?>
+
 
     <style>
 
@@ -79,12 +60,14 @@ header("location: manage.php");
                   </ul>
 
            <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
-
-                <?
+                           <?
                   echo '你好'.$row['3'];
                                               ?>
-                                              </form>
+                                              
+                   <a href=login.php>登入
+                        </a>
 
+</form>
 </div>
             </div>
         </div>

@@ -44,8 +44,12 @@ body{
 
 <body><br>
 <?
-echo '你好'.$row['3'].'請留言';
-?>
+echo '你好'.$row['name'].'請留言';
+echo "<a href=index.php>登出</a>";
+$_SESSION['number']=$row['number'];
+
+echo "<a href=modifymember.php>修改</a>";
+?><br>
 <div>
 <form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>

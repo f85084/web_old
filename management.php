@@ -4,6 +4,23 @@
 <meta name=viewport content="width=device-width, initial-scale=1.0">
 <meta name=description content=""><meta name=author content="">
 <link href=http://f85084.github.io/css.css  rel=stylesheet>
+<?
+//認證管理員
+
+session_start();
+if($_SESSION['flag']=='1')
+{
+	echo'歡迎ROOT登入';
+	echo '<a href="login.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	}
+else
+	{
+    echo'你不是root';
+	echo '<a href="login.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	die();
+	}
+	
+?>
 <style>
 /*整體字型、背景*/
 body{
@@ -15,7 +32,8 @@ body{
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
 <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
-
+<a href=login.php>登出</a>
+<a href=modifymember.php>修改</a>
   <!--查詢-->
   <div class=form-Search>
   <form method="get" action="management.php">
