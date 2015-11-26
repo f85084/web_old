@@ -17,6 +17,7 @@ $h10="h10";
 echo "<div class=$h10>";
     $sql="select * from member where id='$_SESSION[id]' and password='$_SESSION[password]'";
 	$result=mysql_query($sql);
+
 if (!$row=mysql_fetch_array($result))
 {
 	echo '登入失敗';
@@ -47,7 +48,6 @@ body{
 echo '你好'.$row['name'].'請留言';
 echo "<a href=index.php>登出</a>";
 $_SESSION['number']=$row['number'];
-
 echo "<a href=modifymember.php>修改</a>";
 ?><br>
 <div>

@@ -7,6 +7,8 @@
     <meta name=description content="">
     <meta name=author content="">
 <?
+include ('mydb.php');
+include ('index_action.php');
 session_start();
 $_SESSION['flag']='0';
 
@@ -62,10 +64,10 @@ $_SESSION['flag']='0';
            <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
                            <?
                   echo '你好'.$row['3'];
+				  echo '<br>';
+				  echo '<a href=message.php>會員專區</a>';
+				  
                                               ?>
-                                              
-                   <a href=login.php>登入
-                        </a>
 
 </form>
 </div>
