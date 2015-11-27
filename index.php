@@ -63,9 +63,9 @@ $_SESSION['flag']='0';
 
            <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
                            <?
-                  echo '你好'.$row['3'];
-				  echo '<br>';
-				  echo '<a href=message.php>會員專區</a>';
+                  echo '你好'.$row['name'];
+				  echo '<br><a href=message.php>會員專區</a>';
+				  echo '<br><a href=logout_action.php>登出</a>';
 				  
                                               ?>
 
