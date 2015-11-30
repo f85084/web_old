@@ -138,8 +138,8 @@ while ($row=mysql_fetch_array($result)) {
 			<td width=10px>$row[3]</td>
 			<td width=10px>$row[4]</td>
 			<td width=10px>$row[5]</td>
-			<td width=10px><a href=message_management_own.php?edit=$row[0]>編輯<a></td>
-			<td width=10px><a href=message_management_own.php?del=$row[0]>刪除<a></td>
+			<td width=10px><a href=edit_message.php?message_no=$row[message_no]>編輯<a></td>
+			<td width=10px><a href=message.php?del=$row[0]>刪除<a></td>
 		</tr>";
 }
 echo "</table>";

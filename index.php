@@ -65,7 +65,7 @@ $_SESSION['flag']='0';
                            <?
                   echo '你好'.$row['name'];
 				  echo '<br><a href=message.php>會員專區</a>';
-				  echo '<br><a href=logout_action.php>登出</a>';
+				  //echo '<br><a href=logout_action.php>登出</a>';
 				  
                                               ?>
 
