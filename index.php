@@ -63,9 +63,13 @@ $_SESSION['flag']='0';
 
            <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
                            <?
-                  echo '你好'.$row['name'];
+				 if(!$row=mysql_fetch_array($result)){
+				  echo '<br><a href=login.php>登入</a>';	  }
+				  else{
+				    echo '你好'.$row['name'];
+				   }
 				  echo '<br><a href=message.php>會員專區</a>';
-				  //echo '<br><a href=logout_action.php>登出</a>';
+				  echo '<br><a href=logout_action.php>登出</a>';
 				  
                                               ?>
 
