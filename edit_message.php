@@ -36,19 +36,25 @@ body{
 <div>
 
 
-<form name="edit_message" method="post" action="modify.php"  enctype="multipart/form-data" class=form-signin>
+<form name="edit_message" method="post" action="edit_modify.php"  enctype="multipart/form-data" class=form-signin>
 <h2 class=form-signin-heading>修改留言</h2>
 <p>
-
+<?
+$sql="select * from message where 
+message_no=$_SESSION[message_no]";
+$result=mysql_query($sql);
+$row=mysql_fetch_array($result);
+?>
 
 信箱
-<input type="email" name="email" class="input-block-level" placeholder="輸入信箱" value="<? echo $row[message_email]; ?>">
+<input type="email" name="message_email" class="input-block-level" placeholder="輸入信箱" value="<? echo $row[message_email]; ?>">
 內容
-<textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  value="<? echo $row[message_content]; ?>"> </textarea>
+
+<textarea name="message_content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"><? echo $row[message_content]; ?></textarea>
 <br>
  
  <a href="edit_modify.php">
- <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
+ <button class="btn btn-large btn-primary" type=submit>送出</button>
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
  
  
