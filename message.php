@@ -12,6 +12,7 @@ if($_GET[id])
 {
 $_SESSION['id']=$_GET[id];
 $_SESSION['password']=$_GET[password];
+$_SESSION['message_no']=$_GET[message_no];
 }
 $h10="h10";
 echo "<div class=$h10>";
@@ -45,11 +46,12 @@ body{
 
 <body><br>
 <?
-echo '你好'.$row['name'].'請留言';
-echo "<a href=index.php>登出</a>";
+echo '你好'.$row['name'].'請留言<br>';
+echo "<a href=index.php>登出</a><br>";
 $_SESSION['number']=$row['number'];
-echo "<a href=modifymember.php>修改</a>";
-?><br>
+$_SESSION['message_no']=$row['message_no'];
+echo "<a href=modifymember.php>修改</a><br>";
+?>
 <div>
 <form name="form" method="post" action="addmessage.php" class=form-signin>
 <h2 class=form-signin-heading>留言</h2>
@@ -62,7 +64,7 @@ echo "<a href=modifymember.php>修改</a>";
 <br>
 <input type="hidden" name="name" value=<?echo"$row[3]"?>>
 <input type="hidden" name="id" value=<?echo"$row[1]"?>>
- 
+ <input type="hidden" name="message_no" value=<?echo"$row[message_no]"?>>
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 

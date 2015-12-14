@@ -33,6 +33,11 @@ number=$_SESSION[number]";
 $result=mysql_query($sql);
 $row=mysql_fetch_array($result);
 ?>
+<?
+echo '你好'.$row['name'];
+echo "<a href=index.php>登出</a>";
+//echo "<a href=modifymember.php>修改</a>";
+?>
 <h2 class=form-signin-heading>修改會員基本資料</h2>
 <p>
 <input type="text" name="id" class="input-block-level" placeholder="登入帳號" value="<? echo $row[id]; ?>"> 

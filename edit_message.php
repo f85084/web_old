@@ -10,9 +10,19 @@ include ('mydb.php');
 session_start();
 if($_SESSION['flag']=='1')
 $_SESSION['message_no']=$row['message_no'];
-
+$_SESSION['message_no']=$_GET[message_no];
+    $sql="select * from message where message_no='$_SESSION[message_no]'";
+	$result=mysql_query($sql);
+echo "$sql";
 ?>
 
+<?
+if($row=mysql_fetch_array($result)){
+				    echo '你好'.$row['name'];
+				   }
+echo "<a href=index.php>登出</a>";
+//echo "<a href=modifymember.php>修改</a>";
+?>
 <style>
 /*整體字型、背景*/
 body{
@@ -22,36 +32,28 @@ body{
 </style>
 
 <body><br>
-<?
-echo '你好'.$row['name'];
-echo "<a href=index.php>登出</a>";
-$_SESSION['message_no']=$row['message_no'];
-//echo "<a href=modifymember.php>修改</a>";
-?>
+
 <div>
-<form name="edit_message" method="post" action="addmessage.php" class=form-signin>
+
+
+<form name="edit_message" method="post" action="modify.php"  enctype="multipart/form-data" class=form-signin>
 <h2 class=form-signin-heading>修改留言</h2>
 <p>
-<?
-$sql="select * from message where 
-message_no=$_SESSION[message_no]";
-$result=mysql_query($sql);
-$row=mysql_fetch_array($result);
-?>
+
+
 信箱
 <input type="email" name="email" class="input-block-level" placeholder="輸入信箱" value="<? echo $row[message_email]; ?>">
 內容
-<textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  value="<? echo $row[message_content]; ?>"></textarea>
+<textarea name="content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"  value="<? echo $row[message_content]; ?>"> </textarea>
 <br>
-<input type="hidden" name="name" value=<?echo"$row[3]"?>>
-<input type="hidden" name="id" value=<?echo"$row[1]"?>>
  
- <a href="newuser.php">
+ <a href="edit_modify.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
  
  
 </form>
+
 
 
 </div>
