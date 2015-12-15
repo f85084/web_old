@@ -40,7 +40,7 @@ $_SESSION['flag']='0';
                   <li class=dropdown><a href=index-share.php>分享</a>
                   <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國外<b class=caret></b></a>
                     <ul class=dropdown-menu>
-                      <li><a href=#>日本</a>
+                      <li><a href=japan.php>日本</a>
                       <li><a href=#>韓國</a>
                     </ul>
                   <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>國內<b class=caret></b></a>
@@ -49,6 +49,7 @@ $_SESSION['flag']='0';
                       <li><a href=#>中</a>
                       <li><a href=#>南</a>
                     </ul>
+                    <li class=dropdown><a href=buy.php>行程</a>
                   <li class=dropdown> <a href=# class=dropdown-toggle data-toggle=dropdown>Dropdown <b class=caret></b></a>
                     <ul class=dropdown-menu>
                       <li><a href=#>公告</a>

@@ -3,19 +3,12 @@
 
 <head>
     <meta charset=utf-8>
-    <meta http-equiv=X-UA-Compatible content="IE=edge">
-    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta name=description content="">
     <meta name=author content="">
-    <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
+    <link rel=icon href=/photo/index/an_logo.ico>
     <title>分享</title>
-   <!-- <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>-->
-    <link href=css/index/css1026.css rel=stylesheet type="text/css">
-    <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-    <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script>
-    <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-      <link href=css/index/index1119.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
-    <link href=css/index/bootstrap-responsive.css rel=stylesheet>
+
 <?
 include ('mydb.php');
 include ('index_action.php');
@@ -36,40 +29,7 @@ $_SESSION['flag']='0';
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
     </head>
 <body>
-<!--menu 開始-->
-<!--<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
-            <div class=container>
-                <div class=navbar-header>
-                    <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> 
-                    <a class=navbar-brand href=#>An's旅</a></div>
-                <div id=navbar class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class=active><a href=#>Home</a>
-                      <li><a href=index-share.php>分享</a>
-                      <li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
-                                        <ul class=dropdown-menu role=menu>
-                                          <li><a href=#>日本</a>
-                                          <li><a href=#>韓國</a>
-                        </ul>
-                      <li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國內 <span class=caret></span></a>
-                                        <ul class=dropdown-menu role=menu>
-                                          <li><a href=#>北</a>
-                                          <li><a href=#>中</a>
-                                          <li><a href=#>南</a>
-                               </ul>
-                      <li class=dropdown><a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>關於 <span class=caret></span></a>
-                                        <ul class=dropdown-menu role=menu>
-                                          <li><a href=#>公告</a>
-                                          <li><a href=#>簡介</a>
-                                          <li><a href=#>連結</a>
-                                          <li class=divider>
-                                          <li class=dropdown-header>會員
-                                          <li><a href=#>登入</a>
-                        </ul>
-                    </ul>
-                </div>
-            </div>
-    </nav>-->
+
  <!--menu 開始-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class=navbar-inner>
