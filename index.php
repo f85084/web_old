@@ -3,7 +3,7 @@
 <head>
     <meta charset=utf-8>
     <title>An's旅</title>
-    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <meta name=description content="">
     <meta name=author content="">
 <?
@@ -18,6 +18,7 @@ $_SESSION['flag']='0';
     <style>
 
     </style>
+ 
     <link href=css/index/index1119.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
     <link href=css/index/bootstrap-responsive.css rel=stylesheet>
     <link rel=apple-touch-icon-precomposed sizes=144x144 href=/Images/BS2/ico/apple-touch-icon-144-precomposed.png>
@@ -62,7 +63,6 @@ $_SESSION['flag']='0';
                     </ul>
                   </ul>
 
-           <form name="login" method="get" action="" class="navbar-form pull-right" id="login" >
                            <?
 				 if(!$row=mysql_fetch_array($result)){
 				  echo '<br><a href=login.php>登入</a>';	  }
@@ -74,7 +74,7 @@ $_SESSION['flag']='0';
 				  
                                               ?>
 
-</form>
+
 </div>
             </div>
         </div>
