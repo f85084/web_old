@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href=/Images/BS2/ico/favicon.png>
     <link href=css/index/css1026.css rel=stylesheet type="text/css">
     <link href=css/index/buycss_1217.css rel=stylesheet type="text/css">
-    <script id="twitter-wjs" async="" src="https://platform.twitter.com/widgets.js"></script>
+    <script id="twitter-wjs" async src="https://platform.twitter.com/widgets.js"></script>
     <!--<script type="text/javascript" async="" src="//kkbruce.disqus.com/embed.js"></script>
 -->
 
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 <div class="bs-example">
     <div class="row">
       <div class="col-sm-6 col-md-4">

@@ -1,0 +1,281 @@
+﻿/*footer large footer的區塊  開始*/
+/* line 994, ../sass/style.scss */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+/* line 995, ../sass/style.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 996, ../sass/style.scss */
+.clearfix {
+  *zoom: 1;
+  /*For IE 6&7 only*/
+}
+
+/* line 997, ../sass/style.scss */
+.rwd-footer {
+	width: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	background: #efefef;
+	padding: 20px 0 0 0;
+	position: absolute;
+	left:0px;
+
+}
+
+/* line 999, ../sass/style.scss */
+.rwd-footer .social_list {
+  float: right;
+}
+
+/* line 1000, ../sass/style.scss */
+.rwd-footer .social_list li {
+  padding: 0 10px;
+  display: inline-block;
+  font-size: 0px;
+  text-indent: -100000px;
+  overflow: hidden;
+  
+}
+
+/* line 1001, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(4) {
+  display: none;
+}
+
+/* line 1002, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(1) a {
+  background: url(../svg/facebook_footer_m.svg) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 1008, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(2) a {
+  background: url(../svg/instagram_footer_m.svg) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 1014, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(3) a {
+  background: url(../svg/youtube_footer_m.svg) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 1020, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(4) a {
+  background: url(../svg/line_footer.svg) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 1026, ../sass/style.scss */
+.rwd-footer .social_list li:nth-child(5) a {
+  background: url(../svg/contact_footer.svg) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 1032, ../sass/style.scss */
+.rwd-footer .social_list li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+/* line 1033, ../sass/style.scss */
+.rwd-footer .left {
+  padding: 0 0 0 20px;
+}
+
+/* line 1034, ../sass/style.scss */
+.rwd-footer .link_list {
+  text-align: left;
+  margin: 0 0 10px 0;
+}
+
+/* line 1035, ../sass/style.scss */
+.rwd-footer .link_list li {
+  padding: 0 10px 0 0;
+  display: inline-block;
+}
+
+/* line 1036, ../sass/style.scss */
+.rwd-footer .link_list li:after {
+  content: " ";
+  display: inline-block;
+  height: 10px;
+  padding: 0 10px 0 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 1043, ../sass/style.scss */
+.rwd-footer .link_list li:last-child:after {
+  border-right: none;
+}
+
+/* line 1044, ../sass/style.scss */
+.rwd-footer .link_list li a, footer .contact li a {
+  color: #000;
+  display: inline-block;
+}
+
+/* line 1045, ../sass/style.scss */
+.rwd-footer .contact {
+  text-align: left;
+  line-height: 16px;
+}
+
+/* line 1046, ../sass/style.scss */
+.rwd-footer .contact li {
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+
+/* line 1047, ../sass/style.scss */
+.rwd-footer .contact li i {
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+  float: left;
+}
+
+/* line 1048, ../sass/style.scss */
+.rwd-footer .contact li .icon-phone {
+  background: url(../svg/phone.svg) no-repeat left center;
+  -webkit-background-size: 22px;
+  -moz-background-size: 22px;
+  background-size: 22px;
+  margin: -1px 0 0;
+}
+
+/* line 1055, ../sass/style.scss */
+.rwd-footer .contact li .icon-email {
+  background: url(../svg/e_mail.svg) no-repeat left center;
+  -webkit-background-size: 22px;
+  -moz-background-size: 22px;
+  background-size: 22px;
+  margin: -2px 0 0;
+}
+
+/* line 1062, ../sass/style.scss */
+.rwd-footer p {
+  background: #000;
+  line-height: 30px;
+  color: #fff;
+  margin: 10px 0 0 0;
+}
+
+/* line 1066, ../sass/style.scss */
+.rwd-footer .link_list .pc-now {
+  position: relative;
+  margin-left: -14px;
+  padding: 0;
+}
+/* line 1070, ../sass/style.scss */
+.rwd-footer .link_list .pc-now:before {
+  content: '';
+  display: inline-block;
+  height: 10px;
+  position: absolute;
+  margin-left: 0;
+  border-left: 1px solid #efefef;
+}
+/* line 1078, ../sass/style.scss */
+.rwd-footer .link_list .pc-now a {
+  display: none;
+}
+
+/*footer medium*/
+@media only screen and (min-width: 600px) and (max-width: 979px) {
+  /* line 1088, ../sass/style.scss */
+  .rwd-footer .social_list {
+    float: none;
+    padding: 30px 0 20px 0;
+  }
+
+  /* line 1089, ../sass/style.scss */
+  .rwd-footer .social_list li:nth-child(4) {
+    display: inline-block;
+  }
+
+  /* line 1090, ../sass/style.scss */
+  .rwd-footer .link_list {
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
+
+  /* line 1091, ../sass/style.scss */
+  .rwd-footer .contact {
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  /* line 1092, ../sass/style.scss */
+  .rwd-footer .contact li {
+    display: block;
+  }
+}
+/*footer small*/
+@media only screen and (max-width: 599px) {
+  /* line 1098, ../sass/style.scss */
+  .rwd-footer .social_list {
+    float: none;
+    padding: 30px 0 20px 0;
+  }
+
+  /* line 1099, ../sass/style.scss */
+  .rwd-footer .social_list li:nth-child(4) {
+    display: inline-block;
+  }
+
+  /* line 1100, ../sass/style.scss */
+  .rwd-footer .link_list {
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
+
+  /* line 1101, ../sass/style.scss */
+  .rwd-footer .contact {
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  /* line 1102, ../sass/style.scss */
+  .rwd-footer .contact li {
+    display: block;
+  }
+}
+/*footer large footer的區塊  結束*/
+/*圖片縮放*/
+#fx {
+    display: block;
+    max-width: 70%;
+    height: auto;
+    margin: auto;
+}
+/*框架*/
+@media (min-width: 992px){
+.frame{
+        margin: 0 200px 15px;
+        padding: 45px 100px 15px;
+}
+}
+/*購物框架*/
+.col-sm-6 {
+    width: 30%;
+    float: left;
+}
