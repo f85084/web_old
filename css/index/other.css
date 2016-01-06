@@ -271,11 +271,6 @@
 @media (min-width: 992px){
 .frame{
         margin: 0 200px 15px;
-        padding: 45px 100px 15px;
+        padding: 0px 100px 15px;
 }
-}
-/*購物框架*/
-.col-sm-6 {
-    width: 30%;
-    float: left;
 }
