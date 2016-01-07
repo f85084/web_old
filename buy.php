@@ -29,7 +29,7 @@ $_SESSION['flag']='0';
 <nav class="navbar navbar-default navbar-static-top" role=navigation>
     <div class=container>
         <div class=navbar-header>
-            <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
+            <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
             <a class=navbar-brand href=index.php>An's</a>
         </div>
         <div id=navbar class="navbar-collapse collapse">
@@ -60,7 +60,7 @@ $_SESSION['flag']='0';
                  <li><a href=#>Separated link</a>
                  <li><a href=#>One more separated link</a>-->
                     </ul>
-                <li><a href=buy.php>行程</a>
+                <li><a href=buy.php>購買行程</a>
 </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li>
@@ -68,20 +68,33 @@ $_SESSION['flag']='0';
                 <li class=active>
                     <a href=/bs3/Examples/navbar-static-top>Static top <span class=sr-only>(current)</span></a>
                 <li><a href=/bs3/Examples/navbar-fixed-top>Fixed top</a>-->
+                <!--<li><a href=#>公告</a>
+                <li><a href=#>簡介</a>
+                <li><a href=#>連結</a>-->
+                 <li class=dropdown>
+                    <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>關於<span class=caret></span></a>
+                    <ul class=dropdown-menu role=menu>
                 <li><a href=#>公告</a>
                 <li><a href=#>簡介</a>
                 <li><a href=#>連結</a>
+                       <!-- <li class=divider>
+                             <li class=dropdown-header>Nav header
+                 <li><a href=#>Separated link</a>
+                 <li><a href=#>One more separated link</a>-->
+                    </ul>
                 <li>  <?
 				 if(!$row=mysql_fetch_array($result)){
 				  echo '<br><li><a href=login.php>登入</a>';	 
 				   }
 				  else{
 				    echo '<br><li><a>你好'.$row['name'];
-					
+					echo '<br><li><a href=logout_action.php>登出</a>';
+					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                 <li><a href=message.php>會員專區</a>
-                 <li><a href=logout_action.php>登出</a>
+                <li><a href=message.php><span class="glyphicon-class">購物車</span></a>
+                        
+                 
 </ul>
         </div>
     </div>

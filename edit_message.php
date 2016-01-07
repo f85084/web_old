@@ -22,6 +22,7 @@ if($row=mysql_fetch_array($result)){
 				   }
 echo "<a href=index.php>登出</a>";
 //echo "<a href=modifymember.php>修改</a>";
+header("location:message.php");
 ?>
 <style>
 /*整體字型、背景*/

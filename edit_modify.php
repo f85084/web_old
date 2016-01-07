@@ -15,6 +15,6 @@ echo $s;
 if (mysql_affected_rows()>0)
 echo '更新成功<br>';
 else echo '更新失敗<br>';
-//header("location:index.php");
+header("location:message.php");
 
 ?>
