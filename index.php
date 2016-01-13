@@ -7,9 +7,9 @@
     <meta name=author content="">
     <link rel=icon href=/web/photo/index/an_logo.ico>
     <title>An</title>
-    <link href=/web/css/index/bootstrap.min.css rel=stylesheet>
+    <link href=css/index/bootstrap.min.css rel=stylesheet>
     <!--<link href=/Content/AssetsBS3/examples/navbar-static-top.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-    <link href=/web/css/index/other.css rel=stylesheet>
+    <link href=css/index/other.css rel=stylesheet>
 
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
     <?
@@ -60,7 +60,7 @@ $_SESSION['flag']='0';
                  <li><a href=#>Separated link</a>
                  <li><a href=#>One more separated link</a>-->
                     </ul>
-                <li><a href=buy.php>購買行程</a>
+                <li><a href=shop.php>購買行程</a>
 </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li>
