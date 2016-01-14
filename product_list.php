@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Han">
 
 <head>
 
@@ -29,6 +29,7 @@
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="pages/index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -293,9 +294,9 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="newuser.php">新增會員</a>
-                                </li>                            
+                                </li>
                                 <li>
-                                    <a href="management.php">會員資料查詢</a>
+                                    <a href="product_list.php">會員資料查詢</a>
                                 </li>
                                 <li>
                                     <a href="message_management_own.php">會員留言</a>
@@ -321,36 +322,241 @@
         <!--目錄-->
         <!--內容B-->
         <div id="page-wrapper">
+            <div class="row">
+               <div class="col-md-9 col-md-offset-1">
+
+<?
+echo '你好'.$row['name'].'請留言<br>';
+$_SESSION['number']=$row['number'];
+$_SESSION['message_no']=$row['message_no'];
+echo "<a href=modifymember.php>修改</a><br>";
+?>
+
+<?php
+//header('Content-Type: text/html; charset=utf-8');
+include("mydb.php");
+
+    // 刪除
+    if ($_GET['del']) {
+    $a=$_GET['del'];
+    $d="delete from product where number=$a";
+    mysql_query($d);
+    //異動會顯示異動資料
+    echo '成功幾筆<br>'.mysql_affected_rows();
+    }
+
+    $id=$_GET['id'];
+
+    $sql = "select product_number,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date from   `product`  ";
+
+    // 查詢帳號
+    if ($_GET['product_number']) {
+    $sql = $sql."where product_number=".$product_number;
+    }
+    // 使用編號排序
+    if ($_GET['order']==1) {
+    $sql = $sql."order by product_number";
+    }
+    if ($_GET['order']==2) {
+    $sql = $sql."order by product_number desc";
+    }
+    // 使用編號排序
+    if ($_GET['order']==3) {
+    $sql = $sql."order by id";
+    }
+    if ($_GET['order']==4) {
+    $sql = $sql."order by id desc";
+    }
+    // 使用價格排序
+    if ($_GET['order']==5) {
+    $sql = $sql."order by password";
+    }
+    if ($_GET['order']==6) {
+    $sql = $sql."order by password desc";
+    }
+    // 使用價姓名序
+    if ($_GET['order']==7) {
+    $sql = $sql."order by name";
+    }
+    if ($_GET['order']==8) {
+    $sql = $sql."order by name desc";
+    }
+    // 使用價姓名序
+    if ($_GET['order']==9) {
+    $sql = $sql."order by tel";
+    }
+    if ($_GET['order']==10) {
+    $sql = $sql."order by tel desc";
+    }
+    // 使用價姓名序
+    if ($_GET['order']==11) {
+    $sql = $sql."order by address";
+    }
+    if ($_GET['order']==12) {
+    $sql = $sql."order by tel address";
+    }
+    // 使用價姓名序
+    if ($_GET['order']==13) {
+    $sql = $sql."order by file";
+    }
+    if ($_GET['order']==14) {
+    $sql = $sql."order by tel file";
+    }
+    // 使用價姓名序
+    if ($_GET['order']==15) {
+    $sql = $sql."order by memberdate";
+    }
+    if ($_GET['order']==16) {
+    $sql = $sql."order by tel memberdate";
+    }
+
+
+
+    // 回傳結果
+    $result=mysql_query($sql);
+
+    // 表格表題
+    echo '總共有' .mysql_num_rows($result).'人';
+	echo "<div class='table-responsive'>";
+    echo "<table class='table table-striped'> <tr>";
+        if ($_GET['order']==2) {
+        echo "
+        <td><a href=product_list.php?order=1>編號</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=2>編號</a></td>";
+        }
+        if ($_GET['order']==4) {
+        echo "
+        <td><a href=product_list.php?order=3>帳號</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=4>帳號</a></td>";
+        }
+        if ($_GET['order']==6) {
+        echo "
+        <td><a href=product_list.php?order=5>密碼</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=6>密碼</a></td>";
+        }
+        if ($_GET['order']==8) {
+        echo "
+        <td><a href=product_list.php?order=7>姓名</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=8>姓名</a></td>";
+        }
+        if ($_GET['order']==10) {
+        echo "
+        <td><a href=product_list.php?order=9>電話</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=10>電話</a></td>";
+        }
+        if ($_GET['order']==12) {
+        echo "
+        <td><a href=product_list.php?order=11>地址</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=12>地址</a></td>";
+        }
+        if ($_GET['order']==14) {
+        echo "
+        <td><a href=product_list.php?order=13>檔案</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=14>檔案</a></td>";
+        }
+        if ($_GET['order']==16) {
+        echo "
+        <td><a href=product_list.php?order=15>時間</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=16>時間</a></td>";
+        }
+	    if ($_GET['order']==18) {
+        echo "
+        <td><a href=product_list.php?order=17>時間</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=18>時間</a></td>";
+        }
+	 if ($_GET['order']==20) {
+        echo "
+        <td><a href=product_list.php?order=19>時間</a></td>";
+        }
+        else {
+        echo "
+        <td><a href=product_list.php?order=20>時間</a></td>";
+        }
+        echo "
+        <td>編輯</td>
+        <td>刪除</td>
+    </tr>";
+
+    // 表格內容
+    while ($row=mysql_fetch_array($result)) {
+    echo
+    "
+    <tr>
+        <td>$row[0]</td>
+        <td>$row[1]</td>
+        <td>$row[2]</td>
+        <td>$row[3]</td>
+        <td>$row[4]</td>
+        <td>$row[5]</td>
+        <td><img src=./photo/$row[6] width=100 height=50></td>
+        <td><img src=./photo/$row[7] width=100 height=50></td>
+        <td><img src=./photo/$row[8] width=100 height=50></td>				
+        <td>$row[9]</td>
+        <td><a href=product_list.php?edit =$row[0]>編輯<a></td>
+        <td><a href=product_list.php?del =$row[0]>刪除<a></td>
+    </tr>";
+    }
+
+    echo "</table>";
+		echo "</div>";
+?>       
+            </div>
+            </div>
         </div>
         <!-- /#page-wrapper -->
+        <!--內容S-->
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
+        <!-- Bootstrap Core JavaScript -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-            <!--內容S-->
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- DataTables JavaScript -->
+        <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="dist/js/sb-admin-2.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').DataTable({
-                responsive: true
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
             });
-        });
-    </script>
+        </script>
 
 </body>
 

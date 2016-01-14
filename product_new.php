@@ -311,7 +311,7 @@
                                     <a href="product_new.php">新增產品</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">產品列表</a>
+                                    <a href="product_list.php">產品列表</a>
                                 </li>
                             </ul>
                 </div>
@@ -324,7 +324,16 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="product_new" method="post" action="product_new_add.php" enctype="multipart/form-data" action="adduser.php">
+                    <form role="form" name="product_class" method="post" action="product_new_add.php" enctype="multipart/form-data" action="adduser.php">
+                        <div class="form-group">
+                            <label>是否顯示</label>
+                            <select name="product_class" class="form-control">
+                                <option name="product_class[]"  selected="selected">尚無分類</option>                             
+                                <option name="product_class[]" >韓國</option>
+                                <option name="product_class[]" >日本</option>                                
+
+                            </select>
+                        </div>                        
                         <div class="form-group">
                             <label>產品名稱</label>
                             <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="輸入產品名稱">

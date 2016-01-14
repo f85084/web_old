@@ -2,7 +2,7 @@
 <html lang=en>
 <head>
     <meta charset=utf-8>
-    <title>建立帳號</title>
+    <title>建立產品</title>
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta name=description content="">
     <meta name=author content="">
@@ -23,7 +23,7 @@
         include ('mydb.php');
 
         //檢查帳號是否重複
-        $sql="select * from product where id='$_POST[id]'";
+        $sql="select * from product where product_name='$_POST[product_name]'";
         $result=mysql_query($sql);
         if ($row=mysql_fetch_array($result))
         {
@@ -81,6 +81,7 @@
 
         // 新增
         $product_number=$_POST['product_number'];
+        $product_class=$_POST['product_class'];		
         $product_name=$_POST['product_name'];
         $product_price=$_POST['product_price'];
         $product_sale_price=$_POST['product_sale_price'];
@@ -90,8 +91,8 @@
         $product_pic3=$_FILES['product_pic3']['name'];
         $product_product_display=$_POST['product_display'];
         $product_date=$_POST['product_date'];
-        $sql="INSERT product (product_number,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date)
-        VALUES ('{$product_number}','{$product_name}','{$product_price}','{$product_sale_price}','{$product_text}','{$product_pic1}','{$product_pic2}','{$product_pic3}','{$product_display}',sysdate())";
+        $sql="INSERT product (product_number,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date)
+        VALUES ('{$product_number}','{$product_class}','{$product_name}','{$product_price}','{$product_sale_price}','{$product_text}','{$product_pic1}','{$product_pic2}','{$product_pic3}','{$product_display}',sysdate())";
 
         
        
@@ -102,7 +103,7 @@
         if (mysql_affected_rows()>=1);
         echo '新增成功<br><br>';
         ?>
-        <a href="login.php"><button class="btn btn-primary" type=submit>回到登入</button> </a>
+        <a href="product_new.php"><button class="btn btn-primary" type=submit>回到登入</button> </a>
 
     </body>
 </html>
