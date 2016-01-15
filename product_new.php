@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="pages/index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.php">An</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -326,7 +326,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <form role="form" name="product_class" method="post" action="product_new_add.php" enctype="multipart/form-data" action="adduser.php">
                         <div class="form-group">
-                            <label>是否顯示</label>
+                            <label>分類</label>
                             <select name="product_class" class="form-control">
                                 <option name="product_class[]"  selected="selected">尚無分類</option>                             
                                 <option name="product_class[]" >韓國</option>

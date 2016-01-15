@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.php">An</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -313,6 +313,9 @@
                                 <li>
                                     <a href="product_list.php">產品列表</a>
                                 </li>
+                                                                <li>
+                                    <a href="test.php">t</a>
+                                </li>
                             </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -325,17 +328,17 @@
             <div class="row">
                <div class="col-md-9 col-md-offset-1">
 
-<?
-echo '你好'.$row['name'].'請留言<br>';
-$_SESSION['number']=$row['number'];
-$_SESSION['message_no']=$row['message_no'];
-echo "<a href=modifymember.php>修改</a><br>";
-?>
+
+      <!--查詢-->
+  <div class=form-Search>
+  <form method="get" action="message_management_own.php">
+     <!-- 單列文字輸入欄位 -->
+    帳號:<input type="text" name="product_number"> <br>
+    <input type="submit" value="查詢資料">
+    <input type="reset" value="清除資料">
+  </form>
 
 <?php
-//header('Content-Type: text/html; charset=utf-8');
-include("mydb.php");
-
     // 刪除
     if ($_GET['del']) {
     $a=$_GET['del'];
@@ -344,6 +347,7 @@ include("mydb.php");
     //異動會顯示異動資料
     echo '成功幾筆<br>'.mysql_affected_rows();
     }
+	
 
     $id=$_GET['id'];
 
@@ -362,52 +366,45 @@ include("mydb.php");
     }
     // 使用編號排序
     if ($_GET['order']==3) {
-    $sql = $sql."order by id";
+    $sql = $sql."order by product_class";
     }
     if ($_GET['order']==4) {
-    $sql = $sql."order by id desc";
+    $sql = $sql."order by product_class desc";
     }
     // 使用價格排序
     if ($_GET['order']==5) {
-    $sql = $sql."order by password";
+    $sql = $sql."order by product_name";
     }
     if ($_GET['order']==6) {
-    $sql = $sql."order by password desc";
+    $sql = $sql."order by product_name desc";
     }
     // 使用價姓名序
     if ($_GET['order']==7) {
-    $sql = $sql."order by name";
+    $sql = $sql."order by product_price";
     }
     if ($_GET['order']==8) {
-    $sql = $sql."order by name desc";
+    $sql = $sql."order by product_price desc";
     }
     // 使用價姓名序
     if ($_GET['order']==9) {
-    $sql = $sql."order by tel";
+    $sql = $sql."order by product_sale_price";
     }
     if ($_GET['order']==10) {
-    $sql = $sql."order by tel desc";
+    $sql = $sql."order by product_sale_price desc";
     }
     // 使用價姓名序
     if ($_GET['order']==11) {
-    $sql = $sql."order by address";
+    $sql = $sql."order by product_text";
     }
     if ($_GET['order']==12) {
-    $sql = $sql."order by tel address";
+    $sql = $sql."order by product_text";
     }
     // 使用價姓名序
     if ($_GET['order']==13) {
-    $sql = $sql."order by file";
+    $sql = $sql."order by product_pic1";
     }
     if ($_GET['order']==14) {
-    $sql = $sql."order by tel file";
-    }
-    // 使用價姓名序
-    if ($_GET['order']==15) {
-    $sql = $sql."order by memberdate";
-    }
-    if ($_GET['order']==16) {
-    $sql = $sql."order by tel memberdate";
+    $sql = $sql."order by tel product_pic1";
     }
 
 
@@ -416,7 +413,7 @@ include("mydb.php");
     $result=mysql_query($sql);
 
     // 表格表題
-    echo '總共有' .mysql_num_rows($result).'人';
+    echo '總共有' .mysql_num_rows($result).'筆';
 	echo "<div class='table-responsive'>";
     echo "<table class='table table-striped'> <tr>";
         if ($_GET['order']==2) {
@@ -429,75 +426,63 @@ include("mydb.php");
         }
         if ($_GET['order']==4) {
         echo "
-        <td><a href=product_list.php?order=3>帳號</a></td>";
+        <td><a href=product_list.php?order=3>類別</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=4>帳號</a></td>";
+        <td><a href=product_list.php?order=4>類別</a></td>";
         }
         if ($_GET['order']==6) {
         echo "
-        <td><a href=product_list.php?order=5>密碼</a></td>";
+        <td><a href=product_list.php?order=5>地名</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=6>密碼</a></td>";
+        <td><a href=product_list.php?order=6>地名</a></td>";
         }
         if ($_GET['order']==8) {
         echo "
-        <td><a href=product_list.php?order=7>姓名</a></td>";
+        <td><a href=product_list.php?order=7>價錢/a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=8>姓名</a></td>";
+        <td><a href=product_list.php?order=8>價錢</a></td>";
         }
         if ($_GET['order']==10) {
         echo "
-        <td><a href=product_list.php?order=9>電話</a></td>";
+        <td><a href=product_list.php?order=9>優惠</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=10>電話</a></td>";
+        <td><a href=product_list.php?order=10>優惠</a></td>";
         }
         if ($_GET['order']==12) {
         echo "
-        <td><a href=product_list.php?order=11>地址</a></td>";
+        <td><a href=product_list.php?order=11>內容</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=12>地址</a></td>";
+        <td><a href=product_list.php?order=12>內容</a></td>";
         }
+				echo " <td>圖片1</td>
+        <td>圖片2</td>
+		        <td>圖片3</td>";	
         if ($_GET['order']==14) {
         echo "
-        <td><a href=product_list.php?order=13>檔案</a></td>";
+        <td><a href=product_list.php?order=13>上線</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=14>檔案</a></td>";
+        <td><a href=product_list.php?order=14>上線</a></td>";
         }
         if ($_GET['order']==16) {
+		        echo "";	
         echo "
-        <td><a href=product_list.php?order=15>時間</a></td>";
+        <td><a href=product_list.php?order=15>建立時間</a></td>";
         }
         else {
         echo "
-        <td><a href=product_list.php?order=16>時間</a></td>";
-        }
-	    if ($_GET['order']==18) {
-        echo "
-        <td><a href=product_list.php?order=17>時間</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=18>時間</a></td>";
-        }
-	 if ($_GET['order']==20) {
-        echo "
-        <td><a href=product_list.php?order=19>時間</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=20>時間</a></td>";
+        <td><a href=product_list.php?order=16>建立時間</a></td>";
         }
         echo "
         <td>編輯</td>
@@ -519,8 +504,9 @@ include("mydb.php");
         <td><img src=./photo/$row[7] width=100 height=50></td>
         <td><img src=./photo/$row[8] width=100 height=50></td>				
         <td>$row[9]</td>
-        <td><a href=product_list.php?edit =$row[0]>編輯<a></td>
-        <td><a href=product_list.php?del =$row[0]>刪除<a></td>
+        <td>$row[10]</td>		
+        <td><a href=edit_product_list.php?product_number=$row[product_number]>編輯<a></td>
+        <td><a href=product_list.php?del=$row[0]>刪除<a></td>
     </tr>";
     }
 

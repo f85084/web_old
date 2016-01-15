@@ -107,7 +107,7 @@ $_SESSION['flag']='0';
 <!--menu 結束-->
 
 <!--內文-->
-<div>
+<div class="row">
 <div class="col-md-6 col-md-offset-3">
 <?
 echo '你好'.$row['name'].'請留言<br>';
@@ -213,6 +213,7 @@ echo "</table>";
 echo "</div>";
 
 ?>
+</div>
 </div>
 </div>
 </div>
