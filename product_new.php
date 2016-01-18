@@ -296,10 +296,10 @@
                                     <a href="newuser.php">新增會員</a>
                                 </li>
                                 <li>
-                                    <a href="management.php">會員資料查詢</a>
+                                    <a href="manage_message.php">會員資料查詢</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">會員留言</a>
+                                    <a href="manage_message.php">會員留言</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

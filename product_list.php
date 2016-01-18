@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Han">
+<html lang="en">
 
 <head>
 
@@ -296,10 +296,10 @@
                                     <a href="newuser.php">新增會員</a>
                                 </li>
                                 <li>
-                                    <a href="product_list.php">會員資料查詢</a>
+                                    <a href="manage_message.php">會員資料查詢</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">會員留言</a>
+                                    <a href="manage_message.php">會員留言</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -313,16 +313,12 @@
                                 <li>
                                     <a href="product_list.php">產品列表</a>
                                 </li>
-                                                                <li>
-                                    <a href="test.php">t</a>
-                                </li>
                             </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <!--目錄-->
         <!--內容B-->
         <div id="page-wrapper">
             <div class="row">
@@ -541,6 +537,7 @@
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
+
             });
         </script>
 
