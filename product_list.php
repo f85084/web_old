@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Han">
+<html lang="en">
 
 <head>
 
@@ -296,7 +296,7 @@
                                     <a href="newuser.php">新增會員</a>
                                 </li>
                                 <li>
-                                    <a href="product_list.php">會員資料查詢</a>
+                                    <a href="management.php">會員資料查詢</a>
                                 </li>
                                 <li>
                                     <a href="message_management_own.php">會員留言</a>
@@ -313,9 +313,9 @@
                                 <li>
                                     <a href="product_list.php">產品列表</a>
                                 </li>
-                                                                <li>
-                                    <a href="test.php">t</a>
-                                </li>
+                                <li>
+                                    <a href="test.php">產品列表</a>
+                                </li>                                
                             </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
