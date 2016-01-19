@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="pages/index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.php">An</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -292,10 +292,13 @@
                             <a href="#"><i class="fa fa-files-o fa-user"></i>會員專區<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="management.php">會員資料查詢</a>
+                                    <a href="newuser.php">新增會員</a>
+                                </li>                            
+                                <li>
+                                    <a href="manage_member.php">會員資料查詢</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">會員留言</a>
+                                    <a href="manage_message.php">會員留言</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -304,10 +307,10 @@
                             <a href="#"><i class="fa fa-files-o fa-user"></i>產品專區<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="management.php">新增產品</a>
+                                    <a href="product_new.php">新增產品</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">產品列表</a>
+                                    <a href="product_list.php">產品列表</a>
                                 </li>
                             </ul>
                 </div>
