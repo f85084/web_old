@@ -6,10 +6,10 @@
     <meta name=description content="">
     <meta name=author content="">
     <link rel=icon href=/web/photo/index/an_logo.ico>
-    <title>留言</title>
-    <link href=css/index/bootstrap.min.css rel=stylesheet>
+    <title>購物車</title>
+    <link href=css/bootstrap.min.css rel=stylesheet>
     <!--<link href=/Content/AssetsBS3/examples/navbar-static-top.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-    <link href=css/index/other.css rel=stylesheet>
+    <link href=css/other.css rel=stylesheet>
 
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
 <!--<link href=http://f85084.github.io/css.css  rel=stylesheet>
@@ -30,7 +30,7 @@ $_SESSION['flag']='0';
     </head>
     <body>
 <!--menu 開始-->
-<nav class="navbar navbar-default navbar-static-top" role=navigation>
+<nav class="navbar navbar-inverse navbar-fixed-top" role=navigation>
     <div class=container>
         <div class=navbar-header>
             <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
@@ -38,8 +38,8 @@ $_SESSION['flag']='0';
         </div>
         <div id=navbar class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class=active><a href=index.php>Home</a>
-                <li><a href=index-share.php>分享</a>
+                <li><a href=index.php>Home</a>
+                <li><a href=index-share.php>美食分享</a>
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
                     <ul class=dropdown-menu role=menu>
@@ -56,9 +56,9 @@ $_SESSION['flag']='0';
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國內<span class=caret></span></a>
                     <ul class=dropdown-menu role=menu>
-                        <li><a href=#>北</a>
-                        <li><a href=#>中</a>
-                        <li><a href=#>南</a>
+                        <li><a href=north.php>北</a>
+                        <li><a href=medium.php>中</a>
+                        <li><a href=south.php>南</a>
                        <!-- <li class=divider>
                              <li class=dropdown-header>Nav header
                  <li><a href=#>Separated link</a>
@@ -80,8 +80,8 @@ $_SESSION['flag']='0';
                     <ul class=dropdown-menu role=menu>
                 <li><a href=#>公告</a>
                 <li><a href=#>簡介</a>
-                <li><a href=#>連結</a>
                        <!-- <li class=divider>
+
                              <li class=dropdown-header>Nav header
                  <li><a href=#>Separated link</a>
                  <li><a href=#>One more separated link</a>-->
@@ -96,8 +96,8 @@ $_SESSION['flag']='0';
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                <li><a href=message.php><span class="glyphicon-class">購物車</span></a>
-                        
+
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
                  
 </ul>
         </div>
@@ -113,11 +113,10 @@ $_SESSION['flag']='0';
 echo '你好'.$row['name'].'請留言<br>';
 $_SESSION['number']=$row['number'];
 $_SESSION['message_no']=$row['message_no'];
-echo "<a href=modifymember.php>修改</a><br>";
 ?>
 
 <div>
-<h2>留言</h2>
+<h2>購物車</h2>
 <?
 $sql = "select *from  `message`";
 $_GET['id']=$id;
@@ -133,13 +132,11 @@ echo "<div >";
 echo '總共有' .mysql_num_rows($result).'筆留言';
 echo " <table class='table table-striped' >
 		<tr>";
-	echo "	<td data-th ><a href=message_management_own.php?order=1>編號</a></td>
-<td  data-th ><a href=message_management_own.php?order=3>姓名</a></td>
-<td data-th ><a href=message_management_own.php?order=5>信箱</a></td>
-<td data-th><a href=message_management_own.php?order=7>內容</a></td>
-<td data-th><a href=message_management_own.php?order=9>時間</a></td>
-<td data-th>編輯</td>	
-	<td data-th >刪除</td>
+	echo "	<td data-th>商品名稱</td>
+<td data-th>規格</td>
+<td data-th>價格</td>
+<td data-th>數量</td>
+<td data-th>總金額</td>
 		</tr>";
 // 表格內容
     //$sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
@@ -156,8 +153,7 @@ while ($row=mysql_fetch_array($result)) {
 			<td data-th >$row[3]</td>
 			<td data-th >$row[4]</td>
 			<td data-th >$row[5]</td>
-			<td data-th ><a href=edit_message.php?message_no=$row[message_no]>編輯<a></td>
-			<td data-th ><a href=message.php?del=$row[0]>刪除<a></td>
+
 		</tr>";
 }
 echo "</table>";
