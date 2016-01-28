@@ -26,11 +26,10 @@ $_SESSION['flag']='0';
 
 ?>
 <?php
-header('Content-type: text/html; charset=utf-8');
- include "inc/class/Car.class.php";
-$MyCart = new Cart();
-$Myitems = $MyCart->getAllItems();
- 
+include "inc/class/Car.class.php";
+//$MyCart = new Cart();
+//$Myitems = $MyCart->getAllItems();
+// 
 ?>
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/MyCar.js"></script>
@@ -105,16 +104,12 @@ $Myitems = $MyCart->getAllItems();
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-
                 <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
-                 
 </ul>
         </div>
     </div>
 </nav>
-
 <!--menu 結束-->
-
 <!--內文-->
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
@@ -127,9 +122,9 @@ $_SESSION['message_no']=$row['message_no'];
 <div>
 <h2>購物車</h2>
 
-echo "<div >
+<div >
 <form id='myform' action='OrderForm.php' method='post'
-    onsubmit='return checkForm();'>";
+    onsubmit='return checkForm();'>
  <?
 $sql = "select *from  `message`";
 $_GET['id']=$id;
@@ -227,10 +222,7 @@ echo "</div>";
     }
     ?>
 </table>
- 
-</div>
-</div>
-<table  border="0" cellpadding="5" cellspacing="0"
+ <table  border="0" cellpadding="5" cellspacing="0"
     style="margin-top: 10px;">
     <tr>
         <td colspan="2" align="right">總金額：<span class="shopping_w2"
@@ -248,24 +240,18 @@ echo "</div>";
     </tr>
 </table>
 </form>
+
 </div>
 </div>
 </div>
 <!--程式結束--->
 </div>
-</div>
-</div>
-</div>
-</div>
 <!--內文-->        
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>
         <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script>
        <!-- <script src=/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js></script>-->
-
 <!--FOOTER S-->
-
 <footer class="rwd-footer clearfix">
-
   <ul class="contact">
     <li><a href="tel:0800"><i class="icon-phone"></i>0800</a></li>
     <li><a href="mailto:Anna's"><i class="icon-email"></i>Anna's</a></li>

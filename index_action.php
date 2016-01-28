@@ -1,5 +1,6 @@
 <?
     include ('mydb.php');
+	ob_start(); 
     session_start();
     if($_GET[id])
     {

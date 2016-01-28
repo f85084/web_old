@@ -8,12 +8,12 @@
 <?
 include ('mydb.php');
 session_start();
-if($_SESSION['flag']=='1')
+if($_SESSION['flag']=='0'){
 $_SESSION['message_no']=$row['message_no'];
-$_SESSION['message_no']=$_GET[message_no];
+$_SESSION['message_no']=$_GET['message_no'];
     $sql="select * from message where message_no='$_SESSION[message_no]'";
-	$result=mysql_query($sql);
-echo "$sql";
+	$result=mysql_query($sql);}
+//echo "$sql";
 ?>
 
 <?
@@ -21,8 +21,8 @@ if($row=mysql_fetch_array($result)){
 				    echo '你好'.$row['name'];
 				   }
 echo "<a href=index.php>登出</a>";
-//echo "<a href=modifymember.php>修改</a>";
-header("location:message.php");
+echo "<a href=modifymember.php>修改</a>";
+
 ?>
 <style>
 /*整體字型、背景*/

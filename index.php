@@ -16,9 +16,10 @@
     <?
 include ('mydb.php');
 include ('index_action.php');
+ob_start(); 
 session_start();
 $_SESSION['flag']='0';
-
+ob_end_flush();
 ?>
 
     <style>

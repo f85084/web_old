@@ -165,7 +165,7 @@ echo "
                             <div class='caption'>
                                 <h4 class='pull-right'>特價$$row[4]</h4>
                                 <h4>
-                                  <a href='shop_page.php'>$row[product_name]</a>
+                                  <a href='shop_page.php?product_number=$row[0]'>$row[product_name]</a>
                                 </h4>
                                 <p>$row[5]</p>
 
