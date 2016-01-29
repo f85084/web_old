@@ -12,7 +12,7 @@ if($_SESSION['flag']=='0'){
 $_SESSION['message_no']=$row['message_no'];
 $_SESSION['message_no']=$_GET['message_no'];
     $sql="select * from message where message_no='$_SESSION[message_no]'";
-	$result=mysql_query($sql);}
+	$result=mysql_query($sql);
 //echo "$sql";
 ?>
 

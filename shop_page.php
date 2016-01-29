@@ -16,8 +16,10 @@
 include ('mydb.php');
 include ('index_action.php');
 session_start();
-$_SESSION['flag']='0';
-
+$_SESSION['product_number']=$row['product_number'];;
+$_SESSION['product_number']=$_GET['product_number'];
+$sql="select * from product where product_number='$_SESSION[product_number]'";
+$result=mysql_query($sql);
 ?>
 
     <style>
@@ -34,7 +36,7 @@ $_SESSION['flag']='0';
         </div>
         <div id=navbar class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class=active><a href=index.php>Home</a>
+                <li><a href=index.php>Home</a>
                 <li><a href=index-share.php>分享</a>
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
@@ -104,28 +106,36 @@ $_SESSION['flag']='0';
 <!--內文-->
     <!-- Page Content -->
     <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Shop Name</p>
+                <div class='list-group'>
+                    <a href='shop_japan.php' class='list-group-item'>日本</a>
+                    <a href='shop_korea.php' class='list-group-item'>韓國</a>
+                    <a href='shop_hk.php' class='list-group-item'>香港</a>
+                </div>
+                </div>
 
         <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Portfolio Item
+
+            <div class="col-md-9">
+                <h1 class="page-header"><? echo " $row[product_name]"?>
                     <small>Item Subheading</small>
                 </h1>
             </div>
-        </div>
         <!-- /.row -->
 
         <!-- Portfolio Item Row -->
-        <div class="row">
 
-            <div class="col-md-8">
-                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+            <div class="col-md-6">
+           
+                <img class="img-responsive" src=" <? echo "./photo/$row[product_pic1]"?>" alt="">
             </div>
 
-            <div class="col-md-4">
-                <h3>Project Description</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3>Project Details</h3>
+            <div class="col-md-3">
+                <h3>描述</h3>
+                <p><? echo "$row[5]"?></p>
+                <h3>詳細</h3>
                 <ul>
                     <li>Lorem Ipsum</li>
                     <li>Dolor Sit Amet</li>
@@ -134,7 +144,13 @@ $_SESSION['flag']='0';
                 </ul>
             </div>
 
-        </div>
+            
+              <div class="col-md-3 col-md-offset-3">
+                              <p><? echo "$$row[4]"?></p>
+             <a href='#' class='btn btn-primary' role='button' onclick='location='addItem.php?sn=1';'>立即購買</a>
+            </div>
+
+               </div>
         <!-- /.row -->
 
         <!-- Related Projects Row -->
