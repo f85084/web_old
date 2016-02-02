@@ -386,3 +386,10 @@ body {
     padding: 9px;
     color: #333;
 }
+/*文章過長*/
+.over{
+    margin: 0px 0 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	}

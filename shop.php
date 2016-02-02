@@ -167,7 +167,7 @@ echo "
                                 <h4>
                                   <a href='shop_page.php?product_number=$row[0]'>$row[product_name]</a>
                                 </h4>
-                                <p>$row[5]</p>
+                                <p class='over'>$row[5]</p>
 
 								<p class='pull-right'><a href='#' class='btn btn-primary' role='button' onclick='location='addItem.php?sn=1';'>立即購買</a> <a href='shop_page.php?product_number=$row[0]' class='btn btn-default' role='button'>更多</a></p>
                             </div>
