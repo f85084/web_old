@@ -22,14 +22,14 @@
 include ('mydb.php');
 include ('index_action.php');
 session_start();
+//$cart =& $_SESSION['edCart']; 
+//if(!is_object($cart)) $cart = new edCart(); 
 $_SESSION['flag']='0';
 
 ?>
 <?php
 include "inc/class/Car.class.php";
-//$MyCart = new Cart();
-//$Myitems = $MyCart->getAllItems();
-// 
+
 ?>
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/MyCar.js"></script>
@@ -137,19 +137,18 @@ $_GET['id']=$id;
 $result=mysql_query($sql);
 // 表格表題   
 echo '總共有' .mysql_num_rows($result).'筆留言';
-echo " <table class='table table-striped' >
-		<tr>";
-	echo "	<td data-th>商品名稱</td>
+?>
+<table class='table table-striped' >
+		<tr>
+	<td data-th>商品名稱</td>
 <td data-th>規格</td>
 <td data-th>價格</td>
 <td data-th>數量</td>
 <td data-th>總金額</td>
-		</tr>";
-// 表格內容
-    //$sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
-	//$result=mysql_query($sql);
-//if ($row=mysql_fetch_array($result))
-//{
+<td data-th>刪除</td>
+		</tr>
+        <?
+
 	$sql = "SELECT *FROM `message` WHERE message_id='$id'";
 	$result=mysql_query($sql);
 while ($row=mysql_fetch_array($result)) {
