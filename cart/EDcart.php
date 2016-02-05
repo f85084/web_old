@@ -99,6 +99,3 @@ class edCart {
 	} 
 }
 ?>
-EDcart.php
-第 5 項，共 6 項
-_參考程式碼addtocart.phpcartok.phpcartorder.phpEDcart.php購物車目前顯示的是「EDcart.php」。

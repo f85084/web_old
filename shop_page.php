@@ -16,9 +16,9 @@
 include ('mydb.php');
 include ('index_action.php');
 session_start();
-$_SESSION['product_number']=$row['product_number'];;
-$_SESSION['product_number']=$_GET['product_number'];
-$sql="select * from product where product_number='$_SESSION[product_number]'";
+$_SESSION['product_id']=$row['product_id'];;
+$_SESSION['product_id']=$_GET['product_id'];
+$sql="select * from product where product_id='$_SESSION[product_id]'";
 $result=mysql_query($sql);
 ?>
 

@@ -22,9 +22,9 @@
 include ('mydb.php');
 include ('index_action.php');
 session_start();
-//$cart =& $_SESSION['edCart']; 
-//if(!is_object($cart)) $cart = new edCart(); 
-$_SESSION['flag']='0';
+$cart =& $_SESSION['edCart']; 
+if(!is_object($cart)) $cart = new edCart(); 
+//$_SESSION['flag']='0';
 
 ?>
 <?php
@@ -128,11 +128,7 @@ $_SESSION['message_no']=$row['message_no'];
  <?
 $sql = "select *from  `message`";
 $_GET['id']=$id;
-//$id='number';
-// 查詢帳號
-/*if ($_GET['message_no']) {
-	$sql = $sql."where message_no=".$id;
-}*/
+
 // 回傳結果
 $result=mysql_query($sql);
 // 表格表題   
@@ -159,7 +155,7 @@ while ($row=mysql_fetch_array($result)) {
 			<td data-th >$row[3]</td>
 			<td data-th >$row[4]</td>
 			<td data-th >$row[5]</td>
-
+			<td data-th >X</td>
 		</tr>";
 }
 echo "</table>";

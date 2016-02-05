@@ -94,7 +94,7 @@ $_SESSION['flag']='0';
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                <li><a href=message.php><span class="glyphicon-class">購物車</span></a>
+                <li><a href=cart.php><span class="glyphicon-class">購物車</span></a>
                         
                  
 </ul>
@@ -165,11 +165,13 @@ echo "
                             <div class='caption'>
                                 <h4 class='pull-right'>特價$$row[4]</h4>
                                 <h4>
-                                  <a href='shop_page.php?product_number=$row[0]'>$row[product_name]</a>
+                                  <a href='shop_page.php?product_id=$row[0]'>$row[product_name]</a>
                                 </h4>
                                 <p class='over'>$row[5]</p>
 
-								<p class='pull-right'><a href='#' class='btn btn-primary' role='button' onclick='location='addItem.php?sn=1';'>立即購買</a> <a href='shop_page.php?product_number=$row[0]' class='btn btn-default' role='button'>更多</a></p>
+								<p class='pull-right'>
+								<a href='addtocart.php?A=Add&product_id=$row[0]&product_name=$row[2]&product_sale_price=$row[4]' class='btn btn-primary' role='button' ;>立即購買</a> 
+								<a href='shop_page.php?product_id=$row[0]' class='btn btn-default' role='button'>更多</a></p>
                             </div>
                             <div class='ratings'>
                                 <p class='pull-right'>15 reviews</p>
