@@ -18,7 +18,7 @@ $num = $_GET['num'];
 if(!is_numeric($num))
 $num = 1;
 if(isset($sn) && strlen(trim($sn))>0 && is_numeric($sn)){
-    $Cart->addItem($sn, "產品名稱", 100, $num, "描述", "單位");
+    $Cart->addItem($sn, "產品名稱1", 101, $num, "描述", "單位");
  
 }
 //加入成功後回到前一頁

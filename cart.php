@@ -21,14 +21,13 @@
     <?
 include ('mydb.php');
 include ('index_action.php');
-session_start();
-$cart =& $_SESSION['edCart']; 
-if(!is_object($cart)) $cart = new edCart(); 
-//$_SESSION['flag']='0';
-
-?>
-<?php
 include "inc/class/Car.class.php";
+session_start();
+$MyCart = new Cart();
+$Myitems = $MyCart->getAllItems();
+//$cart =& $_SESSION['edCart']; 
+//if(!is_object($cart)) $cart = new edCart(); 
+//$_SESSION['flag']='0';
 
 ?>
 <script type="text/javascript" src="js/prototype.js"></script>
@@ -136,7 +135,7 @@ echo '總共有' .mysql_num_rows($result).'筆留言';
 ?>
 <table class='table table-striped' >
 		<tr>
-	<td data-th>商品名稱</td>
+<td data-th>商品名稱</td>
 <td data-th>規格</td>
 <td data-th>價格</td>
 <td data-th>數量</td>
@@ -144,8 +143,7 @@ echo '總共有' .mysql_num_rows($result).'筆留言';
 <td data-th>刪除</td>
 		</tr>
         <?
-
-	$sql = "SELECT *FROM `message` WHERE message_id='$id'";
+        /*	$sql = "SELECT *FROM `message` WHERE message_id='$id'";
 	$result=mysql_query($sql);
 while ($row=mysql_fetch_array($result)) {
 	echo 
@@ -160,7 +158,7 @@ while ($row=mysql_fetch_array($result)) {
 }
 echo "</table>";
 echo "</div>";
-
+*/
 ?>
 <!--套程式-->
   <?php
