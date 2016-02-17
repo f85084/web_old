@@ -170,7 +170,7 @@ echo "
                                 <p class='over'>$row[5]</p>
 
 								<p class='pull-right'>
-								<a href='' class='btn btn-primary' onclick='location='addItem.php?sn=$row[0]';' role='button' ;>立即購買</a> 
+								<a href='addItem.php?sn=$row[product_id]' class='btn btn-primary'  role='button' ;>立即購買</a> 
 								<a href='shop_page.php?product_id=$row[0]' class='btn btn-default' role='button'>更多</a></p>
                             </div>
                             <div class='ratings'>
