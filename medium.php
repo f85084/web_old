@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang=en><head>
+<html lang="zh-Hant"><head>
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name=description content="">
     <meta name=author content="">
-    <link rel=icon href=/web/photo/index/an_logo.ico>
+    <link rel=icon href=photo/index/an_logo.ico>
     <title>An</title>
-    <link href=css/index/bootstrap.min.css rel=stylesheet>
+
+        <link href=css/bootstrap.min.css rel=stylesheet>
+            <link href=css/other.css rel=stylesheet>
     <!--<link href=/Content/AssetsBS3/examples/navbar-static-top.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-    <link href=css/index/other.css rel=stylesheet>
 
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
     <?
 include ('mydb.php');
 include ('index_action.php');
+ob_start(); 
 session_start();
 $_SESSION['flag']='0';
-
+ob_end_flush();
 ?>
 
     <style>
-
     </style>
     </head>
     <body>
+    
 <!--menu 開始-->
-<nav class="navbar navbar-default navbar-static-top" role=navigation>
+<nav class="navbar navbar-inverse navbar-fixed-top" role=navigation>
     <div class=container>
         <div class=navbar-header>
             <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
@@ -34,8 +36,8 @@ $_SESSION['flag']='0';
         </div>
         <div id=navbar class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class=active><a href=index.php>Home</a>
-                <li><a href=index-share.php>分享</a>
+                <li ><a href=index.php>Home</a>
+                <li><a href=index-share.php>美食分享</a>
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
                     <ul class=dropdown-menu role=menu>
@@ -76,8 +78,8 @@ $_SESSION['flag']='0';
                     <ul class=dropdown-menu role=menu>
                 <li><a href=#>公告</a>
                 <li><a href=#>簡介</a>
-                <li><a href=#>連結</a>
                        <!-- <li class=divider>
+
                              <li class=dropdown-header>Nav header
                  <li><a href=#>Separated link</a>
                  <li><a href=#>One more separated link</a>-->
@@ -92,8 +94,8 @@ $_SESSION['flag']='0';
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                <li><a href=message.php><span class="glyphicon-class">購物車</span></a>
-                        
+
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
                  
 </ul>
         </div>

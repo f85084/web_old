@@ -14,6 +14,10 @@ body {
     color: #000;
     background-color: #FFFFFF;
 }
+.navbar-inverse {
+    background-color: #222;
+    border-color: #ccc;
+}
 /*footer large footer的區塊  開始*/
 /* line 994, ../sass/style.scss */
 .clearfix:before, .clearfix:after {
