@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
 
@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+        <link rel=icon href=photo/index/an_logo.ico>
     <title>後台</title>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +29,7 @@
 
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -321,36 +323,73 @@
         <!--目錄-->
                 <!--內容B-->
         <div id="page-wrapper">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form role="form" name="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
+                    <h2>請輸入基本資料</h2>                 
+                        <div class="form-group">
+                            <label>登入帳號</label>
+
+                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"> 
+                        </div>
+                        <div class="form-group">
+                            <label>登入密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼"> 
+                        </div>
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名"> 
+                        </div>
+                        <div class="form-group">
+                            <label>電話</label>
+                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話"> 
+                        </div>
+                        <div class="form-group">
+                            <label>地址</label>
+                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址"> 
+                        </div>                        
+                        <div class="form-group">
+                            <label>上傳照片</label>
+                            <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"> 
+                            <p class="help-block">會員圖片</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">送出</button>
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
         </div>
         <!-- /#page-wrapper -->
+        <!--內容S-->
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
+        <!-- Bootstrap Core JavaScript -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-            <!--內容S-->
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- DataTables JavaScript -->
+        <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="dist/js/sb-admin-2.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').DataTable({
-                responsive: true
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
             });
-        });
-    </script>
+        </script>
 
 </body>
 

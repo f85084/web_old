@@ -293,13 +293,13 @@
                             <a href="#"><i class="fa fa-files-o fa-user"></i>會員專區<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="newuser.php">新增會員</a>
+                                    <a href="manage_newuser.php">新增會員</a>
                                 </li>
                                 <li>
-                                    <a href="management.php">會員資料查詢</a>
+                                    <a href="manage_member.php">會員資料查詢</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">會員留言</a>
+                                    <a href="manage_message.php">會員留言</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -320,7 +320,7 @@
             <!-- /.navbar-static-side -->
         </nav>
         <!--目錄-->
-        <!--內容B-->
+                <!--內容B-->
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">

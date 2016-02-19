@@ -293,13 +293,13 @@
                             <a href="#"><i class="fa fa-files-o fa-user"></i>會員專區<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="newuser.php">新增會員</a>
+                                    <a href="manage_newuser.php">新增會員</a>
                                 </li>
                                 <li>
-                                    <a href="management.php">會員資料查詢</a>
+                                    <a href="manage_member.php">會員資料查詢</a>
                                 </li>
                                 <li>
-                                    <a href="message_management_own.php">會員留言</a>
+                                    <a href="manage_message.php">會員留言</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -313,9 +313,6 @@
                                 <li>
                                     <a href="product_list.php">產品列表</a>
                                 </li>
-                                <li>
-                                    <a href="test.php">產品列表</a>
-                                </li>                                
                             </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -351,7 +348,7 @@
 
     $id=$_GET['id'];
 
-    $sql = "select product_number,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date from   `product`  ";
+    $sql = "select product_id,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date from   `product`  ";
 
     // 查詢帳號
     if ($_GET['product_number']) {
@@ -411,9 +408,10 @@
 
     // 回傳結果
     $result=mysql_query($sql);
+	 //echo "$sql";
 
     // 表格表題
-    echo '總共有' .mysql_num_rows($result).'筆';
+    //echo '總共有' .mysql_num_rows($result).'筆';
 	echo "<div class='table-responsive'>";
     echo "<table class='table table-striped'> <tr>";
         if ($_GET['order']==2) {

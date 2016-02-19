@@ -9,7 +9,7 @@
 body{
 	font-family: Arial, 微軟正黑體;
 	background-color:#f5f5f5;
-	margin: 0px auto;
+	margin: 0px 600px ;
 	}
 
 </style>
@@ -24,7 +24,7 @@ body{
 <p>
 <input type="text" name="id" class="input-block-level" placeholder="登入帳號"> 
 
- <input type="password" name="password" class="input-block-level" placeholder="登入密碼">
+<input type="password" name="password" class="input-block-level" placeholder="登入密碼"> 
 
 <input type="text" name="name" class="input-block-level" placeholder="姓名"> 
 
@@ -37,6 +37,9 @@ body{
 <button class="btn btn-large btn-primary" type=submit>送出</button>
 </br>
 </form>
-<div class=h8>
+
 <a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button></a><br>
 </div>
+</div><div class="h8">
+  <a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回登入頁面</button> </a>
+  </div> 
