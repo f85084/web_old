@@ -112,10 +112,13 @@ $Myitems = $MyCart->getAllItems();
 <!--內文-->
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
+
 <?
+/*
 echo '你好'.$row['name'].'請留言<br>';
 $_SESSION['number']=$row['number'];
 $_SESSION['message_no']=$row['message_no'];
+*/
 ?>
 
 <div>
@@ -124,14 +127,16 @@ $_SESSION['message_no']=$row['message_no'];
 <div >
 <form id='myform' action='OrderForm.php' method='post'
     onsubmit='return checkForm();'>
+ 
  <?
-$sql = "select *from  `message`";
+/*$sql = "select *from  `message`";
 $_GET['id']=$id;
 
 // 回傳結果
 $result=mysql_query($sql);
 // 表格表題   
 echo '總共有' .mysql_num_rows($result).'筆留言';
+*/
 ?>
 <table class='table table-striped' >
 		<tr>

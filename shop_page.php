@@ -28,7 +28,7 @@ $result=mysql_query($sql);
     </head>
     <body>
 <!--menu 開始-->
-<nav class="navbar navbar-default navbar-static-top" role=navigation>
+<nav class="navbar navbar-inverse navbar-fixed-top" role=navigation>
     <div class=container>
         <div class=navbar-header>
             <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
@@ -36,8 +36,8 @@ $result=mysql_query($sql);
         </div>
         <div id=navbar class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href=index.php>Home</a>
-                <li><a href=index-share.php>分享</a>
+                <li class=active><a href=index.php>Home</a>
+                <li><a href=index-share.php>美食分享</a>
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
                     <ul class=dropdown-menu role=menu>
@@ -56,7 +56,7 @@ $result=mysql_query($sql);
                     <ul class=dropdown-menu role=menu>
                         <li><a href=north.php>北</a>
                         <li><a href=medium.php>中</a>
-                        <li><a href=outh.php>南</a>
+                        <li><a href=south.php>南</a>
                        <!-- <li class=divider>
                              <li class=dropdown-header>Nav header
                  <li><a href=#>Separated link</a>
@@ -78,8 +78,8 @@ $result=mysql_query($sql);
                     <ul class=dropdown-menu role=menu>
                 <li><a href=#>公告</a>
                 <li><a href=#>簡介</a>
-                <li><a href=#>連結</a>
                        <!-- <li class=divider>
+
                              <li class=dropdown-header>Nav header
                  <li><a href=#>Separated link</a>
                  <li><a href=#>One more separated link</a>-->
@@ -94,8 +94,8 @@ $result=mysql_query($sql);
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                <li><a href=essage.php><span class="glyphicon-class">購物車</span></a>
-                        
+
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
                  
 </ul>
         </div>

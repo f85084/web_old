@@ -329,7 +329,7 @@ $row=mysql_fetch_array($result);
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form role="form" name="edit_product_list" method="post" action="edit_product_list_action.php" enctype="multipart/form-data" >
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label>分類</label>
                             <select name="product_class" class="form-control" value="<? echo $row[product_class]; ?>">
 							
@@ -338,7 +338,7 @@ $row=mysql_fetch_array($result);
                                 <option name="product_class[]" >日本</option>                                
 
                             </select>
-                        </div>                        
+                        </div>       -->                 
                         <div class="form-group">
                             <label>產品名稱</label>
                             <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="輸入產品名稱" value="<? echo $row[product_name]; ?>">
@@ -355,6 +355,7 @@ $row=mysql_fetch_array($result);
                             <label>產品資訊</label>
                             <textarea name="product_text" class="form-control" rows="3"><? echo $row[product_text]; ?></textarea>
                         </div>
+						<!--
                         <div class="form-group">
                             <label>檔案上傳1</label>
                             <input type="file" name="product_pic1" id="exampleInputFile">
@@ -369,7 +370,7 @@ $row=mysql_fetch_array($result);
                             <label>檔案上傳3</label>
                             <input type="file" name="product_pic3" id="exampleInputFile">
                             <p class="help-block">第三張圖</p>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <label>是否顯示</label>
                             <select name="product_display" class="form-control" value="<? echo $row[product_display]; ?>">

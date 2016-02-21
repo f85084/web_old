@@ -106,13 +106,22 @@ ob_end_flush();
 <!--內文-->
     <div class=container>
         <div class=page-header>
-      <h1>Sticky footer with fixed navbar</h1></div>
-            <p class=lead>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.
-<p>Back to <a href="/bs3/Examples?name=sticky-footer">the default sticky footer</a> minus the navbar.</div>
+      <h1>美食分享</h1></div>
+            <p class=lead> </p>
+
                              <div class=container>
                              <div class=jumbotron>
-                            <h1>Hello, world!</h1>
-                            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.<img id="fx" src="photo/index/2015-10-1.jpg"/>
+                            <h2>J.S. Foodies</h2>
+							<h5>
+                            <p>J.S. Foodies<br />
+店家資訊<br />
+地址：新北市林口區文化三路一段356號2F(戶外區)<br />
+電話：(02)2606-8666<br />
+營業時間<br />
+平日(週一至週四)及例假日 11：00～21：30<br />
+例假日前一日(週五、週六) 11：00～22：00<br />
+				<br />			</h5>
+							<img id="fx" src="photo/index/2015-10-1.jpg"/>
 </div></div>
 <!--內文-->        
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>

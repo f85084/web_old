@@ -327,13 +327,13 @@
 
 
       <!--查詢-->
-  <div class=form-Search>
-  <form method="get" action="message_management_own.php">
+ <!--   <div class=form-Search>
+<form method="get" action="message_management_own.php">
      <!-- 單列文字輸入欄位 -->
-    帳號:<input type="text" name="product_number"> <br>
+ <!--     帳號:<input type="text" name="product_number"> <br>
     <input type="submit" value="查詢資料">
     <input type="reset" value="清除資料">
-  </form>
+  </form>-->
 
 <?php
     // 刪除

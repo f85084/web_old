@@ -55,15 +55,11 @@ session_start();
         echo "上傳失敗";
 
 $s="update product set 
-product_class='{$_POST['product_class']}',
 product_name='{$_POST['product_name']}',
 product_price='{$_POST['product_price']}',
 product_sale_price='{$_POST['product_sale_price']}',
 product_text='{$_POST['product_text']}',
-product_display='{$_POST['product_display']}',
-product_pic1='{$_FILES['product_pic1']['name']}',
-product_pic2='{$_FILES['product_pic2']['name']}',
-product_pic3='{$_FILES['product_pic3']['name']}'
+product_display='{$_POST['product_display']}'
 where product_id=$_SESSION[product_id] ";
 $result=mysql_query($s);
 echo $s;

@@ -77,7 +77,6 @@ $_SESSION['flag']='0';
                     <ul class=dropdown-menu role=menu>
                 <li><a href=#>公告</a>
                 <li><a href=#>簡介</a>
-                <li><a href=#>連結</a>
                        <!-- <li class=divider>
 
                              <li class=dropdown-header>Nav header
@@ -94,8 +93,8 @@ $_SESSION['flag']='0';
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
                         ?>
-                <li><a href=cart.php><span class="glyphicon-class">購物車</span></a>
-                        
+
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
                  
 </ul>
         </div>
