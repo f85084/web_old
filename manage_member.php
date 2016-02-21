@@ -324,8 +324,8 @@
         <div id="page-wrapper">
         <!-- /#page-wrapper -->
 
-        <a href=login.php>登出</a>
-        <a href=modifymember.php>修改</a>
+        <!--<a href=login.php>登出</a>
+        <a href=modifymember.php>修改</a>-->
         <!--查詢-->
         <div class=form-Search>
             <form method="get" action="management.php">
@@ -351,7 +351,7 @@
 
     $id=$_GET['id'];
 
-    $sql = "select number,id,password,name,tel,address,gif,memberdate from   `member`  ";
+    $sql = "SELECT * FROM  `member` ORDER BY  `member`.`memberdate` ASC ";
 
     // 查詢帳號
     if ($_GET['id']) {
@@ -506,10 +506,10 @@
         <td data-th>$row[3]</td>
         <td data-th>$row[4]</td>
         <td data-th>$row[5]</td>
-        <td data-th><img src=./photo/$row[6] width=100 height=50></td>
+        <td data-th><img src=./photo/personal/$row[6] width=50 height=50></td>
         <td data-th>$row[7]</td>
-        <td data-th><a href=management.php?edit =$row[0]>編輯<a></td>
-        <td data-th><a href=management.php?del =$row[0]>刪除<a></td>
+        <td data-th><a href=edit_manage_member.php?number=$row[number]>編輯<a></td>
+        <td data-th><a href=manage_member.php?del=$row[number]>刪除<a></td>
     </tr>";
     }
 

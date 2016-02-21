@@ -129,13 +129,13 @@ $_SESSION['flag']='0';
 
 		<div class='carousel-inner'>
                                 <div class='item active'>
-                                    <img class='slide-image' src='http://placehold.it/800x300' alt=''>
+                                    <img class='slide-image' src='./photo/kv/1' alt=''>
                                 </div>
                                 <div class='item'>
-                                    <img class='slide-image' src='http://placehold.it/800x300' alt=''>
+                                    <img class='slide-image' src='./photo/kv/2' alt=''>
                                 </div>
                                 <div class='item'>
-                                    <img class='slide-image' src='http://placehold.it/800x300' alt=''>
+                                    <img class='slide-image' src='./photo/kv/3' alt=''>
                                 </div>
                             </div>
                             <a class='left carousel-control' href='#carousel-example-generic' data-slide='prev'>

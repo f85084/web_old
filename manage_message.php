@@ -351,7 +351,7 @@
 
     $id=$_GET['id'];
 
-    $sql = "select number,id,password,name,tel,address,gif,memberdate from   `member`  ";
+    $sql = "select message_no,message_id,message_name,message_content,message_date from   `message`  ";
 
     // 查詢帳號
     if ($_GET['id']) {
@@ -367,6 +367,11 @@
     echo "<table class='table table-striped'>
     <tr>";
         echo "
+        <td data-th >編號</td>
+        <td data-th >帳號</td>
+        <td data-th >姓名</td>
+        <td data-th >留言內容</td>
+        <td data-th >時間日期</td>	
         <td data-th >編輯</td>
         <td data-th >刪除</td>
     </tr>";
@@ -381,9 +386,6 @@
         <td data-th>$row[2]</td>
         <td data-th>$row[3]</td>
         <td data-th>$row[4]</td>
-        <td data-th>$row[5]</td>
-        <td data-th><img src=./photo/$row[6] width=100 height=50></td>
-        <td data-th>$row[7]</td>
         <td data-th><a href=management.php?edit =$row[0]>編輯<a></td>
         <td data-th><a href=management.php?del =$row[0]>刪除<a></td>
     </tr>";

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang=en><head><meta charset=utf-8>
 <title>新增留言</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5;
-	margin: 0px 100px auto;
+
 	}
 
 </style>

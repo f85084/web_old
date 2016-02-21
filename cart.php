@@ -20,7 +20,7 @@
 <style>
     <?
 include ('mydb.php');
-//include ('index_action.php');
+include ('index_action.php');
 include "inc/class/Car.class.php";
 session_start();
 $MyCart = new Cart();

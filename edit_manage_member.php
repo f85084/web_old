@@ -39,11 +39,17 @@
     <![endif]-->
     <?
     include ('mydb.php');
-    include ('index_action.php');
+    //include ('index_action.php');
     session_start();
-    $_SESSION['flag']='1';
-
+	
+$_SESSION['number']=$row['number'];
+$_SESSION['number']=$_GET['number'];
+$sql="select * from member where number=$_SESSION[number]";
+	$result=mysql_query($sql);
+$row=mysql_fetch_array($result);
     ?>
+	
+
 	<style>
 /*整體字型、背景*/
 body{
@@ -332,41 +338,35 @@ body{
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
+ <form name="edit_manage_member.php" method="post" action="edit_manage_member_action.php"  enctype="multipart/form-data" class=form-signin>
                     <h2>請輸入基本資料</h2>                 
                         <div class="form-group">
-                            <label>登入帳號</label>
-
-                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"> 
-                        </div>
-                        <div class="form-group">
                             <label>登入密碼</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼"> 
+                            <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼" value="<? echo $row[password]; ?>"> 
                         </div>
                         <div class="form-group">
                             <label>姓名</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名"> 
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名" value="<? echo $row[name]; ?>"> 
                         </div>
                         <div class="form-group">
                             <label>電話</label>
-                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話"> 
+                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話" value="<? echo $row[tel]; ?>"> 
                         </div>
                         <div class="form-group">
                             <label>地址</label>
-                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址"> 
+                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址" value="<? echo $row[address]; ?>"> 
                         </div>                        
                         <div class="form-group">
                             <label>上傳照片</label>
-                            <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"> 
+                            <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片" value="<? echo $row[gif]; ?>"> 
                             <p class="help-block">會員圖片</p>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">送出</button>
-                    </form>
+                       <a href="edit_manage_member_action.php">
+                        <button type="submit" class="btn btn-primary">送出</button></a>
                     <br>
                     <br>
                     <br>
-
+</form>
                 </div>
             </div>
         </div>

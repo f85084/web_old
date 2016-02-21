@@ -28,7 +28,7 @@ if ($row=mysql_fetch_array($result))
 	die();
 }
 //定義存放上傳檔案的目錄
-$upload_dir='./photo/'; 
+$upload_dir='./photo/personal/'; 
 //如果錯誤代碼為 UPLOAD_ERR_OK, 表示上傳成功
 if($_FILES['gif']['error'] == UPLOAD_ERR_OK ) {
   $fname = iconv('UTF-8', 'big5', 

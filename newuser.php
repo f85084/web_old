@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html lang=en><head><meta charset=utf-8>
-<title>Sign in</title>
-<meta name=viewport content="width=device-width, initial-scale=1.0">
-<meta name=description content=""><meta name=author content="">
-<link href=http://f85084.github.io/css.css  rel=stylesheet>
+<html lang="zh-Hant">
+
+<head><meta charset=utf-8>
+<title>註冊</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=description content="">
+<meta name=author content="">
+    <link rel=icon href=photo/index/an_logo.ico>
+        <link href=css/bootstrap.min.css rel=stylesheet>
+      <!--   <link href=css/other.css rel=stylesheet>
+-->
 <style>
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5;
-	margin: 0px 600px ;
 	}
 
 </style>
-<!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->
-<!--[if lt IE 9]><script src=~/Scripts/BS2/html5shiv.js></script><![endif]-->
 <body>
-<div >
-<!--enctype="multipart/form-data" 載入檔案 -->
-<div class=container>
-<form name="newuser" method="post" action="adduser.php"  enctype="multipart/form-data"  class=form-signin>
-<h2 class=form-signin-heading>請輸入基本資料</h2>
-<p>
-<input type="text" name="id" class="input-block-level" placeholder="登入帳號"> 
+               <!--內容B-->
+			   <div class="container">
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form role="form" name="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
+                    <h2>請輸入基本資料</h2>                 
+                        <div class="form-group">
+                            <label>登入帳號</label>
 
-<input type="password" name="password" class="input-block-level" placeholder="登入密碼"> 
+                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"> 
+                        </div>
+                        <div class="form-group">
+                            <label>登入密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼"> 
+                        </div>
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名"> 
+                        </div>
+                        <div class="form-group">
+                            <label>電話</label>
+                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話"> 
+                        </div>
+                        <div class="form-group">
+                            <label>地址</label>
+                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址"> 
+                        </div>                        
+                        <div class="form-group">
+                            <label>上傳照片</label>
+                            <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"> 
+                            <p class="help-block">會員圖片</p>
+                        </div>
 
-<input type="text" name="name" class="input-block-level" placeholder="姓名"> 
+                        <button type="submit" class="btn btn-primary">送出</button>
+                    </form>
+                    <br>
+                    <br>
+                    <br>
 
-<input type="text" name="tel" class="input-block-level" placeholder="電話"> 
-
-<input type="text" name="address" class="input-block-level" placeholder="地址"> 
-
-<input type="file" name="gif" class="input-block-level" placeholder="上傳照片"> 
-
-<button class="btn btn-large btn-primary" type=submit>送出</button>
-</br>
-</form>
-
-<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button></a><br>
-</div>
-</div><div class="h8">
-  <a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回登入頁面</button> </a>
-  </div> 
+                </div>
+            </div>
+        </div>
+		        </div>
+        <!-- /#page-wrapper -->
+        <!--內容S-->
+        <!-- /#wrapper -->

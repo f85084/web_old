@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -323,7 +323,7 @@
         <!--內容B-->
         <div id="page-wrapper">
             <div class="row">
-               <div class="col-md-9 col-md-offset-1">
+               <div class="col-md-15">
 
 
       <!--查詢-->
@@ -503,7 +503,7 @@
         <td><img src=./photo/$row[8] width=100 height=50></td>				
         <td>$row[9]</td>
         <td>$row[10]</td>		
-        <td><a href=edit_product_list.php?product_number=$row[product_number]>編輯<a></td>
+        <td><a href=edit_product_list.php?product_id=$row[product_id]>編輯<a></td>
         <td><a href=product_list.php?del=$row[0]>刪除<a></td>
     </tr>";
     }

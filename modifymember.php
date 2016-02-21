@@ -32,6 +32,7 @@ $sql="select * from member where
 number=$_SESSION[number]";
 $result=mysql_query($sql);
 $row=mysql_fetch_array($result);
+//echo "$sql";
 ?>
 <?
 echo '你好'.$row['name'];

@@ -8,12 +8,11 @@
 <?
 include ('mydb.php');
 session_start();
-if($_SESSION['flag']=='0'){
 $_SESSION['message_no']=$row['message_no'];
 $_SESSION['message_no']=$_GET['message_no'];
     $sql="select * from message where message_no='$_SESSION[message_no]'";
 	$result=mysql_query($sql);
-//echo "$sql";
+//echo $sql;
 ?>
 
 <?
@@ -31,20 +30,21 @@ body{
 	background-color:#f5f5f5
 	}
 </style>
-
-<body><br>
+</html>
+<body>
 
 <div>
 
 
 <form name="edit_message" method="post" action="edit_modify.php"  enctype="multipart/form-data" class=form-signin>
 <h2 class=form-signin-heading>修改留言</h2>
-<p>
+<p></p>
 <?
 $sql="select * from message where 
 message_no=$_SESSION[message_no]";
 $result=mysql_query($sql);
 $row=mysql_fetch_array($result);
+//echo $sql;
 ?>
 
 信箱
@@ -52,18 +52,12 @@ $row=mysql_fetch_array($result);
 內容
 
 <textarea name="message_content" rows=10 cols=30 class="input-block-level" placeholder="輸入內容"><? echo $row[message_content]; ?></textarea>
-<br>
- 
+
  <a href="edit_modify.php">
- <button class="btn btn-large btn-primary" type=submit>送出</button>
+ <button class="btn btn-large btn-primary" type=submit>送出</button></a>
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
- 
- 
+
+  
 </form>
-
-
-
 </div>
-
 </body>
-</html>

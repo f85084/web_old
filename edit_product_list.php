@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 
 <head>
 
@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-        <link rel=icon href=photo/index/an_logo.ico>
-    <title>後台</title>
 
+    <title>後台</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +41,12 @@
     include ('index_action.php');
     session_start();
     $_SESSION['flag']='1';
-
+$_SESSION['product_id']=$row['product_id'];
+$_SESSION['product_id']=$_GET['product_id'];
+$sql="select * from product where product_id=$_SESSION[product_id]";
+	$result=mysql_query($sql);
+$row=mysql_fetch_array($result);
     ?>
-	<style>
-/*整體字型、背景*/
-body{
-	font-family: Arial, 微軟正黑體;
-	}
-
-</style>
 </head>
 
 <body>
@@ -332,36 +328,58 @@ body{
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
-                    <h2>請輸入基本資料</h2>                 
+                    <form role="form" name="edit_product_list" method="post" action="edit_product_list_action.php" enctype="multipart/form-data" >
                         <div class="form-group">
-                            <label>登入帳號</label>
+                            <label>分類</label>
+                            <select name="product_class" class="form-control" value="<? echo $row[product_class]; ?>">
+							
+                                <option name="product_class[]" >尚無分類</option>                             
+                                <option name="product_class[]" >韓國</option>
+                                <option name="product_class[]" >日本</option>                                
 
-                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"> 
-                        </div>
-                        <div class="form-group">
-                            <label>登入密碼</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼"> 
-                        </div>
-                        <div class="form-group">
-                            <label>姓名</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名"> 
-                        </div>
-                        <div class="form-group">
-                            <label>電話</label>
-                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話"> 
-                        </div>
-                        <div class="form-group">
-                            <label>地址</label>
-                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址"> 
+                            </select>
                         </div>                        
                         <div class="form-group">
-                            <label>上傳照片</label>
-                            <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"> 
-                            <p class="help-block">會員圖片</p>
+                            <label>產品名稱</label>
+                            <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="輸入產品名稱" value="<? echo $row[product_name]; ?>">
                         </div>
+                        <div class="form-group">
+                            <label>產品價格</label>
+                            <input type="text" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="輸入產品價格" value="<? echo $row[product_price]; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>產品優惠價</label>
+                            <input type="text" name="product_sale_price" class="form-control" id="exampleInputEmail1" placeholder="輸入產品優惠價" value="<? echo $row[product_sale_price]; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>產品資訊</label>
+                            <textarea name="product_text" class="form-control" rows="3"><? echo $row[product_text]; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>檔案上傳1</label>
+                            <input type="file" name="product_pic1" id="exampleInputFile">
+                            <p class="help-block">第一張圖</p>
+                        </div>
+                        <div class="form-group">
+                            <label>檔案上傳2</label>
+                            <input type="file" name="product_pic2" id="exampleInputFile">
+                            <p class="help-block">第二張圖。</p>
+                        </div>
+                        <div class="form-group">
+                            <label>檔案上傳3</label>
+                            <input type="file" name="product_pic3" id="exampleInputFile">
+                            <p class="help-block">第三張圖</p>
+                        </div>
+                        <div class="form-group">
+                            <label>是否顯示</label>
+                            <select name="product_display" class="form-control" value="<? echo $row[product_display]; ?>">
+                                <option name="product_display[]" value="N" selected="selected">N</option>                             
+                                <option name="product_display[]" value="Y">Y</option>
 
-                        <button type="submit" class="btn btn-primary">送出</button>
+                            </select>
+                        </div>
+						<a href="edit_product_list_action.php">
+                        <button type="submit" class="btn btn-primary">送出</button></a>
                     </form>
                     <br>
                     <br>

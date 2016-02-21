@@ -324,7 +324,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="product_class" method="post" action="product_new_add.php" enctype="multipart/form-data" action="adduser.php">
+                    <form role="form" name="product_class" method="post" action="product_new_add.php" enctype="multipart/form-data" >
                         <div class="form-group">
                             <label>分類</label>
                             <select name="product_class" class="form-control">
