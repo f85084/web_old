@@ -7,10 +7,9 @@
     <meta name=author content="">
     <link rel=icon href=/web/photo/index/an_logo.ico>
     <title>留言</title>
-    <link href=css/index/bootstrap.min.css rel=stylesheet>
-    <!--<link href=/Content/AssetsBS3/examples/navbar-static-top.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-    <link href=css/index/other.css rel=stylesheet>
 
+        <link href=css/bootstrap.min.css rel=stylesheet>
+            <link href=css/other.css rel=stylesheet>
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
 <!--<link href=http://f85084.github.io/css.css  rel=stylesheet>
 -->
@@ -38,7 +37,7 @@ $_SESSION['flag']='0';
         </div>
         <div id=navbar class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class=active><a href=index.php>Home</a>
+                <li><a href=index.php>Home</a>
                 <li><a href=index-share.php>美食分享</a>
                 <li class=dropdown>
                     <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
@@ -107,17 +106,35 @@ $_SESSION['flag']='0';
 <!--menu 結束-->
 
 <!--內文-->
+    <div class="container">
+<div class="col-md-8 col-md-offset-2">
 <div class="row">
-<div class="col-md-6 col-md-offset-3">
+
 <?
-echo '你好'.$row['name'].'請留言<br>';
+//echo '你好'.$row['name'].'請留言<br>';
 $_SESSION['number']=$row['number'];
 $_SESSION['message_no']=$row['message_no'];
-echo "<a href=modifymember.php>修改</a><br>";
+//echo "<a href=modifymember.php>修改</a><br>";
 ?>
+<div>
+<h2>會員資料</h2>
+<?
+
+echo " <table >";
+echo "	<tr>
+            <td rowspan='4' valign='top'><img style='margin-right:20px;' src=./photo/personal/$row[6] width=100 height=100></td></tr>
+			<tr><td>姓名：$row[name]<br></td></tr>
+			<tr><td>帳號：$row[id]<br></td></tr>
+			<tr><td>電話：$row[tel]<br></td></tr>
+		</tr>";
+
+	echo "</table>";
+	?>
+
+</div>
 
 <div>
-<form name="form" method="post" action="addmessage.php" class=form-signin>
+<form name="form" method="post" action="addmessage.php" >
 <h2 class=form-signin-heading>留言</h2>
 <p>
 
@@ -149,6 +166,7 @@ $result=mysql_query($sql);
 // 表格表題
 echo "<div >";
 echo '總共有' .mysql_num_rows($result).'筆留言';
+	echo "<div class='table-responsive'>";
 echo " <table class='table table-striped' >
 		<tr>";
 if ($_GET['order']==2) {
@@ -211,9 +229,9 @@ while ($row=mysql_fetch_array($result)) {
 }
 echo "</table>";
 echo "</div>";
+echo "</div>";
 
 ?>
-</div>
 </div>
 </div>
 </div>
