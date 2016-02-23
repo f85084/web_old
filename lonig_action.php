@@ -7,6 +7,8 @@
 
 <?
 include ('mydb.php');
+$url1 = "login.php";
+$url2 = "index.php";
 session_start();
 if($_GET[id])
 {
@@ -17,20 +19,22 @@ $_SESSION['password']=$_GET[password];
 	$result=mysql_query($sql);
 if (!$row=mysql_fetch_array($result))
 {
-	echo '登入失敗';
-	header("location:index.php");
-	die();
+echo "<script>alert('登入失敗!')</script>";
+echo "<script>window.location.href = '$url1'</script>";
+	//die();
 	}
 else
 	{
-	header("location:index.php");
+echo "<script>alert('登入成功!')</script>";
+echo "<script>window.location.href = '$url2'</script>";
+	
 	}	
 
-if ($_GET[id]=='root')
+/*if ($_GET[id]=='root')
 {
 $_SESSION['flag']='1';
 header("location: manage2.php");
-}
+}*/
 ?>
 
 
@@ -38,7 +42,6 @@ header("location: manage2.php");
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5
 	}
 </style>
 <!--<link href=/Content/BS2/bootstrap-responsive.css rel=stylesheet> -->

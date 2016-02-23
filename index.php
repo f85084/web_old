@@ -93,6 +93,15 @@ ob_end_flush();
 					echo '<br><li><a href=logout_action.php>登出</a>';
 					echo '<li><a href=message.php>會員專區</a>';								
 				   }
+				   else ($_GET[id]=='root'){
+				 // $_SESSION['flag']='1';
+
+				    echo '<br><li><a>你好'.$row['name'];
+					echo '<br><li><a href=lmanage2.php>後台</a>';
+					echo '<br><li><a href=logout_action.php>登出</a>';
+					echo '<li><a href=message.php>會員專區</a>';								
+				   }
+
                         ?>
 
                 <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
