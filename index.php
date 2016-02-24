@@ -86,25 +86,18 @@ ob_end_flush();
                     </ul>
                 <li>  <?
 				 if(!$row=mysql_fetch_array($result)){
-				  echo '<br><li><a href=login.php>登入</a>';	 
+				  echo '<li><a href=login.php>登入</a>';	 
 				   }
 				  else{
-				    echo '<br><li><a>你好'.$row['name'];
-					echo '<br><li><a href=logout_action.php>登出</a>';
-					echo '<li><a href=message.php>會員專區</a>';								
-				   }
-				   else ($_GET[id]=='root'){
-				 // $_SESSION['flag']='1';
+				    echo '<li><a>你好'.$row['name'];
+					echo '<li><a href=logout_action.php>登出</a>';
+					echo '<li><a href=manage2.php>後台</a>';		
+					echo '<li><a href=message.php>會員專區</a>';		
+					
+				   }                    ?>
 
-				    echo '<br><li><a>你好'.$row['name'];
-					echo '<br><li><a href=lmanage2.php>後台</a>';
-					echo '<br><li><a href=logout_action.php>登出</a>';
-					echo '<li><a href=message.php>會員專區</a>';								
-				   }
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>     
 
-                        ?>
-
-                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>        
                  
 </ul>
         </div>
