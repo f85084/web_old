@@ -1,128 +1,301 @@
-
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-                                    <title>面試趣</title>
-<link type="text/css" rel="stylesheet" href="//assets.interview.tw/css/materialize.css"  media="screen,projection"/>
+<html lang="zh-Hant"><head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=description content="">
+    <meta name=author content="">
+    <link rel=icon href=photo/index/an_logo.ico>
+    <title>An</title>
+ <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    
+        <link href="css/bootstrap.min.css" rel=stylesheet>
+<link href="css/other.css" rel=stylesheet>
+    <!--<link href=/Content/AssetsBS3/examples/navbar-static-top.css rel=stylesheet> <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
 
+	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+    <?
+include ('mydb.php');
+include ('index_action.php');
+ob_start(); 
+session_start();
+$_SESSION['flag']='0';
+ob_end_flush();
+?>
+
+    <style>
+	body {
+	padding-top:initial;
+	}
+    </style>
     </head>
     <body>
-      <div class="container imgList-outer hot_industries">
-    <div class="title-l">熱門公司</div>
-    <div class="imgList-wrap">
-                <div class="imgList">
-            <a href="/com/569621c45b9cb436178b456b">
-                <h3>國立中山大學 教務處</h3>
-                <img src="//assets.interview.tw/images/6.jpg">
-            </a>
+    
+<!--menu 開始-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role=navigation>
+    <div class=container>
+        <div class=navbar-header>
+            <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button>
+            <a class=navbar-brand href=index.php>An's</a>
         </div>
-                <div class="imgList">
-            <a href="/com/5684950b362f26104e8045a7" >
-                <h3>創意果實股份有限公司</h3>
-                <img src="//assets.interview.tw/images/7.jpg" >
-            </a>
+        <div id=navbar class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class=active><a href=index.php>Home</a>
+                <li><a href=index-share.php>美食分享</a>
+                <li class=dropdown>
+                    <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國外<span class=caret></span></a>
+                    <ul class=dropdown-menu role=menu>
+                        <li><a href=japan.php>日本</a>
+                        <li><a href=korea.php>韓國</a>
+                        <!--<li>
+                            <a href=#>Something else here</a>
+                            <!--<li class=divider>
+                            <li class=dropdown-header>Nav header
+                            <li><a href=#>Separated link</a>
+                            <li><a href=#>One more separated link</a>-->
+                    </ul>
+
+                <li class=dropdown>
+                    <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>國內<span class=caret></span></a>
+                    <ul class=dropdown-menu role=menu>
+                        <li><a href=north.php>北</a>
+                        <li><a href=medium.php>中</a>
+                        <li><a href=south.php>南</a>
+                       <!-- <li class=divider>
+                             <li class=dropdown-header>Nav header
+                 <li><a href=#>Separated link</a>
+                 <li><a href=#>One more separated link</a>-->
+                    </ul>
+                <li><a href=shop.php>購買行程</a>
+</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li>
+                    <a href=/bs3/Examples/navbar>Default <span class=sr-only>(current)</span></a>
+                <li class=active>
+                    <a href=/bs3/Examples/navbar-static-top>Static top <span class=sr-only>(current)</span></a>
+                <li><a href=/bs3/Examples/navbar-fixed-top>Fixed top</a>-->
+                <!--<li><a href=#>公告</a>
+                <li><a href=#>簡介</a>
+                <li><a href=#>連結</a>-->
+                 <li class=dropdown>
+                    <a href=# class=dropdown-toggle data-toggle=dropdown role=button aria-expanded=false>關於<span class=caret></span></a>
+                    <ul class=dropdown-menu role=menu>
+                <li><a href=#>公告</a>
+                <li><a href=#>簡介</a>
+                       <!-- <li class=divider>
+
+                             <li class=dropdown-header>Nav header
+                 <li><a href=#>Separated link</a>
+                 <li><a href=#>One more separated link</a>-->
+                    </ul>
+                <li>  <?
+				 if(!$row=mysql_fetch_array($result)){
+				  echo '<li><a href=login.php>登入</a>';	 
+				   }
+				  else{
+				    echo '<li><a>你好'.$row['name'];
+					echo '<li><a href=logout_action.php>登出</a>';
+					echo '<li><a href=manage2.php>後台</a>';		
+					echo '<li><a href=message.php>會員專區</a>';		
+					
+				   }                    ?>
+                <li><a href="cart.php"> 購物車 <span class="glyphicon glyphicon-shopping-cart"></span></a> </li>     
+</ul>
         </div>
-                <div class="imgList">
-            <a href="/com/56849533362f26104e8057ea">
-                <h3>匠心工程有限公司</h3>
-                <img src="//assets.interview.tw/images/8.jpg">
-            </a>
-        </div>
-                <div class="imgList">
-            <a href="/com/55d3e408115399750d8a9f1d">
-                <h3>華經資訊企業股份有限公司</h3>
-                <img src="//assets.interview.tw/images/9.jpg">
-            </a>
-        </div>
-                <div class="imgList">
-            <a href="/com/5684aa82362f26104e8b23c2">
-                <h3>磐昊電子有限公司</h3>
-                <img src="//assets.interview.tw/images/10.jpg" >
-            </a>
-        </div>
+    </div>
+</nav>
+
+<!--menu 結束-->
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
             </div>
-    <a class="left" rel="nofollow"><i class="fa fa-chevron-left"></i></a>
-    <a class="right" rel="nofollow"><i class="fa fa-chevron-right"></i></a>
-</div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
 
-      
-      
-      <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="//assets.interview.tw/js/materialize.min.js"></script>
-      <script src="//assets.interview.tw/js/jquery.autocomplete.js"></script>
-      <script src="//assets.interview.tw/js/jquery.cookie.js"></script>
-      <script src="//assets.interview.tw/js/jquery.vticker.min.js"></script>
-      <script src="//assets.interview.tw/js/jquery.vide-min.js"></script>
-      <script src="//assets.interview.tw/js/pi.js"></script>
-      <script src="//assets.interview.tw/js/interview.js"></script>
-      <script src="//assets.interview.tw/js/interview.email.js"></script>
-      <script src="//assets.interview.tw/js/interview.tips.js"></script>
-      <script src="//assets.interview.tw/js/rank.js"></script>
-      <script src="//assets.interview.tw/js/index.js"></script>
-      <script>
-        $(document).ready(function(){
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
 
-          $('.modal-trigger').leanModal();
-          $('.slider').slider({full_width: true});
-          $("#marquee").show().delay(100).vTicker({
-            height: 25,
-            margin: 10
-          });
-        });
-      </script>
-      <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-72946361-1', 'auto');
-    ga('send', 'pageview');
-</script>
+    <!-- Page Content -->
+    <div class="container">
 
-      <script>
-// Include the UserVoice JavaScript SDK (only needed once on a page)
-UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/bBJypErLlRVAxAZlSYAZ8A.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welcome to Modern Business
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
 
-//
-// UserVoice Javascript SDK developer documentation:
-// https://www.uservoice.com/o/javascript-sdk
-//
+        <!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Portfolio Heading</h2>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
 
-// Set colors
-UserVoice.push(['set', {
-  accent_color: '#448dd6',
-  trigger_color: 'white',
-  trigger_background_color: 'rgba(46, 49, 51, 0.6)'
-}]);
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Modern Business Features</h2>
+            </div>
+            <div class="col-md-6">
+                <p>The Modern Business template by Start Bootstrap includes:</p>
+                <ul>
+                    <li><strong>Bootstrap v3.2.0</strong>
+                    </li>
+                    <li>jQuery v1.11.0</li>
+                    <li>Font Awesome v4.1.0</li>
+                    <li>Working PHP contact form with validation</li>
+                    <li>Unstyled page elements for easy customization</li>
+                    <li>17 HTML pages</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
 
-// Identify the user and pass traits
-// To enable, replace sample data with actual user traits and uncomment the line
-UserVoice.push(['identify', {
-  //email:      'john.doe@example.com', // User’s email address
-  //name:       'John Doe', // User’s real name
-  //created_at: 1364406966, // Unix timestamp for the date the user signed up
-  //id:         123, // Optional: Unique id of the user (if set, this should not change)
-  //type:       'Owner', // Optional: segment your users by type
-  //account: {
-  //  id:           123, // Optional: associate multiple users with a single account
-  //  name:         'Acme, Co.', // Account name
-  //  created_at:   1364406966, // Unix timestamp for the date the account was created
-  //  monthly_rate: 9.99, // Decimal; monthly rate of the account
-  //  ltv:          1495.00, // Decimal; lifetime value of the account
-  //  plan:         'Enhanced' // Plan name for the account
-  //}
-}]);
+        <hr>
 
-// Add default trigger to the bottom-right corner of the window:
-UserVoice.push(['addTrigger', {mode: 'contact', trigger_position: 'bottom-right' }]);
+        <!-- Call to Action Section -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+                </div>
+            </div>
+        </div>
 
-// Or, use your own custom trigger:
-//UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
+        <hr>
 
-// Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
-UserVoice.push(['autoprompt', {}]);
-</script>
-    </body>
-  </html>
+<!--FOOTER S-->
+<footer class="rwd-footer clearfix">
+
+  <ul class="contact">
+    <li><a href="tel:0800"><i class="icon-phone"></i>0800</a></li>
+    <li><a href="mailto:Anna's"><i class="icon-email"></i>Anna's</a></li>
+  </ul>
+        <p class="copyright">© <span id="spanCopyYear">1990</span> Anna's All Rights Reserved.</p>
+</footer>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>

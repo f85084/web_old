@@ -25,10 +25,13 @@ $_SESSION['flag']='0';
             <form class=form-signin role=form name="login" method="get" action="lonig_action.php" id="login">
                 <h2 class=form-signin-heading>請登入</h2>
                 <label for=inputEmail class=sr-only>輸入帳號</label> 
-                <input type="id" id="id" name="id" class=form-control placeholder="輸入帳號" required autofocus> 
+       
+                <input type="id"  id="id" name="id"  class="form-control" placeholder="輸入帳號" required autofocus> 
+                
                 <label for=inputPassword class=sr-only>輸入密碼</label> 
-                <input type="password" id="password" name="password"class=form-control placeholder="輸入密碼">
-                <div class=checkbox><label> <input type=checkbox value=remember-me> 忘記密碼 </label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="輸入密碼">
+                <div class=checkbox>
+                <label> <input type=checkbox value=remember-me> 忘記密碼 </label>
                 </div>
 				<button class="btn btn-lg btn-primary btn-block" type=submit>登入</button>
 				</form>
