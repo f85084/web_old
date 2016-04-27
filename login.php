@@ -29,7 +29,7 @@ $_SESSION['flag']='0';
                 <input type="id"  id="id" name="id"  class="form-control" placeholder="輸入帳號" required autofocus> 
                 
                 <label for=inputPassword class=sr-only>輸入密碼</label> 
-                <input type="password" id="password" name="password" class="form-control" placeholder="輸入密碼">
+                <input type="password" id="password" name="password" class="form-control" placeholder="輸入密碼" required autofocus>
                 <div class=checkbox>
                 <label> <input type=checkbox value=remember-me> 忘記密碼 </label>
                 </div>
