@@ -56,10 +56,20 @@ else
 
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
-	if (mysql_affected_rows()>=1);
-	echo '新增成功<br><br>';  
+	if (mysql_affected_rows()>=1){
+	echo "<script>
+            alert('更新成功');
+            location.href = 'index.php?pid=31';
+        </script>";
+         }
+	else{ 
+	echo "<script>
+            alert('更新失敗');
+            location.href = 'index.php?pid=31';
+        </script>";
+	}
 ?>
-<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>回到登入</button> </a>
+
 
 </body>
 </html>

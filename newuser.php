@@ -20,22 +20,22 @@ body{
 
  <script>
 
-function check_pw(pw) {
+/* function check_pw(pw) {
 	var re = /^[A-Z][a-z]\d{6}$/;
 	if (!re.test(pw.value)){
 		alert("請輸入大、小寫英文字母，以及6位數字，總共8碼");		
 	}
 	else 
 		return true;		
-}
-function ck_pe(pe) {
+} */
+/* function ck_pe(pe) {
 	var re = /^\d{4}$/;	
 	if (!re.test(pe.value)){
 		alert("請輸入分機號碼入長度為 4");		
 	}
 	else 
 		return true;	
-}
+} */
 function ck_ce(ce) {
 	var re = /^[09]{2}[0-9]{8}$/;
 	if (!re.test(ce.value)){
@@ -45,21 +45,21 @@ function ck_ce(ce) {
 		return true;		
 }
 function ck_pw(){
-	if(newuser.pass_word.value==""){
+/* 	if(newuser.password.value==""){
 		alert("請輸入密碼");
-		newuser.pass_word.focus();
+		newuser.password.focus();
 		return false;
 				}
-	if(newuser.pass_word2.value==""){
+	if(newuser.password2.value==""){
 		alert("請再次輸入密碼");
-		newuser.pass_word2.focus();
+		newuser.password2.focus();
 		return false;			
-				}
-	if(newuser.pass_word.value != newuser.pass_word2.value){
+				} */
+	if(newuser.password.value != newuser.password2.value){
 		alert("兩次輸入密碼不同");
-		newuser.pass_word.value=="";
-		newuser.pass_word2.value=="";
-		newuser.pass_word.focus();
+		newuser.password.value=="";
+		newuser.password2.value=="";
+		newuser.password.focus();
 		return false;			
 					}
 		return true;			
@@ -68,11 +68,10 @@ function ck_pw(){
 </script> 
 <script>
 function check_fm(form) {
-	if (!ck_pw(form.pass_word)) return;
-	if (!ck_pe(form.phone)) return;
+	if (!ck_pw(form.password)) return;
 	if (!ck_ce(form.tel)) return;	
-	if (!check_pw(form.pass_word)) return;
-	//alert ("成功！\n表單即將送出！！！");
+	if (!check_pw(form.password)) return;
+	alert ("成功！\n表單即將送出！！！");
 	document.newuser.submit();	// Submit form
 }
 </script>
@@ -83,7 +82,7 @@ function check_fm(form) {
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="newuser" id="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
+                    <form role="form" name="newuser" id="newuser" method="post" action="adduser.php" enctype="multipart/form-data"onsubmit="return ck_pw();" >    
                     <h2>請輸入基本資料</h2>                 
                         <div class="form-group">
                             <label>登入帳號</label>
@@ -96,7 +95,7 @@ function check_fm(form) {
                         </div>
                         <div class="form-group">						
                             <label>再次確認密碼</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="再次確認密碼" required autofocus> 
+                            <input type="password" name="password2" class="form-control" id="exampleInputEmail1" placeholder="再次確認密碼" required autofocus> 
                         </div>						
                         <div class="form-group">
                             <label>姓名</label>
@@ -115,13 +114,9 @@ function check_fm(form) {
                             <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"required autofocus> 
                             <p class="help-block">會員圖片</p>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">送出</button>
+				 <input type=button value="送出" onClick="check_fm(this.form)" />
+                        <input type=button class="btn btn-primary"  value="送出" onClick="check_fm(this.form)" />送出</input>
                     </form>
-                    <br>
-                    <br>
-                    <br>
-
                 </div>
             </div>
         </div>
