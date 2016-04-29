@@ -18,16 +18,17 @@ body{
 <?php
  //認證管理員
   session_start();
+ $_SESSION['id']='id';
 if($_SESSION['flag']=='0')
 {
 	}
 else
 	{
     echo'你不是root';
-	echo '<a href="Log%20in.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
+	echo '<a href="login.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
 	die();
 	}
-	
+
 //資料庫檔案
 include ('mydb.php');
   
@@ -38,15 +39,21 @@ include ('mydb.php');
 	$content=$_POST['content'];
 	$date=$_POST['date'];
     $sql="INSERT message (message_id,message_name,message_email,message_content,message_date)
-        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate())";
-
+        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate())  ";
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
-	if (mysql_affected_rows()>=1);
-	echo '新增成功<br><br>';  
-
-
+	if (mysql_affected_rows()>=1){	
+	echo "<script>
+            alert('更新成功');
+            history.go(-1);
+        </script>";
+         }
+	else{ 
+	echo "<script>
+            alert('更新失敗');
+            history.go(-1);
+        </script>";
+	}
 ?>
- <a href="message.php"><button class="btn btn-primary" type=submit onClick="addmessage.php">回到留言</button> </a>
 </body>
 </html>

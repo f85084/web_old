@@ -22,6 +22,7 @@ include ('mydb.php');
 include ('index_action.php');
 session_start();
 $_SESSION['flag']='0';
+//$_SESSION['id']='id';
 
 ?>
 </style>
@@ -119,119 +120,78 @@ $_SESSION['message_no']=$row['message_no'];
 <div>
 <h2>會員資料</h2>
 <?
-
-echo " <table >";
-echo "	<tr>
-            <td rowspan='4' valign='top'><img style='margin-right:20px;' src=./photo/personal/$row[6] width=100 height=100></td></tr>
-			<tr><td>姓名：$row[name]<br></td></tr>
-			<tr><td>帳號：$row[id]<br></td></tr>
-			<tr><td>電話：$row[tel]<br></td></tr>
-		</tr>";
-
-	echo "</table>";
-	?>
-
-</div>
-
-<div>
-<form name="form" method="post" action="addmessage.php" >
-<h2 class=form-signin-heading>留言</h2>
-<p>
-
-信箱
-<input type="email" name="email" class="form-control" placeholder="輸入信箱">
-<br>
-內容
-<textarea name="content" rows=10 cols=30 class="form-control" placeholder="輸入內容"  ></textarea>
-<br>
-<input type="hidden" name="name" value=<?echo"$row[3]"?>>
-<input type="hidden" name="id" value=<?echo"$row[1]"?>>
- <input type="hidden" name="message_no" value=<?echo"$row[message_no]"?>>
- <a href="newuser.php">
- <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
-  <button class="btn btn-large btn-primary" type=reset> 重置</button> 
- 
- 
-</form>
+$sqlm = "select number,id,name,tel,gif  from member where id='$_SESSION[id]'";
+$resm=mysql_query($sqlm);   		?>		
 <?
-$sql = "select *from  `message`";
+$sqlme = "select message_no,message_id,message_name,message_email,message_content,message_date from message where message_id='$_SESSION[id]'";
+// 回傳結果
+$resme=mysql_query($sqlme);   		
 $_GET['id']=$id;
 //$id='number';
 // 查詢帳號
 /*if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
 }*/
-// 回傳結果
-$result=mysql_query($sql);
-// 表格表題
-echo "<div >";
-echo '總共有' .mysql_num_rows($result).'筆留言';
-	echo "<div class='table-responsive'>";
-echo " <table class='table table-striped' >
-		<tr>";
-if ($_GET['order']==2) {
-	echo "	<td data-th ><a href=message_management_own.php?order=1>編號</a></td>";
-} 
- else {
-	echo "	<td data-th ><a href=message_management_own.php?order=2>編號</a></td>";
-}
-if ($_GET['order']==4) {
-	echo "	<td  data-th ><a href=message_management_own.php?order=3>姓名</a></td>";
-} 
- else {
-	echo "	<td data-th <a href=message_management_own.php?order=4>姓名</a></td>";
-}
-if ($_GET['order']==6) {
-	echo "	<td data-th ><a href=message_management_own.php?order=5>信箱</a></td>";
-}
- else {
-	echo "	<td data-th ><a href=message_management_own.php?order=6>信箱</a></td>";
-}
-if ($_GET['order']==8) {
-	echo "	<td data-th><a href=message_management_own.php?order=7>內容</a></td>";
-} 
- else {
-	echo "	<td data-th ><a href=message_management_own.php?order=8>內容</a></td>";
-}
-if ($_GET['order']==10) {
-	echo "	<td data-th ><a href=message_management_own.php?order=9>時間</a></td>";
-} 
- else {
-	echo "	<td data-th><a href=message_management_own.php?order=10>時間</a></td>";
-}
-echo "	
-            <td data-th>編輯</td>	
-			<td data-th >刪除</td>
-		</tr>";
-// 表格內容
+?>				
+<table >
+<tr>
+<?while ($row=mysql_fetch_array($resm)) {?>
+            <td rowspan='4' valign='top'><img style='margin-right:20px;' src=./photo/personal/<?=$row[gif]?> width=100 height=100></td></tr>
+			<tr><td>姓名：<?=$row[name]?><br></td></tr>
+			<tr><td>帳號：<?=$row[id]?><br></td></tr>
+			<tr><td>電話：<?=$row[tel]?><br></td></tr>
+<?}?>
+		</tr>
+</table>
+</div>
+
+<div>
+<form name="form" method="post" action="addmessage.php" >
+<h2 class=form-signin-heading>留言</h2>
+<p>
+信箱
+<input type="email" name="email" class="form-control" placeholder="輸入信箱">
+<br>
+內容
+<textarea name="content" rows=10 cols=30 class="form-control" placeholder="輸入內容" ></textarea>
+<br>
+
+<!-- <input type="hidden" name="id" value=<?=$row[id]?>>
+<input type="hidden" name="name" value=<?=$row[name]?>>
+<input type="hidden" name="message_name" value=<?=$rowme[message_name]?>>
+<input type="hidden" name="message_id" value=<?=$rowme[message_id]?>>
+ <input type="hidden" name="message_no" value=<?=$rowme[message_no]?>> -->
+ <a href="newuser.php">
+ <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
+  <button class="btn btn-large btn-primary" type=reset> 重置</button> 
+</form>
+		
+<!-- 表格表題 -->
+<div >
+<!--  '總共有' .mysql_num_rows($result).'筆留言' -->
+<div class='table-responsive'>
+<table class='table table-striped' >
+<?// 表格內容
     //$sql="select * from member where id='$_GET[id]' and password='$_GET[password]'";
 	//$result=mysql_query($sql);
 //if ($row=mysql_fetch_array($result))
 //{
-	
-$sql = "SELECT *FROM `message` WHERE message_id='$id'";
-	$result=mysql_query($sql);
-
-
-while ($row=mysql_fetch_array($result)) {
-	
-
-	echo 
-		"<tr>
-			<td data-th>$row[0]</td>
-			<td data-th>$row[2]</td>
-			<td data-th >$row[3]</td>
-			<td data-th >$row[4]</td>
-			<td data-th >$row[5]</td>
-			<td data-th ><a href=edit_message.php?message_no=$row[message_no]>編輯<a></td>
-			<td data-th ><a href=message.php?del=$row[0]>刪除<a></td>
-		</tr>";
-}
-echo "</table>";
-echo "</div>";
-echo "</div>";
-
 ?>
+	<?while ($rowme=mysql_fetch_array($resme)) {?>
+<tr>
+			<td data-th><?=$rowme[message_no]?></td>
+			<td data-th><?=$rowme[message_name]?></td>
+			<td data-th><?=$rowme[message_email]?></td>
+			<td data-th><?=$rowme[message_content]?></td>
+			<td data-th><?=$rowme[message_date]?></td>
+			<td data-th><a href=edit_message.php?message_no=<?=$rowme[message_no]?>>編輯<a></td>
+			<td data-th><a href=message.php?del=<?=$rowme[message_no]?>>刪除<a></td>
+		</tr>
+<?}?>
+</table>
+</div>
+</div>
+
 </div>
 </div>
 </div>

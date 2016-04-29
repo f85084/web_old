@@ -8,8 +8,6 @@
 /*整體字型、背景*/
 body{
 	font-family: Arial, 微軟正黑體;
-	background-color:#f5f5f5;
-	margin: 0px 600px ;
 	}
 
 </style>
@@ -22,9 +20,10 @@ include ('mydb.php');
     $sql="select * from member where id='$_POST[id]'";
 	$result=mysql_query($sql);
 if ($row=mysql_fetch_array($result))
-{
-	echo '帳號已有人使用';
-	echo "<a href=index.php>回首頁</a>";
+{	echo "<script>
+            alert('帳號已有人使用');
+            history.go(-1);
+        </script>";
 	die();
 }
 //定義存放上傳檔案的目錄
@@ -59,13 +58,13 @@ else
 	if (mysql_affected_rows()>=1){
 	echo "<script>
             alert('更新成功');
-            location.href = 'index.php?pid=31';
+            location.href = 'index.php';
         </script>";
          }
 	else{ 
 	echo "<script>
             alert('更新失敗');
-            location.href = 'index.php?pid=31';
+            location.href = 'index.php';
         </script>";
 	}
 ?>
