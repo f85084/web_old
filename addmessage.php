@@ -12,25 +12,21 @@ body{
 	}
 
 </style>
-
-
-<body><br>
+<body>
 <?php
+
+
  //認證管理員
   session_start();
- $_SESSION['id']='id';
-if($_SESSION['flag']=='0')
-{
-	}
-else
-	{
-    echo'你不是root';
-	echo '<a href="login.php"><button class="btn btn-large btn-primary" type=submit>登出</button> </a>';
-	die();
-	}
-
-//資料庫檔案
+  //資料庫檔案
 include ('mydb.php');
+include ('index_action.php');
+ $_SESSION['id']='id';
+ $_SESSION['flag']='0';
+ $_GET['message_id']=$id;
+$url1 = "message.php";
+/* if(isset($_POST['action']) && $_POST['action']=='add'){
+} */
   
 // 新增 
 	$name=$_POST['name'];
@@ -39,13 +35,13 @@ include ('mydb.php');
 	$content=$_POST['content'];
 	$date=$_POST['date'];
     $sql="INSERT message (message_id,message_name,message_email,message_content,message_date)
-        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate())  ";
+        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate()) ";
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1){	
 	echo "<script>
             alert('更新成功');
-            history.go(-1);
+            window.location.href = '$url1';
         </script>";
          }
 	else{ 

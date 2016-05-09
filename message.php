@@ -132,6 +132,10 @@ $_GET['id']=$id;
 /*if ($_GET['message_no']) {
 	$sql = $sql."where message_no=".$id;
 }*/
+
+	$sqlin = "select number,id,name,tel,gif  from member where id='$_SESSION[id]'";
+    $resin=mysql_query($sqlin); 
+    $admin_in=mysql_fetch_array($resin); 
 ?>				
 <table >
 <tr>
@@ -155,12 +159,8 @@ $_GET['id']=$id;
 內容
 <textarea name="content" rows=10 cols=30 class="form-control" placeholder="輸入內容" ></textarea>
 <br>
-
-<!-- <input type="hidden" name="id" value=<?=$row[id]?>>
-<input type="hidden" name="name" value=<?=$row[name]?>>
-<input type="hidden" name="message_name" value=<?=$rowme[message_name]?>>
-<input type="hidden" name="message_id" value=<?=$rowme[message_id]?>>
- <input type="hidden" name="message_no" value=<?=$rowme[message_no]?>> -->
+<input type="hidden" name="id" value=<?=$admin_in[id]?>> 
+<input type="hidden" name="name" value=<?=$admin_in[name]?>> 
  <a href="newuser.php">
  <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
@@ -179,13 +179,16 @@ $_GET['id']=$id;
 ?>
 	<?while ($rowme=mysql_fetch_array($resme)) {?>
 <tr>
-			<td data-th><?=$rowme[message_no]?></td>
-			<td data-th><?=$rowme[message_name]?></td>
+			<td data-th><?=$rowme[message_no]?></td> <input type="hidden" name="message_no" value=<?=$rowme[message_no]?>> 
+			<td data-th><?=$rowme[message_name]?></td><input type="hidden" name="message_name" value=<?=$rowme[message_name]?>>
 			<td data-th><?=$rowme[message_email]?></td>
 			<td data-th><?=$rowme[message_content]?></td>
 			<td data-th><?=$rowme[message_date]?></td>
 			<td data-th><a href=edit_message.php?message_no=<?=$rowme[message_no]?>>編輯<a></td>
 			<td data-th><a href=message.php?del=<?=$rowme[message_no]?>>刪除<a></td>
+			<input type="hidden" name="message_id" value=<?=$rowme[message_id]?>>
+
+
 		</tr>
 <?}?>
 </table>
