@@ -13,7 +13,9 @@
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
 <!--<link href=http://f85084.github.io/css.css  rel=stylesheet>
 -->
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" /> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
 
 <style>
@@ -21,7 +23,7 @@
 include ('mydb.php');
 include ('index_action.php');
 session_start();
-$_SESSION['flag']='0';
+//$_SESSION['flag']='0';
 //$_SESSION['id']='id';
 
 ?>
@@ -123,7 +125,7 @@ $_SESSION['message_no']=$row['message_no'];
 $sqlm = "select number,id,name,tel,gif  from member where id='$_SESSION[id]'";
 $resm=mysql_query($sqlm);   		?>		
 <?
-$sqlme = "select message_no,message_id,message_name,message_email,message_content,message_date from message where message_id='$_SESSION[id]'";
+$sqlme = "select message_no,message_id,message_name,message_email,message_content,message_date from message where message_id='$_SESSION[id]'&& message_del='Y'";
 // 回傳結果
 $resme=mysql_query($sqlme);   		
 $_GET['id']=$id;
@@ -161,11 +163,10 @@ $_GET['id']=$id;
 <br>
 <input type="hidden" name="id" value=<?=$admin_in[id]?>> 
 <input type="hidden" name="name" value=<?=$admin_in[name]?>> 
- <a href="newuser.php">
- <button class="btn btn-large btn-primary" type=submit>留言</button></a>&nbsp;&nbsp;&nbsp;
+ <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
 </form>
-		
+
 <!-- 表格表題 -->
 <div >
 <!--  '總共有' .mysql_num_rows($result).'筆留言' -->
@@ -184,16 +185,16 @@ $_GET['id']=$id;
 			<td data-th><?=$rowme[message_email]?></td>
 			<td data-th><?=$rowme[message_content]?></td>
 			<td data-th><?=$rowme[message_date]?></td>
-			<td data-th><a href=edit_message.php?message_no=<?=$rowme[message_no]?>>編輯<a></td>
-			<td data-th><a href=message.php?del=<?=$rowme[message_no]?>>刪除<a></td>
+			<td data-th><div title="編輯" id="floatBox" style="display: none;"><iframe src="edit_message.php?message_no=<?=$rowme[message_no]?>" id="dialog-form" width="1260" height="500"  frameborder="0"></iframe> </div>
+			            <a href="javascript: $('#floatBox').dialog({autoOpen: true, show:{ direction:'right'}, width: '1300', height: 'auto', resizable: false});">編輯</a></td>
+			<td data-th><a href=message.php?del=<?=$rowme[message_no]?>>刪除<a></td> 
 			<input type="hidden" name="message_id" value=<?=$rowme[message_id]?>>
-
-
 		</tr>
 <?}?>
 </table>
 </div>
 </div>
+
 
 </div>
 </div>

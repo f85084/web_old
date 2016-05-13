@@ -22,7 +22,7 @@ body{
 include ('mydb.php');
 include ('index_action.php');
  $_SESSION['id']='id';
- $_SESSION['flag']='0';
+ //$_SESSION['flag']='0';
  $_GET['message_id']=$id;
 $url1 = "message.php";
 /* if(isset($_POST['action']) && $_POST['action']=='add'){
@@ -34,8 +34,8 @@ $url1 = "message.php";
 	$email=$_POST['email'];
 	$content=$_POST['content'];
 	$date=$_POST['date'];
-    $sql="INSERT message (message_id,message_name,message_email,message_content,message_date)
-        VALUES ('{$id}','{$name}','{$email}','{$content}',sysdate()) ";
+    $sql="INSERT message (message_id,message_name,message_email,message_content,message_del,message_date)
+        VALUES ('{$id}','{$name}','{$email}','{$content}','Y',sysdate()) ";
 	$result=mysql_query($sql);
 	//異動會顯示異動資料
 	if (mysql_affected_rows()>=1){	

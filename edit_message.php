@@ -101,7 +101,7 @@ $_SESSION['message_no']=$_GET['message_no'];
 
 <!--menu 結束-->
 <body>
-
+<div id="dialog-form" title="Create new user">
 <div class="container">
 <div class="col-md-6 col-md-offset-3">
 <div class="row">
@@ -130,6 +130,7 @@ $row=mysql_fetch_array($result);
 
   
 </form>
+</div>
 </div>
 </div>
 </div>
