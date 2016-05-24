@@ -7,15 +7,16 @@
     <meta name=author content="">
     <link rel=icon href=/web/photo/index/an_logo.ico>
     <title>留言</title>
-
+	
         <link href=css/bootstrap.min.css rel=stylesheet>
             <link href=css/other.css rel=stylesheet>
-	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-<!--<link href=http://f85084.github.io/css.css  rel=stylesheet>
--->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+<!--<link href=http://f85084.github.io/css.css  rel=stylesheet>-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" /> 
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<!--     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script> -->
+         <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script> 
 
 
 <style>
@@ -162,7 +163,7 @@ $_GET['id']=$id;
 <textarea name="content" rows=10 cols=30 class="form-control" placeholder="輸入內容" ></textarea>
 <br>
 <input type="hidden" name="id" value=<?=$admin_in[id]?>> 
-<input type="hidden" name="name" value=<?=$admin_in[name]?>> 
+<input type="hidden" name="number" value=<?=$admin_in[number]?>> 
  <button class="btn btn-large btn-primary" type=submit>留言</button>&nbsp;&nbsp;&nbsp;
   <button class="btn btn-large btn-primary" type=reset> 重置</button> 
 </form>
@@ -180,15 +181,14 @@ $_GET['id']=$id;
 ?>
 	<?while ($rowme=mysql_fetch_array($resme)) {?>
 <tr>
-			<td data-th><?=$rowme[message_no]?></td> <input type="hidden" name="message_no" value=<?=$rowme[message_no]?>> 
-			<td data-th><?=$rowme[message_name]?></td><input type="hidden" name="message_name" value=<?=$rowme[message_name]?>>
+			<td data-th><?=$rowme[message_no]?></td>
+			<td data-th><?=$rowme[message_name]?></td>
 			<td data-th><?=$rowme[message_email]?></td>
 			<td data-th><?=$rowme[message_content]?></td>
 			<td data-th><?=$rowme[message_date]?></td>
 			<td data-th><div title="編輯" id="floatBox" style="display: none;"><iframe src="edit_message.php?message_no=<?=$rowme[message_no]?>" id="dialog-form" width="1260" height="500"  frameborder="0"></iframe> </div>
-			            <a href="javascript: $('#floatBox').dialog({autoOpen: true, show:{ direction:'right'}, width: '1300', height: 'auto', resizable: false});">編輯</a></td>
+			<a href="javascript: $('#floatBox').dialog({autoOpen: true, show:{ direction:'right'}, width: '1300', height: 'auto', resizable: false});">編輯</a></td>
 			<td data-th><a href=message.php?del=<?=$rowme[message_no]?>>刪除<a></td> 
-			<input type="hidden" name="message_id" value=<?=$rowme[message_id]?>>
 		</tr>
 <?}?>
 </table>
@@ -201,9 +201,7 @@ $_GET['id']=$id;
 </div>
 </div>
 <!--內文-->        
-    <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script>
-        <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script>
-       <!-- <script src=/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js></script>-->
+
 
 <!--FOOTER S-->
 
