@@ -40,7 +40,7 @@
     include ('mydb.php');
     include ('index_action.php');
     session_start();
-    $_SESSION['flag']='1';
+	$_SESSION['id']=$_GET[id];
 
     ?>
 </head>
@@ -89,7 +89,7 @@
                                     </span>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
+								</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -325,7 +325,6 @@
         <!-- /#page-wrapper -->
 
         <a href=login.php>登出</a>
-        <a href=modifymember.php>修改</a>
         <!--查詢-->
         <div class=form-Search>
             <form method="get" action="management.php">
@@ -335,9 +334,6 @@
                 <input type="reset" value="清除資料">
             </form>
         </div>
-        <br>
-    </body>
-
 <?php
 
     // 刪除
@@ -348,9 +344,7 @@
     //異動會顯示異動資料
     echo '成功幾筆<br>'.mysql_affected_rows();
     }
-
     $id=$_GET['id'];
-
     $sql = "select message_no,message_id,message_name,message_content,message_date from   `message`  ";
 
     // 查詢帳號
@@ -378,16 +372,16 @@
 
     // 表格內容
     while ($row=mysql_fetch_array($result)) {
-    echo
+    echo 
     "
     <tr>
-        <td data-th>$row[0]</td>
+        <td data-th>$row[message_no]</td>
         <td data-th>$row[1]</td>
         <td data-th>$row[2]</td>
         <td data-th>$row[3]</td>
         <td data-th>$row[4]</td>
-        <td data-th><a href=management.php?edit =$row[0]>編輯<a></td>
-        <td data-th><a href=management.php?del =$row[0]>刪除<a></td>
+        <td data-th><a href=management.php?edit=$row[message_no]>編輯<a></td>
+        <td data-th><a href=management.php?del=$row[0]>刪除<a></td>
     </tr>";
     }
 

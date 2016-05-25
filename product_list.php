@@ -1,8 +1,24 @@
-﻿<!DOCTYPE html>
+﻿<?
+    include ('mydb.php');
+    include ('index_action.php');
+    session_start();
+    $_SESSION['flag']='1';	
+	$id=$_GET['id'];
+    $querypl= "select product_id,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date from   product  ";	
+    // 回傳結果
+    $pl=mysql_query($querypl);
+	
+	/*下一頁*/
+	$query_num= "SELECT COUNT(*) FROM product ";	
+    // 回傳結果
+    $num=mysql_query($query_num);
+	$q_num =mysql_fetch_row($num);
+	$product_page_num= $q_num[0];
+	?>
+
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,36 +29,23 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
     <!-- DataTables CSS -->
     <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-
     <!-- DataTables Responsive CSS -->
     <link href="bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <?
-    include ('mydb.php');
-    include ('index_action.php');
-    session_start();
-    $_SESSION['flag']='1';
 
-    ?>
 </head>
 
 <body>
@@ -344,173 +347,51 @@
     //異動會顯示異動資料
     echo '成功幾筆<br>'.mysql_affected_rows();
     }
-	
-
-    $id=$_GET['id'];
-
-    $sql = "select product_id,product_class,product_name,product_price,product_sale_price,product_text,product_pic1,product_pic2,product_pic3,product_display,product_date from   `product`  ";
-
     // 查詢帳號
     if ($_GET['product_number']) {
     $sql = $sql."where product_number=".$product_number;
     }
-    // 使用編號排序
-    if ($_GET['order']==1) {
-    $sql = $sql."order by product_number";
-    }
-    if ($_GET['order']==2) {
-    $sql = $sql."order by product_number desc";
-    }
-    // 使用編號排序
-    if ($_GET['order']==3) {
-    $sql = $sql."order by product_class";
-    }
-    if ($_GET['order']==4) {
-    $sql = $sql."order by product_class desc";
-    }
-    // 使用價格排序
-    if ($_GET['order']==5) {
-    $sql = $sql."order by product_name";
-    }
-    if ($_GET['order']==6) {
-    $sql = $sql."order by product_name desc";
-    }
-    // 使用價姓名序
-    if ($_GET['order']==7) {
-    $sql = $sql."order by product_price";
-    }
-    if ($_GET['order']==8) {
-    $sql = $sql."order by product_price desc";
-    }
-    // 使用價姓名序
-    if ($_GET['order']==9) {
-    $sql = $sql."order by product_sale_price";
-    }
-    if ($_GET['order']==10) {
-    $sql = $sql."order by product_sale_price desc";
-    }
-    // 使用價姓名序
-    if ($_GET['order']==11) {
-    $sql = $sql."order by product_text";
-    }
-    if ($_GET['order']==12) {
-    $sql = $sql."order by product_text";
-    }
-    // 使用價姓名序
-    if ($_GET['order']==13) {
-    $sql = $sql."order by product_pic1";
-    }
-    if ($_GET['order']==14) {
-    $sql = $sql."order by tel product_pic1";
-    }
-
-
-
-    // 回傳結果
-    $result=mysql_query($sql);
-	 //echo "$sql";
-
-    // 表格表題
-    //echo '總共有' .mysql_num_rows($result).'筆';
-	echo "<div class='table-responsive'>";
-    echo "<table class='table table-striped'> <tr>";
-        if ($_GET['order']==2) {
-        echo "
-        <td><a href=product_list.php?order=1>編號</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=2>編號</a></td>";
-        }
-        if ($_GET['order']==4) {
-        echo "
-        <td><a href=product_list.php?order=3>類別</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=4>類別</a></td>";
-        }
-        if ($_GET['order']==6) {
-        echo "
-        <td><a href=product_list.php?order=5>地名</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=6>地名</a></td>";
-        }
-        if ($_GET['order']==8) {
-        echo "
-        <td><a href=product_list.php?order=7>價錢/a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=8>價錢</a></td>";
-        }
-        if ($_GET['order']==10) {
-        echo "
-        <td><a href=product_list.php?order=9>優惠</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=10>優惠</a></td>";
-        }
-        if ($_GET['order']==12) {
-        echo "
-        <td><a href=product_list.php?order=11>內容</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=12>內容</a></td>";
-        }
-				echo " <td>圖片1</td>
+?>
+<!-- 表格表題-->
+	總共有<?=$product_page_num?>筆
+	<div class='table-responsive'>
+    <table class='table table-striped'> <tr>
+        <td>編號</td>
+        <td>類別</td>
+        <td>地名</td>
+        <td>價錢</td>
+        <td>優惠</td>
+        <td>內容</td>
+		<td>圖片1</td>
         <td>圖片2</td>
-		        <td>圖片3</td>";	
-        if ($_GET['order']==14) {
-        echo "
-        <td><a href=product_list.php?order=13>上線</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=14>上線</a></td>";
-        }
-        if ($_GET['order']==16) {
-		        echo "";	
-        echo "
-        <td><a href=product_list.php?order=15>建立時間</a></td>";
-        }
-        else {
-        echo "
-        <td><a href=product_list.php?order=16>建立時間</a></td>";
-        }
-        echo "
+		<td>圖片3</td>	
+        <td>上線</td>
+        <td>建立時間</td>
         <td>編輯</td>
         <td>刪除</td>
-    </tr>";
-
+    </tr>
+	<?
     // 表格內容
-    while ($row=mysql_fetch_array($result)) {
-    echo
-    "
+    while ($rpl=mysql_fetch_array($pl)) {?>
     <tr>
-        <td>$row[0]</td>
-        <td>$row[1]</td>
-        <td>$row[2]</td>
-        <td>$row[3]</td>
-        <td>$row[4]</td>
-        <td>$row[5]</td>
-        <td><img src=./photo/$row[6] width=100 height=50></td>
-        <td><img src=./photo/$row[7] width=100 height=50></td>
-        <td><img src=./photo/$row[8] width=100 height=50></td>				
-        <td>$row[9]</td>
-        <td>$row[10]</td>		
-        <td><a href=edit_product_list.php?product_id=$row[product_id]>編輯<a></td>
-        <td><a href=product_list.php?del=$row[0]>刪除<a></td>
-    </tr>";
-    }
+        <td><?=$rpl['product_id']?></td>
+        <td><?=$rpl['product_class']?></td>
+        <td><?=$rpl['product_name']?></td>
+        <td><?=$rpl['product_price']?></td>
+        <td><?=$rpl['product_sale_price']?></td>
+        <td><?=$rpl['product_text']?></td>
+        <td><img src=./photo/<?=$rpl['product_pic1']?> width=100 height=50></td>
+        <td><img src=./photo/<?=$rpl['product_pic2']?> width=100 height=50></td>
+        <td><img src=./photo/<?=$rpl['product_pic3']?> width=100 height=50></td>			
+        <td><?=$rpl['product_display']?></td>
+		<td><?=$rpl['product_date']?></td>
+        <td><a href=edit_product_list.php?product_id=<?=$rpl['product_id']?>>編輯<a></td>
+        <td><a href=product_list.php?del=<?=$rpl['product_id']?>>刪除<a></td>
+    </tr>
+    <?}?>
 
-    echo "</table>";
-		echo "</div>";
-?>       
+    </table>
+	</div>   
             </div>
             </div>
         </div>

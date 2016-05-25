@@ -1,3 +1,67 @@
+ <?
+	include ('mydb.php');
+    include ('index_action.php');
+    session_start();
+    $_SESSION['flag']='1';
+
+ ?>
+  <script>
+
+function check_pw(pw) {
+	var re = /^[A-Za-z]|\d{6}$/;
+	if (!re.test(pw.value)){
+		alert("請輸入英文字母、數字，總共8碼");		
+		return false;				
+	}
+	else 
+		return true;		
+} 
+/*     if(Regist.pass_word.value != "" && !re.test(pw.value)){
+        alert("請輸入英文字母、數字，總共8碼");
+        return false;
+    }
+    
+    return true;    
+} */
+function ck_ce(ce) {
+	var re = /^[09]{2}[0-9]{8}$/;
+	if (!re.test(ce.value)){
+		alert("請輸入手機號碼，開頭為09 長度為10位數");		
+	}
+	else 
+		return true;		
+}
+function ck_pw(){
+/* 	if(newuser.password.value==""){
+		alert("請輸入密碼");
+		newuser.password.focus();
+		return false;
+				}
+	if(newuser.password2.value==""){
+		alert("請再次輸入密碼");
+		newuser.password2.focus();
+		return false;			
+				} */
+	if(newuser.password.value != newuser.password2.value){
+		alert("兩次輸入密碼不同");
+		newuser.password.value=="";
+		newuser.password2.value=="";
+		newuser.password.focus();
+		return false;			
+					}
+		return true;			
+			}
+	
+</script> 
+<script>
+function check_fm(form) {
+	if (!ck_pw(form.password)) return;
+	if (!ck_ce(form.tel)) return;	
+	if (!check_pw(form.password)) return;
+	//alert ("成功！\n表單即將送出！！！");
+	document.newuser.submit();	// Submit form
+}
+</script>
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -10,45 +74,24 @@
     <meta name="author" content="">
         <link rel=icon href=photo/index/an_logo.ico>
     <title>後台</title>
-
-
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
     <!-- DataTables CSS -->
     <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-
     <!-- DataTables Responsive CSS -->
     <link href="bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <?
-    include ('mydb.php');
-    include ('index_action.php');
-    session_start();
-    $_SESSION['flag']='1';
-
-    ?>
 	<style>
-/*整體字型、背景*/
+<!--  整體字型、背景
 body{
 	font-family: Arial, 微軟正黑體;
-	}
+	} -->
 
 </style>
 </head>
@@ -332,28 +375,32 @@ body{
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form role="form" name="newuser" method="post" action="adduser.php" enctype="multipart/form-data">    
+                    <form role="form" name="newuser" id="newuser" method="post" action="adduser.php" enctype="multipart/form-data" >    
                     <h2>請輸入基本資料</h2>                 
                         <div class="form-group">
                             <label>登入帳號</label>
 
-                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"> 
+                            <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"  
                         </div>
                         <div class="form-group">
                             <label>登入密碼</label>
                             <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="登入密碼"> 
                         </div>
+                        <div class="form-group">						
+                            <label>再次確認密碼</label>
+                            <input type="password" name="password2" class="form-control" id="exampleInputEmail1" placeholder="再次確認密碼"> 
+                        </div>						
                         <div class="form-group">
                             <label>姓名</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名"> 
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名" > 
                         </div>
                         <div class="form-group">
-                            <label>電話</label>
-                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話"> 
+                            <label>手機</label>
+                            <input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="手機" > 
                         </div>
                         <div class="form-group">
                             <label>地址</label>
-                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址"> 
+                            <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址" > 
                         </div>                        
                         <div class="form-group">
                             <label>上傳照片</label>
@@ -361,12 +408,8 @@ body{
                             <p class="help-block">會員圖片</p>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">送出</button>
+                        <input type=button class="btn btn-primary"  value="送出" onClick="check_fm(this.form)" /></input>
                     </form>
-                    <br>
-                    <br>
-                    <br>
-
                 </div>
             </div>
         </div>
