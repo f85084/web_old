@@ -3,34 +3,36 @@ include ('mydb.php');
 include ('index_action.php');
 session_start();
 $_SESSION['flag']='1';
-
 $id=$_GET['id'];
-$querymr = "SELECT * FROM  member ORDER BY  memberdate  ASC ";
- // 回傳結果
-$mr=mysql_query($querymr);
 
-/* $rownum = 20; 
-IF($_GET["ToPage"] > "1" && ck_num($_GET["ToPage"]))	
-{ $TP = ($_GET["ToPage"]-1)*$rownum; }	ELSE	{ $TP = 0; }
-$querya=$db->query("SELECT uid,group_uid,user_name,pass_word,name,birthday,phone,cellphone,thor,remark,del,is_lock FROM admin_info  $where  order by uid asc"." LIMIT $TP, $rownum");
- */
- /*頁設設定*/
+if(!empty($_GET['keyne'])){
+	$wherea[]="name like '%".m_esc($_GET['keyne'])."%'";
+	$logw[]="name like ".m_esc($_GET['keyne']);
+}
+if(!empty($wherea)){
+	$where=" WHERE ".implode(' and ',$wherea);
+	$logws=implode(' and ',$logw);
+}
+
+
 $number=10;
-$query_page=mysql_query("SELECT * FROM  member limit 0,$number");
-
-$total=mysql_num_rows($query_page);
-$page=ceil($total/$number);
-
-$querymr = "SELECT * FROM  member ORDER BY  memberdate  ASC ";
- // 回傳結果
-$mr=mysql_query($querymr);
-
 /*總共幾筆*/
 $query_num= "SELECT COUNT(*) FROM member ";	
 $num=mysql_query($query_num);
 $q_num =mysql_fetch_row($num);
 $product_page_num= $q_num[0];
-
+$page=ceil($product_page_num/$number);
+ /*頁設設定*/
+if(isset($_GET['p'])){
+	$p=$_GET['p'];
+	$start=($p-1)*$number;
+}
+else{
+	$start=0;
+}
+$querymr = "SELECT * FROM  member order by  memberdate  ASC LIMIT $start, $number";
+$mr=mysql_query($querymr);
+$admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 
 ?>
 <!DOCTYPE html>
@@ -365,12 +367,12 @@ $product_page_num= $q_num[0];
         <br>
     </body>
 
-
-	總共有<?=$product_page_num?>人<br>
-	<?for(i=1;$i<=$page;i++){?>
-	<a href=manage_member.php?
-			
-	<?}?>
+	總共有<?=$product_page_num?>人
+  <ul class="pagination">
+<?for($i=1;$i<=$page;$i++){?>
+ <li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
+<?}?>
+</ul>
     <!-- 表格表題-->
 	<div class='table-responsive'>
     <table class='table table-striped'>
@@ -379,10 +381,12 @@ $product_page_num= $q_num[0];
         <td data-th >帳號</td>
         <td data-th >密碼</td>
         <td data-th >姓名</td>
+        <td data-th >群組</td>
         <td data-th >電話</td>
         <td data-th >地址</td>
         <td data-th >檔案</td>
         <td data-th >時間</td>
+		<td data-th >刪除</td>
         <td data-th >編輯</td>
         <td data-th >刪除</td>
     </tr>
@@ -393,12 +397,14 @@ $product_page_num= $q_num[0];
         <td data-th><?=$rmr['id']?></td>
         <td data-th><?=$rmr['password']?></td>
         <td data-th><?=$rmr['name']?></td>
+        <td data-th><?=$admin_group[$rmr['group_uid']]?></td>
         <td data-th><?=$rmr['tel']?></td>
         <td data-th><?=$rmr['address']?></td>
         <td data-th><img src=./photo/personal/<?=$rmr['gif']?> width=50 height=50></td>
         <td data-th><?=$rmr['memberdate']?></td>
-        <td data-th><a href=edit_manage_member.php?number=<?=$rmr['number']?>>編輯<a></td>
-        <td data-th><a href=manage_member.php?del=<?=$rmr['number']?>>刪除<a></td>
+        <td data-th><?=$rmr['del']?></td>
+        <td data-th><a href=edit_manage_member.php?number=<?=$rmr['number']?>>編輯</a></td>
+        <td data-th><a href=manage_member.php?del=<?=$rmr['number']?>>刪除</a></td>
     </tr>
     <?}?>
 </table>
