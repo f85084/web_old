@@ -4,16 +4,18 @@ include ('index_action.php');
 session_start();
 $_SESSION['flag']='1';
 $id=$_GET['id'];
-
-if(!empty($_GET['keyne'])){
-	$wherea[]="name like '%".m_esc($_GET['keyne'])."%'";
-	$logw[]="name like ".m_esc($_GET['keyne']);
+$wherea=array();
+$where='';
+$logws='';
+$lurl='';
+if(!empty($_GET['key_id'])){
+	$wherea[]="id like '%".$_GET['key_id']."%'";
+	$logw[]="id like ".$_GET['key_id'];
 }
 if(!empty($wherea)){
 	$where=" WHERE ".implode(' and ',$wherea);
 	$logws=implode(' and ',$logw);
 }
-
 
 $number=10;
 /*總共幾筆*/
@@ -30,8 +32,9 @@ if(isset($_GET['p'])){
 else{
 	$start=0;
 }
-$querymr = "SELECT * FROM  member order by  memberdate  ASC LIMIT $start, $number";
+$querymr = "SELECT * FROM  member $where order by  memberdate  ASC LIMIT $start, $number";
 $mr=mysql_query($querymr);
+
 $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 
 ?>
@@ -66,18 +69,10 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body>
     <!--目錄-->
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -356,16 +351,24 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
         <!--<a href=login.php>登出</a>
         <a href=modifymember.php>修改</a>-->
         <!--查詢-->
-        <div class=form-Search>
-            <form method="get" action="management.php">
-                <!-- 單列文字輸入欄位 -->
-                帳號:<input type="text" name="no"> <br>
-                <input type="submit" value="查詢資料">
-                <input type="reset" value="清除資料">
-            </form>
-        </div>
-        <br>
-    </body>
+	<div class=form-Search>
+		<form method="get" action="manage_member.php">
+			<table style="padding:5px;">
+				 <tr>
+					<td  colspan="10">資訊列表</td>
+				</tr>
+				<tr>
+					<td>帳號:</td>
+					<td><input type="text" name="key_id" id="key_id" value="<?=$_GET[key_id]?>"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="查詢資料"></td>
+					<td><input type="reset" value="清除資料"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
 
 	總共有<?=$product_page_num?>人
   <ul class="pagination">
