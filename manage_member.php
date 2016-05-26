@@ -353,6 +353,7 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
         <!--查詢-->
 	<div class=form-Search>
 		<form method="get" action="manage_member.php">
+
 			<table style="padding:5px;">
 				 <tr>
 					<td  colspan="10">資訊列表</td>
@@ -367,15 +368,17 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 				</tr>
 			</table>
 		</form>
-	</div>
+
 
 
 	總共有<?=$product_page_num?>人
-  <ul class="pagination">
+<div align="center">
+<ul class="pagination">
 <?for($i=1;$i<=$page;$i++){?>
  <li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
 <?}?>
 </ul>
+</div>
     <!-- 表格表題-->
 	<div class='table-responsive'>
     <table class='table table-striped'>
