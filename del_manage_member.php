@@ -2,11 +2,20 @@
 include ('mydb.php');
 //include ('index_action.php');
 session_start();
-$_SESSION['number']=$row['number'];
-$_SESSION['number']=$_GET['number'];
-$sql="select * from member where number=$_SESSION[number]";
+$number=$_GET['number'];
+
+$sql="select * from member where number=$number";
 $result=mysql_query($sql);
+
 $row=mysql_fetch_array($result);
+if(!empty($_POST['act']) && $_POST['act']=='add'){
+$error='';
+	if(empty($error)){
+	$update="UPDATE member SET del='Y' WHERE number='$number' ";
+	$res=mysql_query($update);
+	$error='ok';	
+}
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -313,54 +322,27 @@ body{
         </nav>
         <!--目錄-->
                 <!--內容B-->
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
- <form name="del_manage_member.php" method="post" action="del_manage_member_action.php"  enctype="multipart/form-data" class=form-signin>
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+ <form name="del_manage_member.php" method="post" action=""  enctype="multipart/form-data" >
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">刪除基本資料</div>
-  <div class="panel-body">
-    <p>...</p>
-  </div>
   <!-- List group -->
   <ul class="list-group">
-    <li class="list-group-item"><tr width="150" align="center"><td >登入密碼</td><td><?= $row[password]; ?></td></tr></li>
-    <li class="list-group-item"></li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item"><font><label>編號</label></font><font style="width: 300px;float: right;"><?=$row[number]; ?></font></li><input type="hidden" name="number" value="<?=$row['number']?>" />
+    <li class="list-group-item"><font><label>帳號</label></font><font style="width: 300px;float: right;"><?=$row[id]; ?></font></li><input type="hidden" name="id" value="<?=$row['id']?>" />
+    <li class="list-group-item"><font><label>姓名</label></font><font style="width: 300px;float: right;"><?=$row[name]; ?></font></li>
+    <li class="list-group-item"><font><label>電話</label></font><font style="width: 300px;float: right;"><?=$row[tel]; ?></font></li>
+    <li class="list-group-item"><font><label>地址</label></font><font style="width: 300px;float: right;"><?=$row[address]; ?></font></li>
+    <li class="list-group-item"><font style="line-height:50px;"><label>照片</label></font><font style="width: 300px;float: right;"><img src=./photo/personal/<?=$row['gif']?> width=50 height=50></font></li>
   </ul>
-</div>             
-					<div >
-					<tr>
-					<td>
-						<label></label>
-						
-					</td>
-						<label>姓名</label>
-						<input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名" value="<? echo $row[name]; ?>"> 
-					</tr>
-					</div>
-					<div class="form-group">
-						<label>電話</label>
-						<input type="text" name="tel" class="form-control" id="exampleInputEmail1"  placeholder="電話" value="<? echo $row[tel]; ?>"> 
-					</div>
-					<div class="form-group">
-						<label>地址</label>
-						<input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="地址" value="<? echo $row[address]; ?>"> 
-					</div>                        
-					<div class="form-group">
-						<label>上傳照片</label>
-						<input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片" value="<? echo $row[gif]; ?>"> 
-						<p class="help-block">會員圖片</p>
-					</div>
-				   <a href="edit_manage_member_action.php">
-					<button type="submit" class="btn btn-primary">送出</button></a>
+</div>     
+				<a href=""><button type="submit" style="padding-left: 5px;" class="btn btn-lg btn-primary btn-block">刪    除</button></a><input type="hidden" name="act" value="add" />
+ </form>
 				<br>
-				<br>
-				<br>
-</form>
+ 				<a href="manage_member.php"><button type="submit" style="padding-left: 5px;" class="btn btn-lg  btn-block form-signin">取消</button></a>
                 </div>
             </div>
         </div>
@@ -391,7 +373,17 @@ body{
                 });
             });
         </script>
-
+<? if($error=='ok'){?>
+<script>
+alert('更新成功');
+location.href = 'manage_member.php';
+</script>
+<? }elseif(!empty($error)){?>
+<script>
+alert('<?=$error?>');
+history.go(-1)
+</script>
+<? }?>
 </body>
 
 </html>

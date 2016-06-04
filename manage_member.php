@@ -12,6 +12,15 @@ if(!empty($_GET['key_id'])){
 	$wherea[]="id like '%".$_GET['key_id']."%'";
 	$logw[]="id like ".$_GET['key_id'];
 }
+if(!empty($_GET['key_name'])){
+	$wherea[]="name like '%".$_GET['key_name']."%'";
+	$logw[]="name like ".$_GET['key_name'];
+}
+if($_GET['mg']){
+	$wherea[]="group_uid='".$_GET['mg']."'";
+	$lurl.="&mg=".$_GET['mg'];
+	$logw[]="group_uid = ".$_GET['mg'];
+}
 if(!empty($wherea)){
 	$where=" WHERE ".implode(' and ',$wherea);
 	$logws=implode(' and ',$logw);
@@ -26,11 +35,12 @@ $page=ceil($product_page_num/$number);
  /*頁設設定*/
 if(isset($_GET['p'])){
 	$p=$_GET['p'];
-	$start=($p-1)*$number;
+	$start=($p-1)*$number;//開始
 }
 else{
 	$start=0;
 }
+
 $querymr = "SELECT * FROM  member $where order by  memberdate  ASC LIMIT $start, $number";
 $mr=mysql_query($querymr);
 $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
@@ -340,30 +350,49 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
         <!--<a href=login.php>登出</a>
         <a href=modifymember.php>修改</a>-->
         <!--查詢-->
-	<div class=form-Search>
-		<form method="get" action="manage_member.php">
-
-			<table style="padding:5px;">
-				 <tr>
-					<td  colspan="10">資訊列表</td>
+<div class="col-md-7 col-md-offset">		
+<form method="get" action="manage_member.php">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+				搜尋欄
+		</div>
+		<div class="panel-body">
+			<table >
+				<tr style="line-height: 50px;">
+					<td width="50" align="center">帳號:</td>
+					<td><input type="text" class="form-control" name="key_id" id="key_id" value="<?=$_GET[key_id]?>"></td>
+					<td width="50" align="center">姓名:</td>
+					<td><input type="text" class="form-control" name="key_name" id="key_name" value="<?=$_GET[key_name]?>"></td>
 				</tr>
 				<tr>
-					<td>帳號:</td>
-					<td><input type="text" name="key_id" id="key_id" value="<?=$_GET[key_id]?>"></td>
-				</tr>
+					<td width="50" align="center">群組</td>
+					<td>
+						<select class="form-control" name="mg" id="mg">
+							<option value="" >請選擇群組</option>
+							<?foreach($admin_group as $key => $value){?>
+							<option value="<?=$key?>"><?= $value; ?></option>					
+							<?}?>
+						</select>	
+					</td>						
+			</table>
+			<table style="line-height: 50px;">			
 				<tr>
-					<td><input type="submit" value="查詢資料"></td>
-					<td><input type="reset" value="清除資料"></td>
+					<td width="100" ><input type="submit" class="btn btn-primary" value="查詢資料"></td>
 				</tr>
 			</table>
-		</form>
-總共有<?=$product_page_num?>人
+		</div>		
+	</div>	
+</form>
+	</div>		
+<div class="col-md-12 col-md-offset">	
+<?if($product_page_num > 0){?>	
+<!--總共有<?=$product_page_num?>人-->
 <div align="center">
 <ul class="pagination">
 <?for($i=1;$i<=$page;$i++){?>
 
  <li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
-<?}?>
+<?} }?>
 </ul>
 </div>
     <!-- 表格表題-->
@@ -402,7 +431,7 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
     <?}?>
 </table>
 </div></div>
-</div>
+</div></div>
             <!--內容S-->
     <!-- /#wrapper -->
         <!-- jQuery -->
