@@ -371,7 +371,7 @@ body{
             <!-- /.navbar-static-side -->
         </nav>
         <!--目錄-->
-                <!--內容B-->
+        <!--內容B-->
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -379,7 +379,6 @@ body{
                     <h2>請輸入基本資料</h2>                 
                         <div class="form-group">
                             <label>登入帳號</label>
-
                             <input type="text" name="id" class="form-control" id="exampleInputEmail1" placeholder="登入帳號"  
                         </div>
                         <div class="form-group">
@@ -407,7 +406,6 @@ body{
                             <input type="file" name="gif" id="exampleInputFile" placeholder="上傳照片"> 
                             <p class="help-block">會員圖片</p>
                         </div>
-
                         <input type=button class="btn btn-primary"  value="送出" onClick="check_fm(this.form)" /></input>
                     </form>
                 </div>

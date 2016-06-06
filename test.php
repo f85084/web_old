@@ -1,19 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" /> 
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
+    <meta charset="UTF-8">
+    <title>滑鼠移入移出效果，用jQuery的hover函式</title>
+    <style>
+        #type{border:1px purple solid; border-collapse: collapse; width:300px;}
+        #type td{border:1px purple solid; text-align: center}
+        #type th{background-color: purple; color:white}
+        .enter{background-color: #0099CC; color:white}
+    </style>
+    <script src="jquery-1.11.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#type tr").hover(function(){
+                $(this).addClass("enter")
+            },function(){
+                $(this).removeClass("enter")
+            })
+        })
+    </script>
 </head>
 <body>
 
- 
-<div title="留言" id="floatBox" style="display: none;">
-<iframe src="message.php" id="dialog-form" width="1260" height="500"  frameborder="0" ></iframe> </div>
-<a href="javascript: $('#floatBox').dialog({autoOpen: true, show:{ direction:'right'}, width: '1300', height: 'auto', resizable: false});">【按這裡看說明視窗】</a>
+<table id="type">
+<tr>
+    <th> 座號 </th>
+    <th> 身高 </th>
+</tr>
+<tr>
+    <td> 01</td>
+    <td>130</td>
+</tr>
+<tr>
+    <td>02</td>
+    <td>140</td>
+</tr>
+<tr>
+    <td> 03</td>
+    <td>145</td>
+</tr>
+<tr>
+    <td> 04</td>
+    <td>150</td>
+</tr>
+<tr>
+    <td> 05</td>
+    <td>155</td>
+</tr>
+<tr>
+    <td> 06</td>
+    <td>160</td>
+</tr>
+</table>
 
 </body>
 </html>

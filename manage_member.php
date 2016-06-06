@@ -25,9 +25,9 @@ if(!empty($wherea)){
 	$where=" WHERE ".implode(' and ',$wherea);
 	$logws=implode(' and ',$logw);
 }
-$number=10;
+$number=5;
 /*總共幾筆*/
-$query_num= "SELECT COUNT(*) FROM member ";	
+$query_num= "SELECT COUNT(*) FROM member ".$where;	
 $num=mysql_query($query_num);
 $q_num =mysql_fetch_row($num);
 $product_page_num= $q_num[0];
@@ -46,10 +46,23 @@ $mr=mysql_query($querymr);
 $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 
 ?>
+<style>
+	#form3{background-color:#F5F5F5; color:#000000;}
+	.enter{background-color:#CCEEFF; color:#666666;}
+</style>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#form2 tr").hover(function(){
+			$(this).addClass("enter")
+		},function(){
+			$(this).removeClass("enter")
+		})
+	})
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,8 +75,6 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -351,115 +362,108 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
         <a href=modifymember.php>修改</a>-->
         <!--查詢-->
 <div class="col-md-7 col-md-offset">		
-<form method="get" action="manage_member.php">
-	<div class="panel panel-default">
-		<div class="panel-heading">
+	<form method="get" action="manage_member.php">
+		<div class="panel panel-default">
+			<div class="panel-heading">
 				搜尋欄
-		</div>
-		<div class="panel-body">
-			<table >
-				<tr style="line-height: 50px;">
-					<td width="50" align="center">帳號:</td>
-					<td><input type="text" class="form-control" name="key_id" id="key_id" value="<?=$_GET[key_id]?>"></td>
-					<td width="50" align="center">姓名:</td>
-					<td><input type="text" class="form-control" name="key_name" id="key_name" value="<?=$_GET[key_name]?>"></td>
-				</tr>
-				<tr>
-					<td width="50" align="center">群組</td>
-					<td>
-						<select class="form-control" name="mg" id="mg">
-							<option value="" >請選擇群組</option>
-							<?foreach($admin_group as $key => $value){?>
-							<option value="<?=$key?>"><?= $value; ?></option>					
-							<?}?>
-						</select>	
-					</td>						
-			</table>
-			<table style="line-height: 50px;">			
-				<tr>
-					<td width="100" ><input type="submit" class="btn btn-primary" value="查詢資料"></td>
-				</tr>
-			</table>
-		</div>		
-	</div>	
-</form>
-	</div>		
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr style="line-height: 50px;">
+						<td width="50" align="center">帳號:</td>
+						<td><input type="text" class="form-control" name="key_id" id="key_id" value="<?=$_GET[key_id]?>"></td>
+						<td width="50" align="center">姓名:</td>
+						<td><input type="text" class="form-control" name="key_name" id="key_name" value="<?=$_GET[key_name]?>"></td>
+					</tr>
+					<tr>
+						<td width="50" align="center">群組</td>
+						<td>
+							<select class="form-control" name="mg" id="mg">
+								<option value="" >請選擇群組</option>
+								<?foreach($admin_group as $key => $value){?>
+								<option value="<?=$key?>"><?= $value; ?></option>					
+								<?}?>
+							</select>	
+						</td>						
+				</table>
+				<table style="margin: 15px;">			
+					<tr>
+						<td width="100" ><input type="submit" class="btn btn-primary" value="查詢資料"></td>
+					</tr>
+				</table>
+			</div>		
+		</div>	
+	</form>
+</div>		
 <div class="col-md-12 col-md-offset">	
 <?if($product_page_num > 0){?>	
-<!--總共有<?=$product_page_num?>人-->
-<div align="center">
-<ul class="pagination">
-<?for($i=1;$i<=$page;$i++){?>
-
- <li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
-<?} }?>
-</ul>
-</div>
+總共有<?=$product_page_num?>人
+	<div align="center">
+		<ul class="pagination">
+		<?for($i=1;$i<=$page;$i++){?>
+			<li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
+		<?} }?>
+		</ul>
+	</div>
     <!-- 表格表題-->
 	<div class='table-responsive'>
-    <table class='table table-striped'>
-    <tr>
-        <td data-th >編號</td>
-        <td data-th >帳號</td>
-        <td data-th >密碼</td>
-        <td data-th >姓名</td>
-        <td data-th >群組</td>
-        <td data-th >電話</td>
-        <td data-th >地址</td>
-        <td data-th >檔案</td>
-        <td data-th >時間</td>
-		<td data-th >刪除</td>
-        <td data-th >編輯</td>
-        <td data-th >刪除</td>
-    </tr>
-   <!--表格內容-->
-     <?while ($rmr=mysql_fetch_array($mr)) { ?> 
-    <tr>
-        <td data-th><?=$rmr['number']?></td>
-        <td data-th><?=$rmr['id']?></td>
-        <td data-th><?=$rmr['password']?></td>
-        <td data-th><?=$rmr['name']?></td>
-        <td data-th><?=$admin_group[$rmr['group_uid']]?></td>
-        <td data-th><?=$rmr['tel']?></td>
-        <td data-th><?=$rmr['address']?></td>
-        <td data-th><img src=./photo/personal/<?=$rmr['gif']?> width=50 height=50></td>
-        <td data-th><?=$rmr['memberdate']?></td>
-        <td data-th><?=$rmr['del']?></td>
-        <td data-th><a href=edit_manage_member.php?number=<?=$rmr['number']?>>編輯</a></td>
-        <td data-th><a href=del_manage_member.php?number=<?=$rmr['number']?>>刪除</a></td>
-    </tr>
-    <?}?>
-</table>
-</div></div>
-</div></div>
+		<table id="form2" class='table '>
+			<tr id="form3" >
+				<td data-th >編號</td>
+				<td data-th >帳號</td>
+				<td data-th >密碼</td>
+				<td data-th >姓名</td>
+				<td data-th >群組</td>
+				<td data-th >電話</td>
+				<td data-th >地址</td>
+				<td data-th >檔案</td>
+				<td data-th >時間</td>
+				<td data-th >刪除</td>
+				<td data-th >編輯</td>
+				<td data-th >刪除</td>
+			</tr>
+			<!--表格內容-->
+			 <?while ($rmr=mysql_fetch_array($mr)) { ?> 
+			<tr>
+				<td data-th><?=$rmr['number']?></td>
+				<td data-th><?=$rmr['id']?></td>
+				<td data-th><?=$rmr['password']?></td>
+				<td data-th><?=$rmr['name']?></td>
+				<td data-th><?=$admin_group[$rmr['group_uid']]?></td>
+				<td data-th><?=$rmr['tel']?></td>
+				<td data-th><?=$rmr['address']?></td>
+				<td data-th><img src=./photo/personal/<?=$rmr['gif']?> width=50 height=50></td>
+				<td data-th><?=$rmr['memberdate']?></td>
+				<td data-th><?=$rmr['del']?></td>
+				<td data-th><a href=edit_manage_member.php?number=<?=$rmr['number']?>>編輯</a></td>
+				<td data-th><a href=del_manage_member.php?number=<?=$rmr['number']?>>刪除</a></td>
+			</tr>
+		<?}?>
+		</table>
+	</div>
+</div>
+</div>
+</div>
             <!--內容S-->
     <!-- /#wrapper -->
         <!-- jQuery -->
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
-
         <!-- Bootstrap Core JavaScript -->
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
         <!-- Metis Menu Plugin JavaScript -->
         <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
         <!-- DataTables JavaScript -->
         <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
         <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
-
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
-
             });
         </script>
-
 </body>
-
 </html>
