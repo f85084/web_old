@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width, initial-scale=1.0">
     <link href=css/bootstrap.min.css rel=stylesheet>
     <link href=css/other.css rel=stylesheet>
-	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> 
+
 	<!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
 	<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
 <!--<link href=http://f85084.github.io/css.css  rel=stylesheet>

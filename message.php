@@ -10,8 +10,6 @@
 	
         <link href=css/bootstrap.min.css rel=stylesheet>
             <link href=css/other.css rel=stylesheet>
-	<!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-<!--<link href=http://f85084.github.io/css.css  rel=stylesheet>-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" /> 
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -208,8 +206,8 @@ $_GET['id']=$id;
 <footer class="rwd-footer clearfix">
 
   <ul class="contact">
-    <li><a href="tel:0800"><i class="icon-phone"></i>0800</a></li>
-    <li><a href="mailto:Anna's"><i class="icon-email"></i>Anna's</a></li>
+    <li><a href="tel:0800">0800</a></li>
+    <li><a href="mailto:Anna's">Anna's</a></li>
   </ul>
         <p class="copyright">© <span id="spanCopyYear">1990</span> Anna's All Rights Reserved.</p>
 </footer>

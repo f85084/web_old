@@ -43,10 +43,10 @@ else{
 $querymr = "SELECT * FROM  message $where order by  message_date  ASC LIMIT $start, $number";
 $mr=mysql_query($querymr);
 
-/* $query_group= "SELECT group_uid FROM  member ";
+ $query_group= "SELECT group_uid FROM  member ";
 $gp=mysql_query($query_group);
 $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
- */
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -419,7 +419,7 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 					<td data-th><?=$rmr['message_no']?></td>
 					<td data-th><?=$rmr['message_id']?></td>
 					<td data-th><?=$rmr['message_name']?></td>
-					<td data-th><?=$gp['group_uid']?></td>
+					<td data-th><?=$admin_group[$gp['group_uid']]?></td>
 					<td data-th><?=$rmr['message_email']?></td>
 					<td data-th><?=$rmr['message_content']?></td>
 					<td data-th><?=$rmr['message_date']?></td>

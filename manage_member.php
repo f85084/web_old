@@ -8,6 +8,7 @@ $wherea=array();
 $where='';
 $logws='';
 $lurl='';
+$p=$_GET['p'];
 if(!empty($_GET['key_id'])){
 	$wherea[]="id like '%".$_GET['key_id']."%'";
 	$logw[]="id like ".$_GET['key_id'];
@@ -26,25 +27,30 @@ if(!empty($wherea)){
 	$logws=implode(' and ',$logw);
 }
 $number=5;
+IF($_GET["ToPage"] > "1" && ck_num($_GET["ToPage"]))	
+{ $TP = ($_GET["ToPage"]-1)*$rownum; }	ELSE	{ $TP = 0; }
 /*總共幾筆*/
 $query_num= "SELECT COUNT(*) FROM member ".$where;	
 $num=mysql_query($query_num);
 $q_num =mysql_fetch_row($num);
 $product_page_num= $q_num[0];
 $page=ceil($product_page_num/$number);
+/* $myURL 			  = "manage_member.php?"$lurl."&ToPage="; */
  /*頁設設定*/
-if(isset($_GET['p'])){
+/* if(isset($_GET['p'])){
 	$p=$_GET['p'];
 	$start=($p-1)*$number;//開始
 }
 else{
 	$start=0;
-}
-
+} */
+    if (!isset($p)){ //假如$_GET["p"]未設置
+        $p=1; //則在此設定起始頁數
+    } 
+    $start = ($p-1)*$number; //每一頁開始的資料序號
 $querymr = "SELECT * FROM  member $where order by  memberdate  ASC LIMIT $start, $number";
 $mr=mysql_query($querymr);
 $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
-
 ?>
 <style>
 	#form3{background-color:#F5F5F5; color:#000000;}
@@ -357,7 +363,6 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
         <!--內容B-->
         <div id="page-wrapper">
         <!-- /#page-wrapper -->
-
         <!--<a href=login.php>登出</a>
         <a href=modifymember.php>修改</a>-->
         <!--查詢-->
@@ -400,9 +405,17 @@ $admin_group=array(1=>'訪客',2=>'會員',3=>'操作人員',4=>'管理者')	;
 總共有<?=$product_page_num?>人
 	<div align="center">
 		<ul class="pagination">
+			<li><a href=manage_member.php?p=1>第一頁</a></li>	
+			<?if($p!=1){?>
+			<li><a href=manage_member.php?p=<?=$p-1;?>><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>		
+		    <?}?>
 		<?for($i=1;$i<=$page;$i++){?>
 			<li><a href=manage_member.php?p=<?=$i?>><?=$i?></a></li>
-		<?} }?>
+<?} }?>
+<?if($p<$page){?>
+			<li><a href=manage_member.php?p=<?= $p+1;?>><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+<?}?>
+			<li><a href=manage_member.php?p=<?=$page?>>最後一頁</a></li>
 		</ul>
 	</div>
     <!-- 表格表題-->
