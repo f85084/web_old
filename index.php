@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant"><head>
     <meta charset=utf-8>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name=description content="">
@@ -16,6 +17,9 @@
 
 	<script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
     <?
+
+header("Content-Type:text/html; charset=utf-8");
+
 include ('mydb.php');
 include ('index_action.php');
 ob_start(); 
